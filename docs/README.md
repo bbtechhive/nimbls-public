@@ -1,6 +1,6 @@
 # Documentation
 
-nimbls is in product design. The following documents describe proposed behavior; installation and operation guides will accompany a runnable release.
+nimbls is in product design. These documents distinguish accepted POC scope from broader design proposals; installation and operation guides will accompany a runnable release.
 
 | Start here | Audience | Purpose |
 | --- | --- | --- |
@@ -10,4 +10,5 @@ nimbls is in product design. The following documents describe proposed behavior;
 | [Daily syslog agent scenario](scenarios/daily-syslog-summary.md) | Users, sales, marketing | Follow a concrete creation-to-result story with a sample report. |
 | [安全外部協助摘要](concepts/secure-assistance-overview.md) | 產品、業務、行銷、報告作者 | 理解未來安全設計及可對外說明的範圍。 |
 | [Secure external assistance design](specs/secure-external-assistance.md) | Frontend agents, engineering, security | Follow architecture, UI states, disclosure approval, and per-type test gates. |
+| [macOS syslog POC](specs/macos-syslog-poc.md) | Product, engineering, QA | Follow accepted M1–M3 scope and acceptance criteria. |
 | [Product specifications](specs/README.md) | Product and engineering | Review detailed scope, acceptance inputs, and unresolved decisions. |

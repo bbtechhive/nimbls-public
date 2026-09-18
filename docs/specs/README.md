@@ -1,7 +1,8 @@
 # Product specifications
 
-No product SPEC has been approved yet.
+The macOS syslog POC scope is accepted for planning; implementation and acceptance testing have not started.
 
+- [macOS syslog POC](macos-syslog-poc.md) — accepted M1–M3 scope, expected behavior, failure handling, and acceptance evidence.
 - [Secure external assistance](secure-external-assistance.md) — future security design, frontend contract, and per-data-type review/test gates; outside milestone 1.
 - [Fundamental Function Blocks](fundamental-function-blocks.md) — draft product responsibilities, acceptance scenarios, and decisions to resolve before milestones.
 

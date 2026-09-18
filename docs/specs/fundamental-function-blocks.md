@@ -25,13 +25,21 @@ Additional confirmed requirements:
 - bbcli is our product and may be distributed with nimbls. The build must obtain the correct target artifact from the mnms repository; users should not have to install the CLI separately.
 - Agents must support scheduled recurring work, such as executing a task every day at 12:00.
 - nimbls directly launches and manages agents for the initial scope, including manual and scheduled execution. External-agent support is an optional future plan to reconsider during milestone review, not an initial requirement.
-- Start with a local application on the operator’s computer. Shared-server deployment remains a future option. Preserve flexibility to support it without implementing server or team-management features in the initial scope. Closing the window keeps nimbls running in the background; explicitly choosing Quit nimbls stops the service. Supported operating systems and application framework remain open.
+- Start with a local application on the operator’s computer. Shared-server deployment remains a future option. Preserve flexibility to support it without implementing server or team-management features in the initial scope. Closing the window keeps nimbls running in the background; explicitly choosing Quit nimbls stops the service. Use a cross-platform technology stack targeting macOS, Windows, and Linux. Electron + TypeScript + React is selected, with Pi SDK execution in a separate process. Validate the syslog POC on macOS first. Record the test machine architecture during setup; CPU coverage and platform release order remain open.
 
 The block decomposition and behavioral defaults below remain proposals except for the confirmed requirements above. These are product responsibilities, not a commitment to separate services, databases, screens, or a particular agent framework. No nimbls application behavior has been implemented. CLI source inspection and upstream integration checks are recorded below; they do not validate a packaged nimbls application.
 
+## Shared NIMBL access through bbcli
+
+Confirmed integration direction, based on the user's bbcli constraint: bbcli connects to one bbrootsvc. All agents retrieving NIMBL information use the shared bbcli integration and its single configured bbrootsvc target. Configure this connection once at application level; do not introduce multiple NIMBL connection profiles or a per-agent NIMBL connection selector.
+
+Agents may still have different task/device scopes within that NIMBL system. General agents remain usable without NIMBL. Exact bbcli setup, credential handling, and connectivity-check commands must be verified against the selected CLI build before implementation; no live connection was tested for this decision.
+
+Confirmed device-operation boundary: available device changes depend on what the bundled bbcli actually supports. Use the existing upstream NIMBL skill and the installed CLI's help to discover applicable operations; do not build a separate device-control interface or advertise unsupported commands. Follow the user's task scope and applicable operation guidance, and verify actual results. Capability availability does not by itself authorize an operation or prove it works on every target. Select representative read/write validation cases from the supported CLI build rather than treating the proposed milestone order as a blanket ban on early write support.
+
 ## First-use model discovery
 
-Confirmed direction: discover model connection candidates from known provider environment variables, explicitly supported configuration sources, and local Ollama. Avoid arbitrary filesystem searches for credentials. Follow Pi's credential/provider-resolution pattern and evaluate reuse during stack selection; Pi is not yet the selected runtime.
+Confirmed direction: discover model connection candidates from known provider environment variables, explicitly supported configuration sources, and local Ollama. Avoid arbitrary filesystem searches for credentials. Pi is the selected initial agent runtime; reuse its credential/provider-resolution capabilities where suitable, with exact discovery adapters still to be designed.
 
 - Present discovered providers, safe source metadata, and local models without placing keys in conversation, execution history, or logs.
 - Distinguish discovery, successful connection validation, and suitability for an agent's task. Finding a key or model does not establish readiness.
@@ -45,9 +53,9 @@ References inspected: [Pi provider configuration](https://github.com/earendil-wo
 
 | ID | Function block | User outcome | Owns | Boundary |
 | --- | --- | --- | --- | --- |
-| F1 | NIMBL connections | Connect an agent to the intended NIMBL system and device scope. | Connection setup, credential references, connectivity checks, bbcli compatibility, retrieving information and submitting authorized device operations. | NIMBL remains authoritative for managed device information. Exact CLI operations must be verified. |
-| F2 | Agent management | Easily create a custom agent, understand its role, and configure what it can do. | Guided creation, conversational refinement and trial runs, starter customization, editable purpose/instructions, agent identity, tools/skills and execution configuration, assigned NIMBL access, and agent deletion. | nimbls directly launches and manages agents initially; runtime/provider selection remains open. External-agent support is deferred. An agent's configuration is distinct from a particular execution. |
-| F3 | Task execution | Assign a clear objective to an agent and obtain a verifiable outcome. | Saved default task, direct Run action, objective, target scope, acceptance criteria, responsible agent, execution state, limits, and attempts. | Run executes the selected agent’s saved default task without requiring a chat prompt. Manual and scheduled work share the execution path. Automatic delegation and collaborative planning are not assumed. |
+| F1 | NIMBL connection | Give agents access to NIMBL through the shared bbcli integration. | One application-level bbrootsvc connection, credential references, connectivity checks, bbcli compatibility, retrieving information and submitting authorized device operations within task scope. | All NIMBL information retrieval uses bbcli; no per-agent connection selection. NIMBL remains authoritative. Exact CLI operations must be verified. |
+| F2 | Agent management | Easily create a custom agent, understand its role, and configure what it can do. | Guided creation, conversational refinement and trial runs, starter customization, editable purpose/instructions, agent identity, tools/skills and execution configuration, assigned NIMBL access, and agent deletion. | nimbls directly launches and manages agents initially; Pi is the selected runtime; provider/model configuration remains open. External-agent support is deferred. An agent's configuration is distinct from a particular execution. |
+| F3 | Task execution | Assign a clear objective to an agent and obtain a verifiable outcome. | Saved default task, direct Run action, objective, target scope, acceptance criteria, responsible agent, execution state, limits, and attempts. | Run executes the selected agent’s saved default task without requiring a chat prompt. Manual and scheduled work share the execution path. Automatic delegation and collaborative planning are deferred beyond the initial scope; retain an extensible execution interface. |
 | F4 | Monitoring and control | See all agents' activity and intervene when needed. | Compact visible status/progress, actionable failure summaries, optional detail/history/log views, user input, cancellation requests, retry requests. | Show commands as requested versus acknowledged. Do not imply that cancel reverses an already-applied device change. |
 | F5 | Permissions and change approval | Control which devices and actions an agent may access or change. | Read/write scope, enforceable access decisions, proposed changes, approval records, and conflicting-write prevention. | Approval must match the exact targets and proposed operation. Changing either invalidates that approval. Enforcement cannot rely solely on agent instructions. |
 | F6 | Results and history | Understand what happened and whether the requested outcome was achieved. | Primary result view and file preview, shared output organization, result files, supporting observations, action history, verification outcome, attribution, timestamps, and safe evidence export. | A successful command or finished agent response is insufficient to prove a device change succeeded. Logs alone are not a user-facing result. |
@@ -58,19 +66,27 @@ References inspected: [Pi provider configuration](https://github.com/earendil-wo
 
 Local LLM support remains in the initial product direction. Secure external assistance is explicitly outside milestone 1 and must be considered during tech-stack review only.
 
-The canonical [Secure external assistance design](secure-external-assistance.md) defines architecture, per-data-type review/test gates, proposed async evidence exchange, frontend state and approval behavior, acceptance cases, and unresolved choices. Unknown or unreviewed data types must not be exported. Runtime, relay, transport, and detailed mechanisms remain unselected and unimplemented.
+The canonical [Secure external assistance design](secure-external-assistance.md) defines architecture, per-data-type review/test gates, proposed async evidence exchange, frontend state and approval behavior, acceptance cases, and unresolved choices. Unknown or unreviewed data types must not be exported. Pi is selected for initial local agent execution; future external-assistance routing, relay, transport, and detailed mechanisms remain unselected and unimplemented.
 
 For reports and stakeholder communication, see the [繁體中文摘要](../concepts/secure-assistance-overview.md). External model assistance is distinct from the deferred external-agent workspace feature.
 
 ## Agreed agent lifecycle direction
 
-nimbls directly launches and manages agents first. Users configure agents, assign tasks, start manual work or set schedules, and monitor supported execution controls and results through nimbls. The runtime/provider remains to be selected; initial deployment is local on the operator’s computer; this direction does not require building a new agent runtime from scratch.
+nimbls directly launches and manages agents first. Users configure agents, assign tasks, start manual work or set schedules, and monitor supported execution controls and results through nimbls. Pi (`@earendil-works/pi-coding-agent`) is the selected first-version agent runtime, reusing its session, skills, context-file, and extension capabilities rather than building those directly on `pi-agent-core`. The application owns agent creation/management, scheduling, result presentation, and nimblscli; Pi provides agent execution. Pi SDK execution in a separate process is selected; exact process transport, Pi version, and model/provider selection remain open. The application provides its own UI; users do not need to operate Pi's terminal interface. Initial deployment is local on the operator’s computer; do not build a parallel agent execution loop.
 
 External-agent support, including preparing a workspace that a user opens in Codex, is an optional future plan. Reconsider it during milestone review if there is a concrete need. It is not required for initial acceptance and does not block the direct-agent workflow.
 
 If external-agent support is added later, define task/result handoff, attribution, available controls, and permission enforcement at that time. Opening a workspace alone does not provide live monitoring, cancellation, or scheduling in nimbls.
 
 This is agreed product scope; no agent runtime or application workflow has been implemented or validated yet.
+
+## Independent agents first; collaboration later
+
+Confirmed initial scope: agents execute independently. Do not implement automatic delegation, collaborative planning, or multi-agent coordination in the first version. Ask nimbls can still operate and inspect individual agents through nimblscli.
+
+Implementation must leave room for future agent collaboration. Keep execution dispatch and result inspection available through reusable application operations, with clear agent/task/execution identities and attributable outputs; avoid coupling execution to a particular UI or assuming requests can only originate from a human or timer. Future delegation can build on those operations while preserving existing execution controls and access rules.
+
+This is an extensibility requirement, not a requirement to build an orchestration framework, message bus, team model, or unused collaboration APIs now. Detailed cooperation semantics remain future design work.
 
 ## Start with a useful agent or create your own
 
@@ -80,7 +96,7 @@ Confirmed priority: users can start with a useful prepared agent or define their
 
 1. Describe what the agent should do in ordinary language. Optional examples can help the user start, but a custom description is always supported.
 2. nimbls suggests an editable name and concise role/instructions. Ask a focused follow-up only when missing information prevents a useful or unambiguous setup. Do not require users to write prompts, configuration files, or CLI commands.
-3. Show a short review of the agent’s purpose, selected NIMBL connection/device scope, and allowed actions. Reuse existing connection and application runtime setup where available. Missing setup should have a clear next action, and users can save the agent before completing it. Suggested defaults do not silently grant access; propose read-only access initially.
+3. Show a short review of the agent’s purpose, shared NIMBL connection readiness, device scope, and allowed actions. Reuse existing connection and application runtime setup where available. Missing setup should have a clear next action, and users can save the agent before completing it. Suggested defaults do not silently grant access; propose read-only access initially.
 4. Review the proposed output destination, filename rule, and sample content. Let the user discuss and revise them before confirmation. If the request includes recurring work, propose its task and schedule during creation; otherwise a schedule is optional.
 5. After confirmation, prepare the agent and validate readiness without starting device operations. Show any missing prerequisites and offer a first execution; the user can explicitly choose to confirm and try in the same action.
 
@@ -94,7 +110,9 @@ The first milestone should demonstrate a useful starter agent plus creation of a
 
 Confirmed initial scope: Add and Delete are the agent lifecycle actions. Do not add agent enable/disable, re-enable, or duplicate/copy actions. Existing creation, configuration refinement, saving, and repeated execution remain part of the agreed workflow. Schedule controls are separate from agent lifecycle controls.
 
-Deletion details for active executions, associated schedules, working data, and retained history remain to be specified; the earlier broader lifecycle proposal was not accepted. This scope decision does not authorize deleting existing files or records.
+Confirmed simplified deletion mechanism: stop the selected agent's active work, remove its agent/schedule registration, and delete its entire managed working folder. Use that folder as the unit of removal rather than building separate cleanup operations for every kind of internal file. Show the folder-removal scope in the deletion confirmation and confirm termination before deleting files that running work could still use.
+
+Only the selected agent's managed folder is the recursive deletion target; do not follow references to user input folders, other agents, or shared application resources. Formal deliverables live in the system output/ root outside agents/. Deleting the agent folder leaves these system outputs intact; remove them only through separately requested output cleanup. This supersedes the previous detailed per-category deletion proposal; no actual files are being deleted in this discussion.
 
 ## Result-first agent workspace
 
@@ -108,7 +126,7 @@ Proposed workspace layout:
 
 | Visibility | Content |
 | --- | --- |
-| Always visible | Agent name, readiness/execution state, Run or Stop as applicable, latest task outcome and main result |
+| Always visible | Agent name, readiness/execution state, Run or Stop as applicable, task outcome, and the result region with output browsing and pinned current files |
 | Appears when relevant | Compact current activity, request for missing input, partial-data notice, failure reason and next action |
 | Available through entry buttons | Optional chat, history, full error/action logs, model/tools/skills settings, schedule details |
 
@@ -126,13 +144,29 @@ Proposed initial UX: one current conversation per agent/assistant, with New sess
 
 When a conversation is actively generating or applying a change, disable New session until that operation finishes or is explicitly stopped. This avoids a late response appearing in the new conversation or an unconfirmed proposal being mistaken for saved configuration. Task executions remain separately tracked and may continue.
 
+### Session choice when running an agent
+
+Confirmed requirement: expose a run flag controlling whether an execution starts a fresh conversation session. Recurring scheduled agents should start a new session on every execution by default; save the choice with their run/schedule configuration rather than requiring user input each time. Make the effective choice available through the application operations and nimblscli. Exact flag spelling and manual-run default await implementation design.
+
+Confirmed creation behavior: the creation assistant uses its skill to choose the fresh-session setting from the task. Prefer fresh sessions for independent recurring reports, inspections, and analyses; choose continuation when the work requires prior conversation context. Needing historical data alone does not require continuing a conversation: a fresh session can read persisted working files. Explain the choice briefly in the creation summary and allow the user to change it. Ask only when unclear requirements materially affect the choice.
+
+Fresh means loading the saved agent instructions, skills, harness settings, and task without automatically carrying prior conversation messages into model context. It does not delete working files, execution history, or outputs; the agent may still read relevant persisted files through its tools. When fresh-session mode is disabled, allow continuing an existing session; session selection and missing-session behavior remain to be defined. Record the effective session identity for execution attribution. This is independent of the manual New session chat action and does not introduce full session-management UI.
+
+Crash/process-restart recovery is outside the current design discussion. The proposed interrupted-task recovery behavior was not accepted; do not treat session continuation as checkpoint recovery or a promise to resume an interrupted execution.
+
 ## Simple access to working data
 
 Confirmed direction: prioritize ease of use. Automatically create and manage the agent's working folder for harness files, notes, intermediate files, and execution history. Users select only the input folders needed for their task; formal results go to the shared output root and its purpose-specific categories.
 
 The creation assistant guides source selection from the user's task description. Ask nimbls can help add or change sources. Keep internal directory structure out of the normal setup flow and expose locations through optional entries when useful.
 
-Preserve source files by default and write deliverables to output. When editing, renaming, or organizing source files is the task itself, make that behavior explicit in the agent setup. New session resets conversation context without clearing working files. Exact paths and retention duration remain open; the output preservation defaults below are confirmed.
+Preserve source files by default and write deliverables to output. When editing, renaming, or organizing source files is the task itself, make that behavior explicit in the agent setup. New session resets conversation context without clearing working files. Exact paths remain open; output preservation and default retention are confirmed below.
+
+## Application state and persistence
+
+Confirmed first-version storage: use memory for live state, derived indexes, and schedule timers, with JSON files for persistent application data such as agent registration, schedule rules, model-profile settings, and pinned output paths. Reload saved settings and rebuild derived state on startup. Do not introduce SQLite for application metadata. This does not add interrupted-task recovery or missed-schedule catch-up.
+
+Keep persistent state updates behind the shared application-operation interface used by UI, nimblscli, and agent tools, preserving a replacement point for future storage and collaboration needs. Working files, instructions, skills, conversation/execution records, and outputs retain their appropriate file formats; JSON application persistence does not require converting every artifact. One application-operation owner serializes JSON changes against the latest committed state. Write a temporary file beside the target and replace the target after a successful write; update in-memory settings and report success only after persistence succeeds. Failed writes retain the previous committed state and return an error. Agent instructions, skills, and working files remain directly editable, while formal outputs use write_output. Exact filenames, schemas, and platform replacement behavior await implementation validation; no cross-file transaction guarantee is implied.
 
 ## Harness-managed working data
 
@@ -189,19 +223,72 @@ Example demonstration:
 
 Harness execution remains managed by nimbls. Agent configuration, individual tasks, and executions stay distinct so changes and trial results are traceable. This is a product experience direction, not approval of a final implementation stack or production-device operations.
 
-## Output preservation and latest result
+## When agent configuration changes take effect
 
-Confirmed default: preserve the outputs of each execution separately, including reruns; do not overwrite earlier execution outputs. Show the latest successful result first, with earlier results accessible through history. Keep its execution and date visible, and continue showing any newer failure or active execution so the older success cannot be mistaken for its result.
+Confirmed behavior: changes to instructions, skills, harness configuration, and model settings take effect on the next execution. An active execution continues with the effective configuration it started with. To use new settings immediately, stop the current execution and start a new one; editing alone does not stop or restart work.
 
-Label outputs from failed or stopped executions as incomplete. They remain accessible from that execution and do not replace the latest successful result. Output naming or storage must distinguish executions even when their reporting periods match.
+Preserve the effective configuration or immutable references needed to attribute each execution. This boundary applies even before Git revision functionality exists: do not let changes to mutable skill/instruction files silently alter an in-flight execution when it reads them later. Exact snapshot/loading mechanics await implementation. Continuing a conversation session does not override this rule; the next execution must use the updated saved configuration while applying the selected conversation-context policy.
 
-For tasks whose purpose is to maintain one evolving document, the agent's skills define its update and preservation behavior as part of the task setup. This exception does not make overwriting the default for ordinary reports. Exact storage layout, retention duration, and cleanup policy remain undecided. These are design requirements, not implemented behavior.
+## Basic tools and separate Bash capability
+
+Confirmed implementation approach: the basic tool set covers file read/write/edit/search/list operations. Reuse suitable Pi tools such as read, write, edit, grep, find, and ls; implement or adapt tools only where behavior is missing or does not meet the application contract. Ordinary working-file writes can use Pi tools; formal system-output writes use write_output for the required destination, edit modes, and deleted/ behavior.
+
+Bash is still provided for general tasks, but is not part of the basic tool set. This supersedes the earlier blanket exclusion of shell execution. Basic tools are available by default. During agent creation, the assistant decides whether the task requires Bash and explains its choice. Users can change that setting. Scheduled runs reuse the saved agent setting without asking each time. Changes take effect on the next execution; active work retains its starting configuration. Not using Pi's TUI does not remove the shell dependency when its Bash tool is used; provisioning and compatibility must be verified per platform.
+
+Prefer dedicated adapters for bundled bbcli and nimblscli, selecting the packaged executable and passing structured arguments with shell execution disabled. This keeps application/NIMBL operations independent of Bash. Reuse the existing NIMBL skill and adapt invocation guidance as needed.
+
+## Adding skills, MCP connections, and scripts
+
+Confirmed interaction: users can ask the creation assistant to add a skill from a file or source, connect an MCP service using supplied connection information, or make a supported script available to an agent. The assistant uses nimblscli operations to configure the capability, inspect its setup, and check whether it is usable. Ask only for missing information needed to complete the setup, and report the actual check outcome and any remaining prerequisites. Registration alone does not prove that a capability works.
+
+Include initial additions in agent creation. Changes to an existing setup are also allowed before revision functionality is available. nimblscli must provide the corresponding setup, inspection, and validation operations; exact command syntax, supported source formats, MCP transports, script runtimes, and validation checks await implementation design. Validation must stay within the intended task and authorized test scope; adding a capability does not authorize unrelated external effects.
+
+## Agent-authored changes and future revisions
+
+Confirmed capability direction: an agent may directly modify skills, harness configuration, and instructions, including an existing agent setup, even when revision functionality has not been implemented. Revision work is not a prerequisite for delivering these modifications. This updates the earlier dependency; the current discussion defines product behavior and does not start implementation.
+
+Confirmed revision direction: use a Git library embedded in the application for local agent-configuration versions, without requiring system Git or GitHub. Select the library after the technology stack is chosen and verify its local commit, diff, and restore capabilities and distribution compatibility. No library has been selected or integrated.
+
+The intended layout is one local repository per agent configuration directory, tracking instructions, skills, harness configuration, and scripts. Exclude credentials, working data, execution records, and output artifacts. After a coherent modification is completed and validated through the application operations, the system records a commit. Detailed change grouping and failed-validation handling remain to be designed; activation on the next execution is confirmed above.
+
+Deliver automatic local version recording first; user-facing change-history, comparison, and restore controls can follow. Keep Git as an implementation detail, with task-oriented wording such as modification history and restore. Restoring configuration cannot undo external operations already performed. This direction does not reinstate a revision prerequisite for agent modification or promise revision features before implementation. Output-file update/archive rules remain separate. Automatic improvement by a future improvement agent remains deferred.
+
+## Output files and write_output
+
+Confirmed interface: formal deliverables are written through `write_output` into the system `output/` root outside `agents/`. The caller may specify a nested relative target directory: `syslog/2022/mon` resolves to `output/syslog/2022/mon`; the filename is placed within that directory. Resolve destinations against the managed output root, not the agent's current working directory, and prevent paths from escaping that root.
+
+Support four operations:
+
+| Mode | Result |
+| --- | --- |
+| write | Write the supplied content to the target filename. |
+| append | Add supplied content after the existing content. |
+| prepend | Add supplied content before the existing content. |
+| search & replace | Find specified content and replace it in the target file. |
+
+When updating an existing filename, preserve its previous file in the system-managed `deleted/` folder and place the resulting content at the requested original path. For append/prepend/search-and-replace, compute the result from the existing content before replacing it; moving the old file must not discard the content needed for the update. Repeated archives must not overwrite each other. Users may clean `deleted/` whenever they choose; no automatic expiry is required. The exact location/naming inside `deleted/`, tool argument spelling, missing-file rules, and literal/regex or match-count semantics remain implementation details to define.
+
+This supersedes the earlier requirement for distinct filenames per execution and the proposed unique suffix at the live output path. Preserve attribution and update evidence in execution records; do not claim a historical file remains available after its archived copy is explicitly cleaned. Report write failures and incomplete execution outcomes truthfully. Exact atomic-write and concurrent-edit handling require implementation validation; no tool has been implemented.
+
+## Result region and pinned files
+
+Confirmed UI: provide a result region where users can browse the entire system `output/` folder hierarchy and select any file. Render Markdown and HTML. Users can mark files to remain displayed in the region; these pinned entries show the latest content at the selected path after a file update, rather than freezing an earlier execution's content.
+
+Keep the current file view separate from execution outcome: a pinned file showing its latest content is not proof that the latest execution succeeded. Retain visible attribution/time and incomplete/error information where applicable. This replaces the earlier latest-success-only primary display rule. Pin storage scope, refresh mechanics, missing-file presentation, and handling of other file types remain to be designed. Confirmed initial HTML capability: support interactive reports such as chart switching, table filtering, and expandable details. Allow the client-side behavior needed for these interactions within an isolated preview environment. HTML content does not receive direct access to nimbls operations, bbcli, or local filesystem APIs; agents continue using the formal tools for those actions. Exact renderer, isolation mechanism, asset loading, and network policy await implementation design and verification.
+
+## Default retention and manual cleanup
+
+Confirmed initial policy: retain outputs, execution records, and agent working data by default, with no automatic expiry. Defer automatic cleanup and configurable retention periods.
+
+When users want to clean up, Ask nimbls uses nimblscli to inspect the relevant data and present the proposed deletion scope and effects. Delete only after the user confirms that concrete scope. Report the result truthfully, including any partial failure. These operations belong to the existing application-operation interface; no separate cleanup administration UI is required by this decision.
+
+Users may explicitly clean the deleted/ archive at any time. Default retention lasts until explicit cleanup; deleting an agent removes the data within its working folder. System output/ artifacts remain outside that deletion scope. Storage locations, active-data handling for selective cleanup, and detailed deletion mechanics await implementation design. No cleanup operation has been implemented or performed.
 
 ## Creation report and shared outputs
 
 The creation-agent interprets the user’s requirement and presents an editable setup report: agent name and generated ID, purpose/instructions, a recommended High/Medium/Low profile with its provider/model binding and rationale, required tools and skills, harness settings, on-demand or scheduled work, and output rules. Users can discuss changes before confirming creation. Selection must refer to available capabilities; missing dependencies remain visible rather than being reported as ready.
 
-nimbls creates and manages one shared output root for the initial local deployment. Organize results by purpose rather than requiring a separate output root per agent:
+nimbls creates and manages one shared output root for the initial local deployment. This system `output/` directory must be outside `agents/`, and formal deliverables are written through `write_output`. Organize results by purpose rather than requiring a separate output root per agent:
 
 ```text
 output/
@@ -217,7 +304,7 @@ For the syslog example, propose:
 
 - Output type: result-file; format: Markdown.
 - Destination: syslogs/ under the shared output root.
-- Filename rule: {date}-syslog-summary-{execution-id}.md; the execution identifier distinguishes reruns for the same reporting date.
+- Filename rule: {date}-syslog-summary.md; updates archive the prior file in deleted/ and keep this live output path.
 - Date meaning: the analyzed reporting date in the selected timezone, not an unexplained machine timestamp.
 - Content: reporting period, source coverage, anomalies, critical events/alerts, important operations, supporting evidence, and suggested follow-up.
 
@@ -250,9 +337,9 @@ Illustration only. Actual reports describe sources retrieved and any gaps.
 
 Proposed implementation boundaries, pending detailed design:
 
-- write-output resolves destinations inside the managed output root and enforces each agent’s allowed write scope. A shared root does not automatically grant every agent access to every file.
+- Confirmed: agents use the `write_output` tool to write formal deliverables into the system `output/` root, outside `agents/`. The tool resolves the managed destination; agents do not construct a private agent-local output root. It preserves agent/execution attribution and follows the confirmed write/update/archive behavior above. Exact tool schema and write-scope enforcement remain implementation details. A shared root does not automatically grant every agent access to every file.
 - Preserve agent/task/execution attribution for each output so results from different agents remain distinguishable.
-- Do not silently overwrite another execution’s file. Propose a visible unique suffix on name collision, including retries, with the exact rule shown in setup.
+- On an existing target filename, move the previous file to deleted/ before publishing updated content at the same path; do not replace this with an automatic suffix on the live filename.
 - errors/ and audits/ hold categorized diagnostic/audit outputs; harness-maintained operational records should retain their integrity independently of model-authored report text. Do not require every successful execution to create an error file.
 
 ## One coherent workflow
@@ -270,9 +357,9 @@ An overview can combine several blocks. The user should not need to understand t
 
 These are discussion defaults, not accepted requirements:
 
-- Prefer one NIMBL connection for the first end-to-end slice; retain an explicit connection identity so targets cannot be confused.
+- Confirmed: all agents use bbcli for NIMBL information through one shared bbrootsvc connection. Keep the configured target attributable in execution evidence; no multi-connection management is needed.
 - Assign tasks to agents explicitly, with manual or scheduled execution. Demonstrate multiple agents with separately attributable work before adding automatic cooperation.
-- Begin with a read-only information task, then add one bounded device-change operation.
+- Use a read-only task as a simple validation case; device-change availability follows the bundled bbcli capabilities, with representative supported operations selected for verification.
 - For the first write workflow, require review of the proposed change. Wider policy-based autonomy can follow a separate decision.
 - Prevent overlapping writes to the same scoped device; define how execution ownership is released after failures before enabling concurrent writes.
 - Treat stale/disconnected status as unknown, not healthy. Recover enough durable state to distinguish completed, still-running, and uncertain operations after interruption.
@@ -280,9 +367,15 @@ These are discussion defaults, not accepted requirements:
 - Do not promise universal rollback, process suspension/resumption, arbitrary external-agent compatibility, or automatic agent collaboration before their supported semantics are defined.
 - Initial deployment is local on the operator’s computer. Define local credential handling, durable storage, and enforceable agent/device access for that scope. Shared-server deployment remains a future option; server identity and team authorization are deferred. Keep task execution, scheduling, and persistence responsibilities separable from the local UI so a future server deployment can reuse them; this does not require separate services now.
 
+## Cross-platform implementation direction
+
+Confirmed requirement: choose a cross-platform technology stack from the start, targeting macOS, Windows, and Linux. Assess the desktop UI, background lifecycle, scheduling, Pi integration, embedded Git library, paths, credential storage, packaging, and update mechanism together. The confirmed desktop baseline is Electron + TypeScript + React, with Pi SDK execution in a separate process and no Pi TUI. Keep core agent operations independent of the UI to preserve future collaboration/shared-server flexibility. Application persistence uses JSON files with in-memory live state/indexes; no SQLite in the first version. Packaging, build tooling, and exact versions remain open.
+
+A first validation platform is not a restriction on architecture or a promise of simultaneous releases. macOS is the first validation platform; record the test machine architecture during setup and select release coverage/order separately. In particular, verify bundled bbcli and its native dependencies on each supported target; a cross-platform UI framework alone is not evidence that a complete installer works on all three operating systems.
+
 ## Bundled bbcli delivery
 
-The confirmed user experience is a single application installation that includes the required CLI. The following build approach is proposed, with Electron packaging conditional on that stack being selected:
+The confirmed user experience is a single application installation that includes the required CLI. Electron is selected; the following detailed build approach remains proposed:
 
 1. Pin a mnms commit or version for the application release; do not copy an arbitrary developer build or follow a moving branch during release packaging.
 2. Use the bbcli/ Go entry from mnms (merged into main through mnms PR #2236; verified merge revision 81bba4d5cc471d70c5926e1c38f0fc0262910f8f). It is distinct from bbctl. Build from the pinned full mnms checkout because the CLI imports shared mnms packages; copying only its source directory is insufficient.
@@ -309,7 +402,7 @@ Proposed evidence contract, stored as structured harness-managed files and expos
 | Elapsed time, tool/model latency, retry counts, and provider-reported usage where available | Assess efficiency alongside output quality. Mark missing measurements unknown; distinguish estimated cost from measured usage. |
 | User feedback and later review findings | Add corrections without overwriting the original execution evidence. |
 
-The harness records operational facts independently of whether the model writes a work summary. Keep large evidence in referenced files rather than copying it into every event. Credential material is excluded; omitted, truncated, expired, or unavailable evidence must be explicit so reviewers can report insufficient evidence instead of inventing a verdict. Exact schema, storage layout, retention, and capture limits remain implementation decisions.
+The harness records operational facts independently of whether the model writes a work summary. Keep large evidence in referenced files rather than copying it into every event. Credential material is excluded; omitted, truncated, expired, or unavailable evidence must be explicit so reviewers can report insufficient evidence instead of inventing a verdict. Exact schema, storage layout, and capture limits remain implementation decisions; recorded evidence follows the default retention and explicit cleanup policy.
 
 The default UI shows time, outcome, a short result/error summary, and access to outputs or Ask nimbls. Details are progressively disclosed. The future improvement agent uses the structured evidence to produce evidence-linked findings, suggested instruction/tool/model changes, and a proposed validation case. Suggestions do not by themselves prove improvement; assess correctness against task criteria and compare efficiency on comparable workloads.
 
@@ -350,25 +443,36 @@ Confirmed product direction; not implemented yet:
 - Preserve partial results and mark them incomplete rather than presenting them as a successful report.
 - POC includes Stop and Rerun. Pause and resume from checkpoints are deferred.
 
+## Waiting for user input
+
+Confirmed direction: reuse Pi's extension dialog/waiting mechanism rather than build a separate agent interaction loop. Provide a question tool/extension and bridge its questions and answers into the application UI and operation interfaces. Pi supports input, selection, and confirmation dialogs; its RPC UI protocol waits for a matching response and supports optional timeouts. Pi is selected as the runtime; SDK execution in a separate process is selected; process transport and the application bridge still await detailed integration design.
+
+Agents first use available settings, skills, and tools to resolve needed information. When necessary information is unavailable, show the question and a waiting-for-answer state. Initially do not impose an answer deadline: continue when answered, or allow the user to stop the execution. Waiting counts as an active execution, so further scheduled occurrences for that agent are skipped under the existing concurrency rule. Apply the same behavior to manual and scheduled work.
+
+Closing the window preserves the background process and its pending question; reopening must expose it again. Explicit Quit follows the confirmed stop-and-exit behavior. Do not claim that pending questions survive a crash or process restart automatically; persistence/recovery needs separate design and verification. Cancelling a dialog is not by itself proof that the whole execution has stopped.
+
+Evidence: inspected the installed Pi 0.82.1 documentation/code and the current [Pi extension UI protocol](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/rpc.md#extension-ui-protocol). This is integration direction based on source/documentation, not a completed runtime test.
+
 ## Scheduled execution
 
-Confirmed capability: an agent can perform recurring work, including daily at 12:00. Proposed initial behavior:
+Confirmed initial recurrence choices: daily at a chosen time, weekly on selected weekdays at a chosen time, and fixed intervals (for example, every 30 minutes). Users describe the requirement in ordinary language; the creation assistant configures it through nimblscli and presents the rule, timezone, and next execution time for review. Default to the computer's timezone at schedule creation. Further behavior is distinguished below as confirmed or proposed.
 
-| Concern | Proposed behavior |
+| Concern | Behavior and status |
 | --- | --- |
-| Simple setup | Select the agent and task, choose Daily and a time, and show a timezone. No cron syntax is required. |
-| Timezone | Default to the system's timezone when creating the schedule, store an explicit IANA timezone such as Asia/Taipei, and show the next execution time. Later system timezone changes do not silently change the schedule. |
+| Simple setup (confirmed) | Configure daily, selected-weekday, or fixed-interval recurrence through the assistant and nimblscli. Show the rule, timezone, and next due time. No cron syntax is required. |
+| Timezone | Confirmed: default to the computer's timezone at creation and show it in the schedule summary. Proposed implementation: store an explicit IANA timezone such as Asia/Taipei and do not silently change it when the system timezone changes. |
 | Calendar semantics | Daily 12:00 means noon in the selected timezone, not every 24 elapsed hours. Proposed daylight-saving rule: skip nonexistent local times and dispatch once for repeated local times; verify this before supporting affected schedules. |
-| Durable state | Save the recurrence, enabled state, next due time, and occurrence history. Recalculate due work on startup/resume; do not rely solely on an in-memory timer. SQLite is the candidate store, not an accepted implementation decision yet. |
+| Fixed-interval details | Use schedule-save time as the anchor; first due is one interval later, then fixed elapsed-time multiples independent of completion time. Preserve the anchor across restart and pause/resume. Changing the interval resets the anchor to edit-save time; other edits retain it. Skip active/missed occurrences under the existing rules; manual Run is available immediately. Exact supported interval limits are an implementation choice. |
+| Durable state | Save the recurrence, enabled state, next due time, and occurrence history. Recalculate due work on startup/resume; do not rely solely on an in-memory timer. Persist application state in JSON files and reconstruct the in-memory scheduler on startup; no SQLite. |
 | Traceability | Each dispatched occurrence has its scheduled time and its own execution record under the assigned task, including actual start, outcome, and evidence. A missed occurrence does not create an execution. Preserve the configuration used for that execution. |
-| Duplicate prevention | Use a durable unique occurrence identity and an atomic dispatch claim. Reconcile interrupted dispatch/execution state after a crash; do not promise exactly-once external device effects. |
+| Duplicate prevention | Use a unique occurrence identity and a serialized dispatch decision through the shared operation owner. Do not dispatch the same occurrence twice within the live scheduler; full crash recovery remains deferred, and exactly-once external device effects are not promised. |
 | Overlap (confirmed) | One active execution per agent across manual and scheduled work. While active, Run becomes View progress. A schedule triggering during active work is recorded as skipped without queuing. Different agents may run concurrently subject to available resources; shared-resource conflicts still need implementation handling. |
 | Missed time (confirmed) | Do nothing for missed occurrences: no catch-up execution, backlog, or special user prompt. On startup/resume, calculate the next future scheduled time and continue normally. The ordinary manual Run action remains available. |
-| Enable/disable and edits | Pause prevents future dispatch. Pausing or editing a schedule does not silently cancel an already running execution; use the existing execution controls. |
+| Schedule management (confirmed) | Support conversational edit, pause, resume, and cancel through nimblscli. Editing updates the rule and shows the next due time. Pause retains settings and prevents future dispatch; resume continues at the next future time without catch-up. Cancel deletes the schedule while preserving the agent. None of these actions stops an active execution; use Stop separately. |
 | Permissions | Recheck current access at dispatch and before effects. A schedule is not permanent approval for future device changes; writes requiring review wait visibly for approval. |
 | Visibility | Show enabled/paused status, next scheduled time, last actual execution/outcome, and overlap skips in history. Missed times require no special prompt or recovery UI; any passive diagnostic recording remains an implementation detail. Distinguish waiting for approval from completed work. |
 
-Confirmed lifecycle: closing the window keeps nimbls running in the background, including active work and scheduling. Explicitly choosing Quit nimbls stops the service. This is an agreed product requirement, not implemented behavior; no desktop framework or separate service architecture has been selected.
+Confirmed lifecycle: closing the window keeps nimbls running in the background, including active work and scheduling. Explicitly choosing Quit nimbls stops the service. This is an agreed product requirement, not implemented behavior; Electron is selected, while the detailed background lifecycle remains to be implemented and tested.
 
 Confirmed explicit Quit behavior: exit directly when no execution is active. If work is active, ask “Tasks are running. Stop them and quit?” Cancelling leaves the application and its work running. On confirmation, stop active executions, preserve partial outputs with an incomplete label, and exit after termination is confirmed. Keep the stopping state truthful under the execution-control rules; completed external operations are not automatically rolled back. Termination timeout and forced-exit mechanics remain implementation details, not a promise that every external operation can be cancelled.
 
@@ -383,7 +487,7 @@ No canonical glossary entries have been approved yet. The current repositories h
 | Agent | An identifiable AI worker configured to perform tasks within assigned capabilities and scope. | A worker identity/configuration, not its process or one execution. |
 | Task | A requested objective with target scope and acceptance criteria. | The objective persists independently of retry attempts. |
 | Execution | One attempt by an assigned agent to carry out a task. | A retry creates another execution; avoid using Run or Job for the same concept without a semantic reason. |
-| NIMBL connection | The configured access relationship to a particular NIMBL system. | Device identifiers and permissions must be interpreted within this connection. |
+| NIMBL connection | The application-level bbcli access relationship to the single configured bbrootsvc. | Device identifiers and permissions must be interpreted within this connection. |
 | Schedule | A persisted recurrence and timezone that dispatches an assigned task to an agent. | Distinct from the task objective and each actual execution; pausing a schedule affects future dispatch. |
 
 Reason for proposing these terms: their identity affects assignment, UI status, history, and future API relationships. Confirm the distinctions before promoting them into the canonical glossary; avoid adding implementation-only concepts.
@@ -409,7 +513,7 @@ Reason for proposing these terms: their identity affects assignment, UI status, 
 | Daily at 12:00 | With the host awake and app running, a daily schedule produces one occurrence at noon in the selected timezone within a timing tolerance to be specified. The UI shows the next due time and resulting execution. |
 | Restart, resume, or clock change | Schedule state survives restart, due work is recalculated, and the same occurrence is not dispatched twice. Missed work follows the visible policy. |
 | Per-agent overlap (confirmed) | While an agent is active, Run becomes View progress and scheduled occurrences are recorded as skipped without queuing. Different agents can run concurrently subject to resources. |
-| Pause (proposed) | Paused schedules do not dispatch new work. |
+| Manage a schedule (confirmed) | Editing shows the updated next due time; pause prevents new dispatch while preserving settings; resume uses the next future occurrence without catch-up; cancel removes the schedule but keeps the agent. Active work continues unless separately stopped. |
 | Read NIMBL information | A scoped task returns observations tied to the selected connection, target devices, and retrieval time. No write operation occurs. |
 | Observe two agents | The overview attributes each active execution and result to the correct agent/task. One failure does not falsely mark the other execution failed. |
 | Unavailable agent | Missing prerequisites are visible; the UI does not claim work is running when it cannot start. |
@@ -425,30 +529,36 @@ These scenarios are draft acceptance inputs, not completed tests.
 
 The [starter-agent set](../guides/starter-agents.md) now centers on site history, configuration delivery through acceptance, and event follow-up through verified resolution. Device status and inventory are supporting tasks. Preserve these complete outcomes while explicitly selecting a tested initial subset; a daily syslog report alone is not incident follow-up, and a change plan alone is not verified delivery. This alignment does not automatically approve all full workflows for the first milestone.
 
-## Candidate milestone sequence
+Confirmed first POC, to be tested on macOS first: use the site history agent's daily syslog report to exercise create → try → modify → save → schedule with real evidence in the agreed test environment. Develop configuration delivery and event follow-up afterward according to bbcli capabilities. The creation assistant and Ask nimbls remain built-in application support roles. This sequence does not imply that a daily report delivers the entire site-history or incident-follow-up scope; the acceptance scope below is confirmed, while concrete test fixtures remain to be selected.
 
-Secure external assistance is excluded from milestone 1; consider its future needs during stack selection without implementing it.
+## Confirmed syslog POC acceptance scope
 
-Define milestones as complete user workflows, not one milestone per function block. This sequence is proposed only; no GitHub milestone or release date has been created.
+Validate the following on macOS; these are requirements, not completed tests:
 
-1. Start, customize, and repeat: the creation/trial/refinement loop above, an installer with bundled bbcli, useful prepared agents, easy creation of a user-defined agent launched and managed by nimbls, one connection, a read-only task, visible execution, and a result backed by retrieved evidence. Run manually and daily at a chosen time; include persistence, basic access enforcement, and missed/overlap handling from the start.
-2. Supervise multiple agents: two independently assigned agents, activity/status visibility, isolated failures, and well-defined cancellation/retry behavior.
-3. Apply a controlled change: one supported device configuration operation with scope enforcement, review/approval, conflicting-write prevention, and post-change verification.
+1. Retrieve syslog for specified devices and a specified time range through bundled bbcli and the existing NIMBL skill, using supported CLI capabilities.
+2. Produce event summaries and identified anomalies linked to corresponding original records. Distinguish inference from observed facts.
+3. Write a Markdown daily report through write_output; browse it in the result region and pin it there.
+4. Apply a user-requested report refinement, rerun and inspect the result, then save the agent setup.
+5. Configure daily execution, using a fresh conversation session on each scheduled run.
 
-Local deployment is confirmed; supported platforms and a runnable installation path must be chosen before committing the first milestone. Confirm whether any write capability or agent collaboration is required earlier.
+Before runtime validation, identify the NIMBL connection, device/data scope, time range, usable model/provider, and a concrete refinement request. Existing test infrastructure may be reused once identified. Retain evidence of retrieved data, source-backed report content, refinement outcome, output/pin behavior, and fresh-session scheduled execution. Do not treat setup alone as a passed run or record credentials in public documentation. This scope does not remove previously confirmed output modes, interactive HTML, or other product requirements; Markdown is the initial POC report format.
 
-## Decisions needed before a milestone/SPEC baseline
+## POC milestone baseline
 
-1. Direct-agent execution: Which runtime integration should nimbls use to launch and manage agents? External-agent support is optional for future milestone review and is not a prerequisite.
-2. Local installation: Which operating system and CPU target should the first local application support? Shared-server deployment remains an optional future direction; preserve deployment flexibility while implementing locally first.
-3. Agent creation and first validation task: Review the proposed description-first creation flow, then choose a representative task and success evidence for a user-defined agent. The validation example must not restrict custom agent definitions.
-4. Collaboration: Is independent agent supervision sufficient first, or must agents delegate/share work in the initial milestone?
-5. Runtime and integration: Which agent runtime/provider and current bbcli version are available for the first runnable case? The development harness's GPT-6 Astra setting does not choose the product runtime.
+The accepted [macOS syslog POC SPEC](macos-syslog-poc.md) and [milestone index](../../MILESTONES.md) now own the first delivery sequence: M1 manual syslog reporting, M2 refinement and reuse, and M3 daily automation. Together they complete the confirmed create/try/modify/save/schedule POC. The earlier candidate sequence is superseded; broader requirements in this document remain in force with POC versus later delivery identified in the SPEC. The milestone index links the three GitHub milestones and their function issues. No implementation, test results, or release dates are implied.
+
+## Remaining implementation and test setup
+
+1. Direct-agent execution: `@earendil-works/pi-coding-agent` is confirmed as the initial runtime. Use Pi SDK in a separate process; design its transport and pin a verified Pi version. External-agent support is optional for future milestone review and is not a prerequisite.
+2. Local installation: macOS-first validation is confirmed. Record the test machine architecture and define the runnable installation path and platform release coverage/order, retaining macOS, Windows, and Linux as cross-platform targets. Shared-server deployment remains an optional future direction; preserve deployment flexibility while implementing locally first.
+3. First validation details: The site history agent's daily syslog report and create/try/modify/save/schedule flow are confirmed as the starting case. The five-step syslog POC acceptance scope above is confirmed. Select its connection, device/time scope, model, concrete test data and refinement, covering starter use and user-defined creation without restricting other agent tasks.
+4. Collaboration compatibility: Initial agents work independently (confirmed). Review the chosen execution interface for future delegation/result handoff without implementing collaboration in the initial milestone.
+5. Runtime and integration: With Pi selected, choose a tested provider/model configuration and bundled bbcli version for the first runnable case. The development harness's GPT-6 Astra setting does not choose the product model.
 
 6. Packaging: bbcli/ is now on mnms main. Choose which OS/CPU combinations the first installer supports and pin a verified revision before defining a release build.
 7. Local inference and future compatibility: Select the first local runtime/model, hardware target, and provisioning path. During tech-stack review, assess the future assistance considerations in the [secure design](secure-external-assistance.md). Relay topology, transport/authentication, export policy, and provider retention are deferred decisions and do not block milestone 1; no live external transmission is authorized by this design.
 
-8. Remaining scheduling details: Confirm supported recurrence choices, timezone behavior, and schedule editing/pause semantics. Background window-close behavior, explicit Quit, per-agent overlap, and doing nothing for missed times are already confirmed.
+8. Remaining scheduling details: Fixed-interval anchor behavior is defined above. Select supported limits and timezone-change/daylight-saving behavior during implementation without requiring separate approval for routine choices. Schedule edit/pause/resume/cancel behavior is confirmed. Daily, selected-weekday, and fixed-interval recurrence with a creation-time system timezone default are confirmed, as are background window-close behavior, explicit Quit, per-agent overlap, and doing nothing for missed times.
 
 ## Technical references for proposed packaging and lifecycle
 

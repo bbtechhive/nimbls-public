@@ -16,3 +16,7 @@ The product rules are **easy to use** and **ready out of the box**: include usef
 - [Walk through a daily syslog summary scenario](docs/scenarios/daily-syslog-summary.md)
 
 These are concept and scenario documents, not released functionality.
+
+## POC scope and milestones
+
+The [macOS syslog POC SPEC](docs/specs/macos-syslog-poc.md) and [M1–M3 milestones](MILESTONES.md) define the accepted first delivery scope: manual reporting, refinement/reuse, and daily automation. They are planning documents; implementation and acceptance testing have not started.

@@ -72,7 +72,7 @@ output/
   audits/
 ```
 
-During creation, the assistant proposes a suitable folder or a new category. You review the destination, filename, and sample content. The physical location of this folder and detailed retention behavior are not yet selected.
+During creation, the assistant proposes a suitable folder or a new category. You review the destination, filename, and sample content. The output root is outside agents/. The write_output tool supports nested folders, write, append, prepend, and search-and-replace; prior files move to deleted/ when updated, and users may clean that archive. Its exact physical installation path remains to be selected.
 
 Saved reports provide a useful history for people. Comparing past reports or using them as agent memory requires explicitly supported behavior and access; saving files alone does not provide that capability.
 
@@ -85,3 +85,6 @@ Suggested product description:
 For sales and marketing, position reduced manual review and repeatable reporting as intended benefits to validate in a pilot. There are no measured time savings, released installers, or completed application demonstrations yet. Do not promise unattended device repair, universal agent compatibility, or execution while a local computer is unavailable.
 
 Next: [Create an agent: example requests](../guides/create-an-agent.md) · [Daily syslog scenario](../scenarios/daily-syslog-summary.md) · [Detailed function draft](../specs/fundamental-function-blocks.md)
+
+
+The result region lets users browse system output/ and pin files to keep their latest content visible. Markdown and HTML are rendered directly. A pinned file is a current file view; execution status still identifies incomplete or failed work.
