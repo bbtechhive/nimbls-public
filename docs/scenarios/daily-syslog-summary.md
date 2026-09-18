@@ -8,6 +8,18 @@ This walkthrough is the initial reporting step of the [Event follow-up agent](..
 
 A network operator wants a useful daily summary instead of repeatedly reviewing raw syslogs. They need important findings, supporting evidence, and a file they can refer to later.
 
+## A short explanation for customers
+
+The planned experience is simple: describe the report you need, review a sample, and try the agent on your selected logs. Refine the result through conversation, then reuse the agent or schedule it. Each report should show what needs attention, the supporting evidence, and any missing data.
+
+The two illustrations below can also be reused in a presentation. They show a proposed experience and fictional report content, not released functionality or measured customer results.
+
+## The experience at a glance
+
+Proposed user journey. The sample is illustrative; the trial uses actual data from the selected test environment.
+
+![Six-step user journey: describe, preview, try, refine, keep, and schedule.](../assets/syslog-scenario/create-try-refine.png)
+
 ## 1. Describe the agent
 
 > Create an agent that checks yesterday’s syslogs, extracts important events and anomalies, and tells me what needs attention. Run every morning at 08:00 and save a Markdown file named {date}-syslog-summary.md. Show me a sample report first.
@@ -74,6 +86,14 @@ The operator starts a first execution. The intended result is a real Markdown re
 If retrieval fails, the execution reports failure. If only some sources are available, the report identifies partial coverage. No important findings is a valid result only when the report makes clear what was inspected.
 
 Repeated executions must preserve earlier evidence rather than silently overwrite another result; the detailed naming policy remains to be finalized.
+
+### What happens during an execution
+
+Manual and scheduled tasks follow the same path. A scheduled execution requires the chosen local environment to be available.
+
+![Selected syslogs become grouped findings and a saved report, with incomplete data clearly identified.](../assets/syslog-scenario/syslog-to-report.png)
+
+The report uses the analyzed date in its filename. Partial coverage stays visible in the result; successful retrieval with no important findings is different from failed retrieval. Saving the report must succeed before nimbls presents a saved-file result; a write error remains an execution error.
 
 ## 6. Refine, save, and schedule
 
