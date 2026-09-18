@@ -63,8 +63,8 @@ The previous device-status and inventory examples remain useful starter exercise
 1. Show the useful agents and an illustrative output sample for each.
 2. Let the user select an agent and reuse existing NIMBL/provider setup. Request only missing essentials and describe why they are needed.
 3. Review the target scope and relevant task options. Use prepared instructions, tools, skills where available, and output rules without requiring advanced settings.
-4. Check readiness and offer **Run now**. Show a precise next action if setup is incomplete.
-5. Show the result and saved file location. Offer customization or optional scheduling after the user understands the result.
+4. Save the selected defaults, check readiness, and offer **Run**. No chat prompt is required. Show a precise next action if setup is incomplete.
+5. Make the result and saved file location the main view, with optional chat and entry buttons for history, logs, and settings. Offer customization or optional scheduling after the user understands the result.
 
 A user can preview an agent before connecting real data. Such previews must be visibly illustrative. Agent cards should distinguish **Needs setup**, **Ready**, and execution outcomes rather than claiming every shipped agent can run immediately on an unconfigured computer.
 
@@ -74,7 +74,7 @@ The application includes working agent definitions, required product-owned tools
 
 Users should not need to install bbcli separately, author a skill, construct a harness, choose tools manually, or edit configuration files to run a starter agent. Connection and credential setup is guided and reused. No demonstration data should be presented as a real result, and no recurring task or device operation should start merely because the app was installed.
 
-Starter agents and custom agents should follow the same execution, access, output, and history behavior. Whether to customize a starter directly or create a user copy is an implementation choice still to be settled.
+Starter agents and custom agents should follow the same execution, access, output, and history behavior. Starter setup follows the Add flow; the initial agent management scope is Add and Delete, without a separate copy action.
 
 ## Acceptance for a release
 

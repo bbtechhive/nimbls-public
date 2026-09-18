@@ -65,6 +65,12 @@ The creation report should explain:
 
 Advanced settings can expose detailed instructions and limits without making them compulsory steps for every user.
 
+## Start a fresh discussion
+
+Use **New session** to start a fresh conversation with the assistant. Saved agent settings, its default task, schedules, past executions, and result files remain available. Previous conversation messages and unconfirmed proposals are not automatically included in the new conversation.
+
+The action does not stop running tasks or delete their results. If a proposal has not been saved, the assistant should explain what will be left behind before resetting. Full session browsing and branching are outside the initial scope.
+
 ## Refine it in ordinary language
 
 Examples of follow-up requests:
@@ -83,7 +89,7 @@ The POC should make this a conversational loop: **describe → review sample →
 
 For example, after the syslog trial, say “Compare this with the previous seven days” or “Group repeated events and shorten the opening summary.” The creation-agent should revise the relevant instructions, tools, skills, and output rules, then try the changed task in the selected test environment. It must explain unavailable historical data rather than invent a comparison.
 
-Users can select or generate skills, add custom tools or supported MCP connections, and adjust model selection without constructing a harness themselves. Exact integrations depend on the chosen runtime and remain unimplemented. Save a satisfactory agent, copy it for a different purpose, or ask to schedule its work.
+Users can select or generate skills, add custom tools or supported MCP connections, and adjust model selection without constructing a harness themselves. Exact integrations depend on the chosen runtime and remain unimplemented. Save a satisfactory agent for repeated use, or ask to schedule its work.
 
 ## Confirm, prepare, and try it
 

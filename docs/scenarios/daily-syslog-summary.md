@@ -81,7 +81,7 @@ After confirmation, nimbls prepares the agent and the selected output folder and
 
 ## 5. Run once and inspect the result
 
-The operator starts a first execution. The intended result is a real Markdown report with source coverage, grouped findings, and supporting observations. nimbls shows the outcome and the actual saved path, with attribution to the agent and execution.
+The operator presses Run to execute the agent’s saved default task. Opening chat or repeating the task description is not required. The intended result is a real Markdown report with source coverage, grouped findings, and supporting observations. nimbls shows the outcome and the actual saved path, with attribution to the agent and execution.
 
 If retrieval fails, the execution reports failure. If only some sources are available, the report identifies partial coverage. No important findings is a valid result only when the report makes clear what was inspected.
 
@@ -99,7 +99,7 @@ The report uses the analyzed date in its filename. Partial coverage stays visibl
 
 The operator says “Compare with the previous seven days.” The creation-agent updates the setup and checks access to that history, then tries the revised task in the selected test environment. The resulting report must show an actual comparison or explain the missing evidence.
 
-After inspecting the result, the operator can save the agent, copy it, or say “Run it every morning at eight.” Show the selected timezone and enabled schedule. This trial-and-refinement experience is a POC priority; full production security administration is refined later. Secure external model assistance remains outside milestone 1.
+After inspecting the result, the operator can save the agent or say “Run it every morning at eight.” Show the selected timezone and enabled schedule. This trial-and-refinement experience is a POC priority; full production security administration is refined later. Secure external model assistance remains outside milestone 1.
 
 ## What a pilot should demonstrate
 

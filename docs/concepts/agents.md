@@ -12,6 +12,12 @@ The initial direction is a local application that directly runs and manages agen
 
 nimbls should include useful starter agents that can be run after guided connection/provider setup. Users can begin with a prepared agent, customize it, or create their own. Easy use and readiness out of the box guide the product; ordinary use should not require technical configuration. The proposed set focuses on retaining site history, delivering verified configuration changes, and following important events through resolution. See the [proposed starter agents](../guides/starter-agents.md) for full scope and initial-release limits.
 
+## Results first, chat when useful
+
+The primary agent workspace shows the task result, readiness, and a Run button. Each ready agent has a saved default task, so users can run useful work without opening chat or restating their request. While work runs, the UI shows concise progress; failures show a reason and a useful next action. Details, history, logs, and settings remain accessible through entry buttons.
+
+Chat is optional for asking about a result, changing requirements, or refining the agent. The conversational examples below illustrate that option, not a mandatory step for every execution.
+
 ## A familiar example
 
 Instead of manually reading a day of syslogs, you could ask:
