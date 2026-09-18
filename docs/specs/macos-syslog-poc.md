@@ -10,7 +10,7 @@
 
 A network operator needs a repeatable daily account of device events without repeatedly collecting logs and writing summaries by hand. The operator must be able to inspect supporting records, refine the report, save the setup, and schedule future reports.
 
-The POC demonstrates **create → try → modify → save → schedule** on macOS. A useful syslog starter and a description-based creation flow share the same agent execution and application operations. The result is primary; chat is optional for refinement and troubleshooting.
+The POC demonstrates **create → try → modify → save → schedule** on macOS. A useful syslog starter and a description-based creation flow share the same agent execution and application operations. The application opens on Ask nimbls chat with startup guidance cards. Agents, Output, and Configuration have separate tabs; saved-task execution and evidence-backed results remain central to the POC. See the [UI guide](../guides/ui-guide.md) for the confirmed navigation and shared AgentChat design.
 
 ## Scope and relationship to the broader design
 
