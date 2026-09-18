@@ -1,14 +1,5 @@
-# nimbls-public
+# nimbls
 
-Public collaboration and distribution for nimbls, an application being developed to monitor, control, and manage AI agents that use `bbcli` to retrieve NIMBL information and configure NIMBL-managed devices.
+An application to monitor, control, and manage multiple AI agents. Agents use `bbcli` to retrieve information from [NIMBL](https://github.com/bbtechhive/mnms) and configure devices managed by NIMBL.
 
-Sales, marketing, PM, and other stakeholders can discuss product questions, bugs, and feature requests in [Issues](https://github.com/bbtechhive/nimbls-public/issues).
-
-- [Documentation](docs/README.md)
-- [Product specifications](docs/specs/README.md)
-- [Milestones](MILESTONES.md)
-- [Changelog](CHANGELOG.md)
-- [Versioned binary releases](https://github.com/bbtechhive/nimbls-public/releases)
-- [Contributing](CONTRIBUTING.md)
-
-The project is being initialized. No application binaries have been released yet.
+Project setup is in progress. Public discussion, documentation, specifications, milestones, changelog, and binary releases live in [nimbls-public](https://github.com/bbtechhive/nimbls-public).
