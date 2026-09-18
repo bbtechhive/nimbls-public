@@ -1,6 +1,6 @@
 # Useful agents from the first launch
 
-Status: Product design draft. Shipping useful starter agents is confirmed direction; the lineup below is proposed and has not been implemented or tested.
+Status: Product design draft. Shipping useful starter agents and the first validation sequence are confirmed; detailed capabilities below remain proposed and have not been implemented or tested.
 
 ## Start with useful work
 
@@ -54,7 +54,9 @@ Closure requires a defined observation period and acceptance evidence, with recu
 
 ## First-release selection
 
-Retain all three outcomes in product planning. A suggested sequence is site-history reporting and event summaries first, then persistent follow-up, with controlled configuration delivery once its prerequisites are proven. This is a proposal for milestone review, not an accepted release commitment.
+Confirmed sequence: start with the site history agent's daily syslog report as the first real validation case. Exercise the complete create → try → modify → save → schedule workflow, including a prepared starter and the creation/refinement path. Then develop configuration delivery and event follow-up progressively according to supported bbcli capabilities. Retain all three outcomes in product planning; this selects a starting slice, not all three complete agents for the first release.
+
+Use actual retrieved syslogs in the agreed test environment and verify reporting-period/source attribution, findings backed by evidence, a saved report, an observable requested refinement, and recurring execution. Exact fixtures, model/platform, and acceptance checks belong to the first milestone/SPEC. A daily report alone does not establish complete site history or persistent incident resolution. The creation assistant and Ask nimbls are application support roles alongside these domain agents.
 
 The previous device-status and inventory examples remain useful starter exercises and supporting tasks, but are no longer the headline agent set. Ship only the supported, tested depth of an agent; show limitations clearly rather than presenting unavailable capability as ready.
 
@@ -63,8 +65,8 @@ The previous device-status and inventory examples remain useful starter exercise
 1. Show the useful agents and an illustrative output sample for each.
 2. Let the user select an agent and reuse existing NIMBL/provider setup. Request only missing essentials and describe why they are needed.
 3. Review the target scope and relevant task options. Use prepared instructions, tools, skills where available, and output rules without requiring advanced settings.
-4. Check readiness and offer **Run now**. Show a precise next action if setup is incomplete.
-5. Show the result and saved file location. Offer customization or optional scheduling after the user understands the result.
+4. Save the selected defaults, check readiness, and offer **Run**. No chat prompt is required. Show a precise next action if setup is incomplete.
+5. Present the output browser and pinned files with their latest content in the result region, rendering Markdown and HTML. Keep execution outcomes visible, with optional chat and entry buttons for history, logs, and settings. Offer customization or optional scheduling after the user understands the result.
 
 A user can preview an agent before connecting real data. Such previews must be visibly illustrative. Agent cards should distinguish **Needs setup**, **Ready**, and execution outcomes rather than claiming every shipped agent can run immediately on an unconfigured computer.
 
@@ -74,7 +76,7 @@ The application includes working agent definitions, required product-owned tools
 
 Users should not need to install bbcli separately, author a skill, construct a harness, choose tools manually, or edit configuration files to run a starter agent. Connection and credential setup is guided and reused. No demonstration data should be presented as a real result, and no recurring task or device operation should start merely because the app was installed.
 
-Starter agents and custom agents should follow the same execution, access, output, and history behavior. Whether to customize a starter directly or create a user copy is an implementation choice still to be settled.
+Starter agents and custom agents should follow the same execution, access, output, and history behavior. Starter setup follows the Add flow; the initial agent management scope is Add and Delete, without a separate copy action.
 
 ## Acceptance for a release
 

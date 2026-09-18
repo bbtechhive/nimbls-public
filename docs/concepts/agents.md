@@ -12,6 +12,12 @@ The initial direction is a local application that directly runs and manages agen
 
 nimbls should include useful starter agents that can be run after guided connection/provider setup. Users can begin with a prepared agent, customize it, or create their own. Easy use and readiness out of the box guide the product; ordinary use should not require technical configuration. The proposed set focuses on retaining site history, delivering verified configuration changes, and following important events through resolution. See the [proposed starter agents](../guides/starter-agents.md) for full scope and initial-release limits.
 
+## Results first, chat when useful
+
+The primary agent workspace shows the task result, readiness, and a Run button. Each ready agent has a saved default task, so users can run useful work without opening chat or restating their request. While work runs, the UI shows concise progress; failures show a reason and a useful next action. Details, history, logs, and settings remain accessible through entry buttons.
+
+Chat is optional for asking about a result, changing requirements, or refining the agent. The conversational examples below illustrate that option, not a mandatory step for every execution.
+
 ## A familiar example
 
 Instead of manually reading a day of syslogs, you could ask:
@@ -66,7 +72,7 @@ output/
   audits/
 ```
 
-During creation, the assistant proposes a suitable folder or a new category. You review the destination, filename, and sample content. The physical location of this folder and detailed retention behavior are not yet selected.
+During creation, the assistant proposes a suitable folder or a new category. You review the destination, filename, and sample content. The output root is outside agents/. The write_output tool supports nested folders, write, append, prepend, and search-and-replace; prior files move to deleted/ when updated, and users may clean that archive. Its exact physical installation path remains to be selected.
 
 Saved reports provide a useful history for people. Comparing past reports or using them as agent memory requires explicitly supported behavior and access; saving files alone does not provide that capability.
 
@@ -79,3 +85,6 @@ Suggested product description:
 For sales and marketing, position reduced manual review and repeatable reporting as intended benefits to validate in a pilot. There are no measured time savings, released installers, or completed application demonstrations yet. Do not promise unattended device repair, universal agent compatibility, or execution while a local computer is unavailable.
 
 Next: [Create an agent: example requests](../guides/create-an-agent.md) · [Daily syslog scenario](../scenarios/daily-syslog-summary.md) · [Detailed function draft](../specs/fundamental-function-blocks.md)
+
+
+The result region lets users browse system output/ and pin files to keep their latest content visible. Markdown and HTML are rendered directly. A pinned file is a current file view; execution status still identifies incomplete or failed work.
