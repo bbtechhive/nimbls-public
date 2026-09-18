@@ -4,6 +4,7 @@ nimbls is in product design. These documents distinguish accepted POC scope from
 
 | Start here | Audience | Purpose |
 | --- | --- | --- |
+| [UI guide](guides/ui-guide.md) | Design, product, engineering | Proposed brand adaptation, UI states, and the selected shadcn/ui component system. |
 | [Agents in nimbls](concepts/agents.md) | Users, sales, marketing | Understand the product and its main concepts. |
 | [Useful agents from the first launch](guides/starter-agents.md) | New users, sales, marketing | Start with prepared agents and understand essential setup. |
 | [Create an agent: example requests](guides/create-an-agent.md) | Users and demo planners | Copy requests and learn how to review a proposed agent. |
