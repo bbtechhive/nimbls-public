@@ -1,6 +1,6 @@
 # nimbls — Core Features & Product Roadmap
 
-An English marketing website covering Ask nimbls, custom agents, site history, local AI, scheduling, results, agent improvement, controlled external assistance, execution management, and the seven-POC roadmap. All materials describe a planned product experience. They are review drafts, not an announcement of released functionality.
+An English marketing website covering Ask nimbls, custom agents, site history, local AI, scheduling, results, agent improvement, controlled external assistance, execution management, and the seven-Milestone roadmap. All materials describe a planned product experience. They are review drafts, not an announcement of released functionality.
 
 ## Quick start for sales and marketing
 
@@ -37,7 +37,7 @@ The local address is available only on your own computer and may change each tim
 
 ## Calculate dates around Taiwan holidays
 
-Open **Roadmap**, choose a **start date**, and select **2 or 3 weeks per POC**. Two weeks means 10 working days; three means 15. Each POC starts on the next working day after the previous POC finishes. A working kickoff counts as day 1; a holiday kickoff moves forward automatically.
+Open **Roadmap**, choose a **start date**, and select **2 or 3 weeks per Milestone**. Two weeks means 10 working days; three means 15. Each Milestone starts on the next working day after the previous Milestone finishes. A working kickoff counts as day 1; a holiday kickoff moves forward automatically.
 
 The timeline shades excluded dates and lists official holidays and substitute days by date and their original Chinese names. Expand the full list to see weekends too. Date changes update the schedule, stage details, and **dated SVG / Markdown downloads** immediately.
 
@@ -86,7 +86,7 @@ The homepage includes the network site architecture with a full-size preview and
 
 Each of the eight additional capabilities has an SVG workflow diagram and a Markdown feature pack (card, scenario, sales pitch, demo outline, and scope). These are available beside the feature on the page and under `assets/`.
 
-- `assets/product-roadmap.svg`: downloadable seven-POC poster.
+- `assets/product-roadmap.svg`: downloadable seven-Milestone poster.
 - `assets/product-roadmap.md`: detailed roadmap with acceptance direction.
 - `assets/all-core-features.md`: concise feature/slogan/delivery matrix.
 - `feature-content.json`: content catalog for future editorial changes; editing it alone does not rebuild the static HTML.
@@ -105,7 +105,7 @@ The Ask nimbls hero follows the current desktop foundation. Other capability vis
 - `agent-improvement.html`: Agent Improvement Review.
 - `external-assistance.html`: Controlled External Assistance.
 - `execution-management.html`: Execution Management and verified device changes.
-- `roadmap.html`: seven-POC delivery plan, 2–3-week estimates, feature-page links, and timeline SVG/Markdown downloads.
+- `roadmap.html`: seven-Milestone delivery plan, 2–3-week estimates, feature-page links, and timeline SVG/Markdown downloads.
 
 Keep these pages together. Navigation uses relative links, so the site works from the extracted folder or under a website subdirectory. Old overview hash links redirect to their corresponding page when JavaScript is enabled.
 
@@ -117,16 +117,8 @@ Open **Visual Library** from any page to preview and download the architecture, 
 
 The homepage introduces the architecture and daily operations journey; detailed diagrams stay on their matching feature pages. For a dated roadmap, use the interactive Roadmap page and its SVG/Markdown exports. The library roadmap poster is undated. Preserve scope labels and distinguish planned concepts from product reconstructions.
 
-## Find delivery milestones
+## Roadmap and features
 
-The POC 1 card on the homepage and Roadmap contains **View milestones (M1–M3)**. Expand it to inspect the three milestones within their parent POC. Applicable feature pages include cards that link directly to the existing GitHub milestones and their issues. Features without an assigned milestone have no milestone card. The separate Roadmap remains the broader planning reference.
+Use **Total view** for the overall schedule or **Monthly calendar** for daily dates and holidays. Both offer SVG downloads.
 
-## Monthly roadmap calendar
-
-The roadmap offers **Total view** for all POCs on one timeline and **Monthly calendar** for one month at a time, with previous/next controls and a month selector. Both use the same calculated schedule and retain the selected month when switching views. Each working date identifies its POC; gray days identify excluded weekends and holidays. Download the selected month as SVG or use the main SVG download for all months. Start-date and duration changes recalculate the same working-day schedule.
-
-Download Total view for the full timeline, Download this month for the selected calendar, or Download all months for every calendar month.
-
-## POC 2 agent milestones
-
-Expand POC 2 on the homepage or Roadmap for syslog-reviewer, device-snapshot, incident-investigator, and the Ask nimbls extension. Site History has all four delivery cards; Ask nimbls explains its P2-M4 extension. Download the detailed plan from either the Site History page or `assets/poc2-agent-milestones.md`. These planning identifiers are separate from GitHub milestone IDs.
+Milestone cards list their important features under **View features**. Milestone 2 has four standalone feature pages with simple explanations, diagrams and downloads: syslog-reviewer, device-snapshot, incident-investigator and Ask nimbls site operations. Engineering issues and acceptance criteria remain in GitHub and the design documents.

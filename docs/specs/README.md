@@ -7,3 +7,7 @@ The macOS syslog POC scope is accepted for planning; implementation and acceptan
 - [Fundamental Function Blocks](fundamental-function-blocks.md) — draft product responsibilities, acceptance scenarios, and decisions to resolve before milestones.
 
 Use a descriptive Markdown filename. Include status (draft, accepted, or superseded), user problem, intended users, scope, expected behavior, acceptance criteria, open questions, and related issues/milestone.
+
+- [POC 2 default agents: design and acceptance](poc2-default-agents.md)
+
+- [Feature validation reference](feature-validation-reference.md)

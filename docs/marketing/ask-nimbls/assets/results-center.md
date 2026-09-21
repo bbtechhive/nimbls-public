@@ -2,7 +2,7 @@
 
 **Work becomes something you can use.**
 
-Status: planned capability, not released functionality. Basics: POC 1 · Advanced: POC 4. Delivery dates TBD. nimbls remains a development code name.
+Status: planned capability, not released functionality. Basics: Milestone 1 · Advanced: Milestone 4. Delivery dates TBD. nimbls remains a development code name.
 
 ## Standard feature card
 
@@ -14,8 +14,7 @@ Status: planned capability, not released functionality. Basics: POC 1 · Advance
 | Benefits | Keep deliverables accessible; Adapt results to their audience; Organize reports as work accumulates |
 | Deliverable | A usable report collection with an interactive view and retrievable archived material. |
 | Prerequisites | Output operations and metadata. Advanced search, preview isolation, and retention semantics must be implemented. |
-| Proof required | Verify search matches period/subject, report interactions stay isolated, and archived files remain retrievable under the stated policy. |
-| Scope and limits | Markdown browsing/pinning and prior-file archiving remain in POC 1. Full version-diff/restore UI is not promised. Report content and execution status remain distinct. |
+| Scope and limits | Markdown browsing/pinning and prior-file archiving remain in Milestone 1. Full version-diff/restore UI is not promised. Report content and execution status remain distinct. |
 
 ## Customer scenario
 
@@ -39,7 +38,7 @@ A service lead finds a set of incident reports, inspects an interactive summary,
 - **0:00–0:30:** Explain the customer problem and show the scoped request.
 - **0:30–2:00:** Walk through the four workflow steps using a prepared representative case.
 - **2:00–2:40:** Inspect the deliverable and its evidence: Verify search matches period/subject, report interactions stay isolated, and archived files remain retrievable under the stated policy.
-- **2:40–3:00:** Explain prerequisites and limits: Markdown browsing/pinning and prior-file archiving remain in POC 1. Full version-diff/restore UI is not promised. Report content and execution status remain distinct.
+- **2:40–3:00:** Explain prerequisites and limits: Markdown browsing/pinning and prior-file archiving remain in Milestone 1. Full version-diff/restore UI is not promised. Report content and execution status remain distinct.
 
 These are presentation slots, not execution-speed claims. Label mockups and pre-run examples. No validated runtime demo is implied.
 

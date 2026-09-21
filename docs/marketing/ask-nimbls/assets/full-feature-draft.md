@@ -86,14 +86,14 @@ flowchart LR
 
 | Scope | Positioning |
 | --- | --- |
-| POC 1 / M1–M3 | Introduce Ask nimbls through the default syslog agent and the create, try, refine, save, and schedule journey. Essential setup supports that journey. |
-| Later POCs | Extend the same entry to site history, local-model workflows, report organization, agent improvement, controlled external assistance, and verified device changes as those capabilities are delivered. |
+| Milestone 1 / Features 1–3 | Introduce Ask nimbls through the default syslog agent and the create, try, refine, save, and schedule journey. Essential setup supports that journey. |
+| Later Milestones | Extend the same entry to site history, local-model workflows, report organization, agent improvement, controlled external assistance, and verified device changes as those capabilities are delivered. |
 | Long-term product principle | All supported nimbls application operations should be accessible through agent-facing operations, so Ask nimbls can help users operate the product. This does not promise support for every conceivable task. |
 
 Use “main assistant,” “ready-to-use agents,” and “repeatable work” consistently. Describe demonstrated scope explicitly. Do not claim autonomous self-improvement, guaranteed accuracy, or completed tasks without checking the actual result.
 
-Related: [POC milestones and future features](../../MILESTONES.md) · [POC specification](../specs/macos-syslog-poc.md). The agreed seven-POC sequence is recorded in the roadmap; this card does not assign new delivery dates.
+Related: [Milestone milestones and future features](../../MILESTONES.md) · [Milestone specification](../specs/macos-syslog-poc.md). The agreed seven-Milestone sequence is recorded in the roadmap; this card does not assign new delivery dates.
 
-## POC 2 agent delivery
+## Milestone 2 agent delivery
 
-See [POC 2 agent milestones](poc2-agent-milestones.md) for the four planned agent milestones and acceptance criteria.
+See [Milestone 2 agent features](poc2-agent-milestones.md) for the four planned agent features and acceptance criteria.

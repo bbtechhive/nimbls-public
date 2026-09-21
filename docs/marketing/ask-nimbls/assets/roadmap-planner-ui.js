@@ -78,7 +78,7 @@
       renderMonth();
       const tbody = document.getElementById('dated-rows'); tbody.replaceChildren();
       plan.stages.forEach((s,i) => {
-        const row = document.createElement('tr'); cell(row, `POC ${s.poc}`);cell(row, `${s.workingDays} working days`);cell(row,s.start);cell(row,s.finish);
+        const row = document.createElement('tr'); cell(row, `Milestone ${s.poc}`);cell(row, `${s.workingDays} working days`);cell(row,s.start);cell(row,s.finish);
         const detail = cell(row,'');
         config.links[i].forEach(([label,url], j) => {if(j) detail.append(' · '); const a = document.createElement('a'); a.href=url;a.textContent=label;detail.append(a);});
         tbody.append(row);

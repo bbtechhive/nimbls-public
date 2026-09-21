@@ -1,5 +1,7 @@
 # macOS syslog POC specification
 
+Terminology update: this specification defines Milestone 1. Historical M1, M2 and M3 labels in its acceptance sections refer to the Manual report, Refine and reuse, and Daily automation feature groups (issues #32–#34), not separate GitHub milestones. Existing acceptance identifiers and technical references are preserved.
+
 - Status: Accepted POC scope; implementation and acceptance testing have not started.
 - Date: 2026-09-18.
 - Milestones: [M1–M3](../../MILESTONES.md), sequential and cumulative; no release dates committed.

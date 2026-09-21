@@ -2,7 +2,7 @@
 
 **Everyday work. Close to your data.**
 
-Status: planned capability, not released functionality. POC 3. Delivery dates TBD. nimbls remains a development code name.
+Status: planned capability, not released functionality. Milestone 3. Delivery dates TBD. nimbls remains a development code name.
 
 ## Standard feature card
 
@@ -14,7 +14,6 @@ Status: planned capability, not released functionality. POC 3. Delivery dates TB
 | Benefits | Keep routine inference on site; Use existing agent workflows; Demonstrate work beyond network operations |
 | Deliverable | A locally generated network report and a document comparison with references to the supplied files. |
 | Prerequisites | Provisioned local model, sufficient hardware, and compatible tool capabilities. Offline tasks need their dependencies available locally. |
-| Proof required | Complete both representative workflows with no external inference requests; record supported hardware, model, and observed limitations. |
 | Scope and limits | Local deployment does not automatically mean local inference. Hardware and operation have costs; do not promise zero cost or universal model quality. |
 
 ## Security advantages
@@ -33,7 +32,7 @@ Run inference within your approved environment, where your IT team can apply its
 
 ### Keep external assistance a deliberate choice
 
-Local-only work must not silently fall back to a cloud model. Controlled external assistance is planned separately for POC 6, with data-type review, permitted destinations and disclosure checks before enablement.
+Local-only work must not silently fall back to a cloud model. Controlled external assistance is planned separately for Milestone 6, with data-type review, permitted destinations and disclosure checks before enablement.
 
 Local inference is one part of data protection. Agent tools, telemetry, updates and other integrations require separate network review. Local files and reports still need appropriate access controls, retention and backups. A local interface alone does not prove local processing or an air-gapped deployment.
 

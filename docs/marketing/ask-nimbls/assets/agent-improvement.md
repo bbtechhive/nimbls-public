@@ -2,7 +2,7 @@
 
 **Learn from the work. Improve the next run.**
 
-Status: planned capability, not released functionality. POC 5. Delivery dates TBD. nimbls remains a development code name.
+Status: planned capability, not released functionality. Milestone 5. Delivery dates TBD. nimbls remains a development code name.
 
 ## Standard feature card
 
@@ -14,7 +14,6 @@ Status: planned capability, not released functionality. POC 5. Delivery dates TB
 | Benefits | Understand recurring failures; Make specific, reviewable changes; Measure improvement against real cases |
 | Deliverable | A review explaining the proposed change, before/after results, and remaining limitations. |
 | Prerequisites | Queryable work history, retained evidence, editable agent settings, and representative evaluation cases. |
-| Proof required | Show whether the target case improves and whether known-good cases regress; retain input/configuration context for comparison. |
 | Scope and limits | This is evidence-based refinement, not automatic self-improvement or model training. Missing history may prevent a reliable conclusion. |
 
 ## Customer scenario

@@ -2,7 +2,7 @@
 
 **See the work. Stay in control.**
 
-Status: planned capability, not released functionality. Basics: POC 1 · Verified changes: POC 7. Delivery dates TBD. nimbls remains a development code name.
+Status: planned capability, not released functionality. Basics: Milestone 1 · Verified changes: Milestone 7. Delivery dates TBD. nimbls remains a development code name.
 
 ## Standard feature card
 
@@ -14,8 +14,7 @@ Status: planned capability, not released functionality. Basics: POC 1 · Verifie
 | Benefits | Understand what happened; Control active work; Verify results beyond a success message |
 | Deliverable | A change record with authorized scope, before/after observations, per-device outcomes, and recovery needs. |
 | Prerequisites | Supported NIMBL/bbcli operation, enforceable authorization, observable device state, and an operation-specific recovery plan. |
-| Proof required | Prove scope enforcement, actual-state verification, and truthful partial-failure handling on a defined supported operation. |
-| Scope and limits | Progress, Stop, rerun, and truthful failures start in POC 1. POC 7 does not promise universal autonomous repair or rollback support for every device operation. |
+| Scope and limits | Progress, Stop, rerun, and truthful failures start in Milestone 1. Milestone 7 does not promise universal autonomous repair or rollback support for every device operation. |
 
 ## Customer scenario
 
@@ -39,7 +38,7 @@ An operator defines a supported change and device scope. The Device Change Agent
 - **0:00–0:30:** Explain the customer problem and show the scoped request.
 - **0:30–2:00:** Walk through the four workflow steps using a prepared representative case.
 - **2:00–2:40:** Inspect the deliverable and its evidence: Prove scope enforcement, actual-state verification, and truthful partial-failure handling on a defined supported operation.
-- **2:40–3:00:** Explain prerequisites and limits: Progress, Stop, rerun, and truthful failures start in POC 1. POC 7 does not promise universal autonomous repair or rollback support for every device operation.
+- **2:40–3:00:** Explain prerequisites and limits: Progress, Stop, rerun, and truthful failures start in Milestone 1. Milestone 7 does not promise universal autonomous repair or rollback support for every device operation.
 
 These are presentation slots, not execution-speed claims. Label mockups and pre-run examples. No validated runtime demo is implied.
 

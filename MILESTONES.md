@@ -1,30 +1,33 @@
-# Milestones
+# Milestones and feature issues
 
-Status: Accepted POC 1 (M1–M3) scope and agreed seven-POC feature sequence, updated 2026-09-21. The desktop foundation exists; complete POC acceptance remains pending. No new release dates committed. `nimbls` remains a development code name.
+Milestones represent delivery stages. Issues represent features and implementation work. Previous POC 1/POC 2 labels are now Milestone 1/Milestone 2. The old M1–M3 groups are features within Milestone 1, not separate milestones.
 
-The three milestones below together deliver **create → try → modify → save → schedule**. They are sequential and cumulative. The [macOS syslog POC SPEC](docs/specs/macos-syslog-poc.md) defines behavior, failures, acceptance criteria, and evidence requirements.
+## Active GitHub milestones
 
-| Milestone | Outcome | Acceptance / dependency | Status |
-| --- | --- | --- | --- |
-| M1 — Manual syslog report | On macOS, create/select an agent, run Pi with the configured OpenRouter model, retrieve syslog through bundled bbcli, and view/pin an evidence-backed Markdown report | AC1–AC5 and AC10–AC12; live NIMBL setup required for final acceptance | Planned |
-| M2 — Refine and reuse | Request a report change, rerun, save, restart, and reuse the saved agent; verify output edit modes and deletion boundaries | M1 + AC6–AC8 and AC10–AC12 | Planned |
-| M3 — Daily automation | Schedule daily fresh-session reports; verify background execution, overlap skips, no catch-up, schedule controls, Stop, and Quit | M1–M2 + AC9–AC12 | Planned |
+- [Milestone 1 — Agent creation and daily syslog automation](https://github.com/bbtechhive/nimbls-public/milestone/1)
+- [Milestone 2 — Site history and incident investigation](https://github.com/bbtechhive/nimbls-public/milestone/2)
 
-Stop and truthful failures are required when manual execution first exists. Persistent saved setup and output safety are not deferred until later milestones; later milestones verify the complete user journeys.
+## Features
 
-## Test readiness
+| Milestone | Feature issue | Implementation tracking |
+| --- | --- | --- |
+| 1 | [Feature: Manual syslog report](https://github.com/bbtechhive/nimbls-public/issues/32) | #4–#12 |
+| 1 | [Feature: Refine and reuse](https://github.com/bbtechhive/nimbls-public/issues/33) | #13–#19 |
+| 1 | [Feature: Daily automation](https://github.com/bbtechhive/nimbls-public/issues/34) | #20–#25 |
+| 2 | [syslog-reviewer](https://github.com/bbtechhive/nimbls-public/issues/35) | Feature issue; further breakdown as implementation is planned |
+| 2 | [device-snapshot](https://github.com/bbtechhive/nimbls-public/issues/36) | Feature issue; further breakdown as implementation is planned |
+| 2 | [incident-investigator](https://github.com/bbtechhive/nimbls-public/issues/37) | Feature issue; further breakdown as implementation is planned |
+| 2 | [ask-nimbls site operations](https://github.com/bbtechhive/nimbls-public/issues/38) | Feature issue; further breakdown as implementation is planned |
 
-Implementation planning can proceed before NIMBL is configured. The user will provide the test connection and device/time scope when the POC is ready. Verify model access and credential loading in the actual desktop process; development-environment credential presence is not runtime evidence. Record the macOS/CPU, dependency versions, known syslog events, and requested refinement used in acceptance.
+Existing implementation issues #4–#25 retain their history and are assigned to Milestone 1. Superseded milestone groupings #3–#7 are closed for administrative cleanup, not as completed delivery. Feature acceptance belongs in the design specifications and GitHub issues; the sales website describes functionality and customer outcomes.
 
-A milestone closes only with its SPEC evidence, including representative UI and operation/CLI verification. Fixture tests support development but do not replace the live syslog acceptance run. Keep sensitive raw evidence and credentials out of this public repository.
+## Seven-Milestone product roadmap
 
-## Seven-POC product roadmap
+Agreed product sequence, 2026-09-21. Milestone 1 retains the existing three feature groups. Milestones 1 and 2 are active GitHub milestones. Milestones 3–7 are future roadmap stages without GitHub tracking yet. Initial estimate: **2–3 weeks per Milestone, 14–21 weeks total**, delivered sequentially. These are effort estimates of 10–15 working days per Milestone (70–105 working days total); Taiwan holidays extend elapsed calendar time. The [interactive roadmap](docs/marketing/ask-nimbls/roadmap.html) calculates dates from a chosen kickoff using the official 2026–2027 DGPA office calendars. Company-specific leave and emergency closures are not included. Calendar targets and detailed implementation plans remain to be agreed. This estimate includes implementation and validation, assumes continuous capacity and ready inputs, and is not a release commitment. A Milestone demonstrates its tested scenario, not general release readiness.
 
-Agreed product sequence, 2026-09-21. POC 1 retains the existing M1–M3 milestones. POC 2–7 numbers describe capability stages, not newly created GitHub milestones. Initial estimate: **2–3 weeks per POC, 14–21 weeks total**, delivered sequentially. These are effort estimates of 10–15 working days per POC (70–105 working days total); Taiwan holidays extend elapsed calendar time. The [interactive roadmap](docs/marketing/ask-nimbls/roadmap.html) calculates dates from a chosen kickoff using the official 2026–2027 DGPA office calendars. Company-specific leave and emergency closures are not included. Calendar targets and detailed implementation plans remain to be agreed. This estimate includes implementation and validation, assumes continuous capacity and ready inputs, and is not a release commitment. A POC demonstrates its tested scenario, not general release readiness.
-
-| POC | New capability | Default agent / entry | Customer demonstration | Acceptance direction |
+| Milestone | New capability | Default agent / entry | Customer demonstration | Acceptance direction |
 | --- | --- | --- | --- | --- |
-| 1 — Agent creation and daily syslog automation | Ask nimbls + Custom Agents | Daily Syslog Summary Agent | Create, run, refine, save, and schedule a syslog report. | Complete M1–M3 with live NIMBL data, evidence-backed outputs, and truthful failures. |
+| 1 — Agent creation and daily syslog automation | Ask nimbls + Custom Agents | Daily Syslog Summary Agent | Create, run, refine, save, and schedule a syslog report. | Complete Features 1–3 with live NIMBL data, evidence-backed outputs, and truthful failures. |
 | 2 — Site history retention and incident investigation | Site History & Knowledge | syslog-reviewer + device-snapshot + incident-investigator + ask-nimbls (extended) | Find a similar incident and compare changes and prior handling. | Retrieve retained evidence across executions with correct source/time references and explicit uncertainty. |
 | 3 — Local model integration and general tasks | Local LLM Server | Locally validated network agents + Document Comparison Agent | Run a network report and compare documents without external inference. | Validate both workflows on documented hardware/model; observe no external inference requests. |
 | 4 — Report search, interaction and archiving | Advanced Results Center | Report search and organization through Ask nimbls | Explore an interactive report and archive old reports while keeping key cases searchable. | Correct search results, isolated interactions, and verified archive retrieval. |
@@ -34,39 +37,39 @@ Agreed product sequence, 2026-09-21. POC 1 retains the existing M1–M3 mileston
 
 | Stage | Duration | At 2 weeks per stage | At 3 weeks per stage |
 | --- | --- | --- | --- |
-| POC 1 | 2–3 weeks | Weeks 1–2 | Weeks 1–3 |
-| POC 2 | 2–3 weeks | Weeks 3–4 | Weeks 4–6 |
-| POC 3 | 2–3 weeks | Weeks 5–6 | Weeks 7–9 |
-| POC 4 | 2–3 weeks | Weeks 7–8 | Weeks 10–12 |
-| POC 5 | 2–3 weeks | Weeks 9–10 | Weeks 13–15 |
-| POC 6 | 2–3 weeks | Weeks 11–12 | Weeks 16–18 |
-| POC 7 | 2–3 weeks | Weeks 13–14 | Weeks 19–21 |
+| Milestone 1 | 2–3 weeks | Weeks 1–2 | Weeks 1–3 |
+| Milestone 2 | 2–3 weeks | Weeks 3–4 | Weeks 4–6 |
+| Milestone 3 | 2–3 weeks | Weeks 5–6 | Weeks 7–9 |
+| Milestone 4 | 2–3 weeks | Weeks 7–8 | Weeks 10–12 |
+| Milestone 5 | 2–3 weeks | Weeks 9–10 | Weeks 13–15 |
+| Milestone 6 | 2–3 weeks | Weeks 11–12 | Weeks 16–18 |
+| Milestone 7 | 2–3 weeks | Weeks 13–14 | Weeks 19–21 |
 
-POC 1’s estimate covers M1–M3 combined. Start each next stage after acceptance; update the schedule if integration, validation, or input readiness causes delay.
+Milestone 1’s estimate covers Features 1–3 combined. Start each next stage after acceptance; update the schedule if integration, validation, or input readiness causes delay.
 
-Default agents begin in POC 1. Each stage adds tested starter agents or useful capabilities through Ask nimbls. Basic Output, Stop, rerun, and truthful execution states remain in POC 1. POC 3 is the dedicated local-model validation stage; it does not reverse the local-first direction or alter the specified initial POC provider setup. Report storage alone does not deliver POC 2 site memory. Later security and device-operation acceptance requirements remain applicable.
+Default agents begin in Milestone 1. Each stage adds tested starter agents or useful capabilities through Ask nimbls. Basic Output, Stop, rerun, and truthful execution states remain in Milestone 1. Milestone 3 is the dedicated local-model validation stage; it does not reverse the local-first direction or alter the specified initial Milestone provider setup. Report storage alone does not deliver Milestone 2 site memory. Later security and device-operation acceptance requirements remain applicable.
 
 The [English marketing website](docs/marketing/ask-nimbls/roadmap.html) presents the same sequence. Download the [roadmap SVG](docs/marketing/ask-nimbls/assets/product-roadmap.svg) or [detailed Markdown roadmap](docs/marketing/ask-nimbls/assets/product-roadmap.md). These describe planned capabilities and do not claim completed demonstrations.
 
 ## Later delivery
 
-The [SPEC's scope boundary](docs/specs/macos-syslog-poc.md#outside-this-poc-delivery-scope) distinguishes confirmed later features from the POC: interactive HTML, additional schedules/integrations, revisions, wider platform/model validation, and deferred collaboration/server/security-assistance work. The seven-POC sequence above organizes later delivery. No additional GitHub milestone numbers or dates are assigned by this update.
+The [SPEC's scope boundary](docs/specs/macos-syslog-poc.md#outside-this-poc-delivery-scope) distinguishes confirmed later features from the Milestone: interactive HTML, additional schedules/integrations, revisions, wider platform/model validation, and deferred collaboration/server/security-assistance work. The seven-Milestone sequence above organizes later delivery. Milestone 2 agent features are tracked as #4–#7; no new delivery dates are assigned.
 
 ### Results center and execution management roadmap
 
 Added 2026-09-21 following product discussion. These are planned capabilities, not released features. Results center is a customer-facing capability; execution management supports all agents. Ask nimbls is the conversational entry for supported operations, including finding results, inspecting work, and requesting improvements. Operations must also be inspectable and verifiable through the shared application interface.
 
-Existing POC commitments remain in M1–M3; the additions below do not move them into later delivery.
+Existing Milestone commitments remain in Features 1–3; the additions below do not move them into later delivery.
 
 | Capability | Concrete functions and customer example | Delivery scope / existing tracking |
 | --- | --- | --- |
-| Read and keep useful results | Browse Markdown reports in Output and pin a file to see its latest content: “Show yesterday’s site report.” | M1; #9–#10 |
-| Refine and reuse results | Ask an agent to revise a report, use supported edit modes, retain replaced files, and restore agents/pins after restart: “Add an executive summary.” | M2; #14, #16–#17. Prior-file archiving does not imply a version-comparison UI. |
-| Inspect and control execution | View progress, stop, rerun, and inspect failures; trace syslog findings to source records. | M1; #8, #11. Completion must not conceal missing evidence or failed work. |
-| Supply missing information | Answer an agent’s request for required information and let the waiting work continue. | M2; #13. This is not general checkpoint recovery. |
-| Inspect scheduled work | See scheduled outcomes and supporting evidence without an older successful report masking the latest failure. | M3; #20–#24 |
+| Read and keep useful results | Browse Markdown reports in Output and pin a file to see its latest content: “Show yesterday’s site report.” | Feature 1; #9–#10 |
+| Refine and reuse results | Ask an agent to revise a report, use supported edit modes, retain replaced files, and restore agents/pins after restart: “Add an executive summary.” | Feature 2; #14, #16–#17. Prior-file archiving does not imply a version-comparison UI. |
+| Inspect and control execution | View progress, stop, rerun, and inspect failures; trace syslog findings to source records. | Feature 1; #8, #11. Completion must not conceal missing evidence or failed work. |
+| Supply missing information | Answer an agent’s request for required information and let the waiting work continue. | Feature 2; #13. This is not general checkpoint recovery. |
+| Inspect scheduled work | See scheduled outcomes and supporting evidence without an older successful report masking the latest failure. | Feature 3; #20–#24 |
 
-Future additions map to the seven-POC sequence above. Their target dates, detailed specifications, and implementation issues remain to be set; no new delivery-date commitment is made here.
+Future additions map to the seven-Milestone sequence above. Their target dates, detailed specifications, and implementation issues remain to be set; no new delivery-date commitment is made here.
 
 | Future feature | Customer-visible behavior / example | Dependencies and acceptance direction | Timing / status |
 | --- | --- | --- | --- |
@@ -75,8 +78,8 @@ Future additions map to the seven-POC sequence above. Their target dates, detail
 | Report archiving and retention controls | “Archive reports older than three months and keep important incidents easy to find.” | Defined archive location, retention rules, and retrieval behavior; distinguish archive from deletion and from automatic prior-file archiving. Verify preserved files remain retrievable. | Added to future roadmap; target date TBD |
 | Searchable work history | Ask nimbls what an agent did, which inputs/results it used, and why a particular execution failed. | Retained execution evidence, history query operations, and links between executions and results; expose gaps when records are unavailable. | Existing direction expanded; target date TBD |
 | Agent improvement review | Ask nimbls to inspect work history, propose instruction or workflow changes, and compare results on representative cases. | Searchable history and reusable agent settings; record before/after evidence rather than assume that an edit improves accuracy. This does not imply model training. | Deferred improvement capability; target date TBD |
-| Authorized device changes with verification | Explain the intended change, operate within the authorized device scope, then report actual results and failures. | Supported NIMBL/bbcli operations, enforceable authorization, and before/after evidence. Define concrete supported changes and validation cases before delivery. | Existing design requirement; outside syslog POC; target date TBD |
-| Controlled external-analysis review | Review the destination and prepared evidence before policy-permitted external analysis; validate returned advice locally. | Local model integration, per-data-type disclosure policies/tests, required approvals, and evaluated optional relay/provider routing. See [secure-assistance specification](docs/specs/secure-external-assistance.md). External analysis does not authorize device changes. | Future design; outside M1; target date TBD |
+| Authorized device changes with verification | Explain the intended change, operate within the authorized device scope, then report actual results and failures. | Supported NIMBL/bbcli operations, enforceable authorization, and before/after evidence. Define concrete supported changes and validation cases before delivery. | Existing design requirement; outside syslog Milestone; target date TBD |
+| Controlled external-analysis review | Review the destination and prepared evidence before policy-permitted external analysis; validate returned advice locally. | Local model integration, per-data-type disclosure policies/tests, required approvals, and evaluated optional relay/provider routing. See [secure-assistance specification](docs/specs/secure-external-assistance.md). External analysis does not authorize device changes. | Future design; outside Feature 1; target date TBD |
 
 Saving reports alone does not deliver site memory or root-cause analysis. Historical retrieval, source/time references, and evidence-based comparison need explicit implementation and validation. Full report-version comparison/restoration and general autonomous remediation are not committed by this roadmap update.
 
@@ -86,7 +89,7 @@ Saving reports alone does not deliver site memory or root-cause analysis. Histor
 
 ## Function issues
 
-### [M1 — Manual syslog report](https://github.com/bbtechhive/nimbls-public/milestone/1)
+### [Feature 1 — Manual syslog report](https://github.com/bbtechhive/nimbls-public/milestone/1)
 
 | Issue | Dependencies | Type |
 | --- | --- | --- |
@@ -98,9 +101,9 @@ Saving reports alone does not deliver site memory or root-cause analysis. Histor
 | [#9 — Publish reports through write_output with prior-version archiving](https://github.com/bbtechhive/nimbls-public/issues/9) | [#8](https://github.com/bbtechhive/nimbls-public/issues/8) | AFK |
 | [#10 — Browse and pin current Markdown reports in the result region](https://github.com/bbtechhive/nimbls-public/issues/10) | [#9](https://github.com/bbtechhive/nimbls-public/issues/9) | AFK |
 | [#11 — Stop, rerun and inspect manual executions without false success](https://github.com/bbtechhive/nimbls-public/issues/11) | [#8](https://github.com/bbtechhive/nimbls-public/issues/8), [#10](https://github.com/bbtechhive/nimbls-public/issues/10) | AFK |
-| [#12 — Verify M1 using a packaged macOS app and live syslog](https://github.com/bbtechhive/nimbls-public/issues/12) | [#11](https://github.com/bbtechhive/nimbls-public/issues/11), [#6](https://github.com/bbtechhive/nimbls-public/issues/6), [#7](https://github.com/bbtechhive/nimbls-public/issues/7), [#9](https://github.com/bbtechhive/nimbls-public/issues/9), [#10](https://github.com/bbtechhive/nimbls-public/issues/10) | HITL |
+| [#12 — Verify Feature 1 using a packaged macOS app and live syslog](https://github.com/bbtechhive/nimbls-public/issues/12) | [#11](https://github.com/bbtechhive/nimbls-public/issues/11), [#6](https://github.com/bbtechhive/nimbls-public/issues/6), [#7](https://github.com/bbtechhive/nimbls-public/issues/7), [#9](https://github.com/bbtechhive/nimbls-public/issues/9), [#10](https://github.com/bbtechhive/nimbls-public/issues/10) | HITL |
 
-### [M2 — Refine and reuse](https://github.com/bbtechhive/nimbls-public/milestone/2)
+### [Feature 2 — Refine and reuse](https://github.com/bbtechhive/nimbls-public/milestone/2)
 
 | Issue | Dependencies | Type |
 | --- | --- | --- |
@@ -112,7 +115,7 @@ Saving reports alone does not deliver site memory or root-cause analysis. Histor
 | [#18 — Delete an agent and its working folder while preserving shared reports](https://github.com/bbtechhive/nimbls-public/issues/18) | [#11](https://github.com/bbtechhive/nimbls-public/issues/11), [#17](https://github.com/bbtechhive/nimbls-public/issues/17), [#16](https://github.com/bbtechhive/nimbls-public/issues/16) | AFK |
 | [#19 — Verify report refinement, persistence and agent cleanup end to end](https://github.com/bbtechhive/nimbls-public/issues/19) | [#12](https://github.com/bbtechhive/nimbls-public/issues/12), [#14](https://github.com/bbtechhive/nimbls-public/issues/14), [#15](https://github.com/bbtechhive/nimbls-public/issues/15), [#16](https://github.com/bbtechhive/nimbls-public/issues/16), [#17](https://github.com/bbtechhive/nimbls-public/issues/17), [#18](https://github.com/bbtechhive/nimbls-public/issues/18) | AFK |
 
-### [M3 — Daily automation](https://github.com/bbtechhive/nimbls-public/milestone/3)
+### [Feature 3 — Daily automation](https://github.com/bbtechhive/nimbls-public/milestone/3)
 
 | Issue | Dependencies | Type |
 | --- | --- | --- |
@@ -121,15 +124,15 @@ Saving reports alone does not deliver site memory or root-cause analysis. Histor
 | [#22 — Edit, pause, resume and cancel schedules without stopping active work](https://github.com/bbtechhive/nimbls-public/issues/22) | [#21](https://github.com/bbtechhive/nimbls-public/issues/21), [#18](https://github.com/bbtechhive/nimbls-public/issues/18) | AFK |
 | [#23 — Keep daily work alive after window close and quit with truthful stopping](https://github.com/bbtechhive/nimbls-public/issues/23) | [#21](https://github.com/bbtechhive/nimbls-public/issues/21), [#11](https://github.com/bbtechhive/nimbls-public/issues/11) | AFK |
 | [#24 — Inspect scheduled outcomes and source evidence without masking failures](https://github.com/bbtechhive/nimbls-public/issues/24) | [#21](https://github.com/bbtechhive/nimbls-public/issues/21), [#22](https://github.com/bbtechhive/nimbls-public/issues/22), [#10](https://github.com/bbtechhive/nimbls-public/issues/10) | AFK |
-| [#25 — Verify daily syslog automation and close the macOS POC](https://github.com/bbtechhive/nimbls-public/issues/25) | [#19](https://github.com/bbtechhive/nimbls-public/issues/19), [#21](https://github.com/bbtechhive/nimbls-public/issues/21), [#22](https://github.com/bbtechhive/nimbls-public/issues/22), [#23](https://github.com/bbtechhive/nimbls-public/issues/23), [#24](https://github.com/bbtechhive/nimbls-public/issues/24) | HITL |
+| [#25 — Verify daily syslog automation and close the macOS Milestone](https://github.com/bbtechhive/nimbls-public/issues/25) | [#19](https://github.com/bbtechhive/nimbls-public/issues/19), [#21](https://github.com/bbtechhive/nimbls-public/issues/21), [#22](https://github.com/bbtechhive/nimbls-public/issues/22), [#23](https://github.com/bbtechhive/nimbls-public/issues/23), [#24](https://github.com/bbtechhive/nimbls-public/issues/24) | HITL |
 
 AFK means routine implementation can proceed under the agreed design; normal review/publication rules still apply. HITL marks live acceptance requiring user-provided test scope/setup. Missing test access can block execution of integration checks without changing an issue's implementation scope.
 
-## POC 2 agent milestones
+## Milestone 2 agent features
 
-POC 2 adds four agent milestones to build and use site history. These are planned website milestones; GitHub tracking IDs and individual dates are not yet assigned. The existing 2–3-week POC estimate covers all four together and must be rechecked against this expanded scope.
+Milestone 2 adds four agent features to build and use site history. The four Milestone 2 features are tracked in GitHub; individual dates are not assigned. The existing 2–3-week Milestone estimate covers all four together and must be rechecked against this expanded scope.
 
-## P2-M1 — syslog-reviewer
+## Feature 1 — syslog-reviewer
 
 **Outcome:** Daily syslog review.
 
@@ -137,7 +140,7 @@ POC 2 adds four agent milestones to build and use site history. These are planne
 
 **Accept when:** Replay known important events and frequency spikes. Compare findings, token use and elapsed time against full-log analysis; report misses and cost changes. Test candidate patterns on retained cases before human approval and versioned activation.
 
-## P2-M2 — device-snapshot
+## Feature 2 — device-snapshot
 
 **Outcome:** Daily device snapshots.
 
@@ -145,7 +148,7 @@ POC 2 adds four agent milestones to build and use site history. These are planne
 
 **Accept when:** Retrieve snapshots across days with consistent device IDs and timestamps. Distinguish collection failure from device removal or no change. Apply explicit retention rules, preserving incident-linked evidence; do not silently delete it.
 
-## P2-M3 — incident-investigator
+## Feature 3 — incident-investigator
 
 **Outcome:** Evidence-backed incident investigation.
 
@@ -153,16 +156,25 @@ POC 2 adds four agent milestones to build and use site history. These are planne
 
 **Accept when:** Investigate a switch with repeated link interruptions. Retrieve matching source/time references, compare device changes and distinguish hypotheses from proven causes. Daily snapshots only bound a change between captures.
 
-## P2-M4 — ask-nimbls
+## Feature 4 — ask-nimbls
 
 **Outcome:** Site operations entry point.
 
-**Deliver:** Extend the existing POC 1 agent to answer site-history questions, inspect daily-agent outcomes, initiate a scoped investigation and help refine schedules or review candidate patterns. Daily jobs continue independently on their schedules.
+**Deliver:** Extend the existing Milestone 1 agent to answer site-history questions, inspect daily-agent outcomes, initiate a scoped investigation and help refine schedules or review candidate patterns. Daily jobs continue independently on their schedules.
 
 **Accept when:** Ask what changed yesterday, why a switch is disconnecting, and whether daily jobs finished. Show current results and failures with sources. An initiated investigation retains its scope, progress and outcome through an explicit execution interface.
 
 ## Shared design rules
 
-Scripts own repeatable collection, parsing, comparison and policy-based cleanup. Agents interpret exceptions, evidence and improvements. Snapshot schema and writes belong to a shared storage interface; the database engine remains to be selected and does not change nimbls application-setting storage. Use common device identifiers, timestamps and evidence references. P2-M1 and P2-M2 supply evidence for P2-M3; P2-M4 exposes those capabilities through the existing Ask nimbls agent. No general autonomous agent delegation is implied.
+Scripts own repeatable collection, parsing, comparison and policy-based cleanup. Agents interpret exceptions, evidence and improvements. Snapshot schema and writes belong to a shared storage interface; the database engine remains to be selected and does not change nimbls application-setting storage. Use common device identifiers, timestamps and evidence references. Feature 1 and Feature 2 supply evidence for Feature 3; Feature 4 exposes those capabilities through the existing Ask nimbls agent. No general autonomous agent delegation is implied.
 
 Recurring patterns are not automatically harmless. Keep counts and trends; evaluate candidate patterns before activation. Cost reductions are targets to measure, not promises.
+
+## Milestone 2 feature detail pages
+
+Each sales page contains feature scope, a workflow diagram, customer outcomes and a scenario. Acceptance is maintained separately in the Milestone 2 design specification and GitHub issues. Diagrams are downloadable as PNG/SVG, with a Markdown brief.
+
+- [Feature 1 — syslog-reviewer](docs/marketing/ask-nimbls/p2-m1.html)
+- [Feature 2 — device-snapshot](docs/marketing/ask-nimbls/p2-m2.html)
+- [Feature 3 — incident-investigator](docs/marketing/ask-nimbls/p2-m3.html)
+- [Feature 4 — ask-nimbls](docs/marketing/ask-nimbls/p2-m4.html)

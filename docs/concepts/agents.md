@@ -10,7 +10,7 @@ The initial direction is a local application that directly runs and manages agen
 
 ## Useful from the start
 
-nimbls should include useful starter agents that can be run after guided connection/provider setup. Users can begin with a prepared agent, customize it, or create their own. Easy use and readiness out of the box guide the product; ordinary use should not require technical configuration. POC 1 validates daily syslog reporting and Ask nimbls. POC 2 adds `syslog-reviewer`, `device-snapshot`, `incident-investigator`, and a site-operations extension of `ask-nimbls`, with one planned milestone per agent. Scheduled scripts collect and compare evidence; agents interpret exceptions and findings. See the [default agents and delivery milestones](../guides/starter-agents.md) for scope and acceptance.
+nimbls should include useful starter agents that can be run after guided connection/provider setup. Users can begin with a prepared agent, customize it, or create their own. Easy use and readiness out of the box guide the product; ordinary use should not require technical configuration. Milestone 1 validates daily syslog reporting and Ask nimbls. Milestone 2 adds `syslog-reviewer`, `device-snapshot`, `incident-investigator`, and a site-operations extension of `ask-nimbls`, with one planned milestone per agent. Scheduled scripts collect and compare evidence; agents interpret exceptions and findings. See the [default agents and delivery milestones](../guides/starter-agents.md) for scope and acceptance.
 
 ## Results first, chat when useful
 
@@ -88,3 +88,10 @@ Next: [Create an agent: example requests](../guides/create-an-agent.md) · [Dail
 
 
 The result region lets users browse system output/ and pin files to keep their latest content visible. Markdown and HTML are rendered directly. A pinned file is a current file view; execution status still identifies incomplete or failed work.
+
+## GitHub feature tracking
+
+- [syslog-reviewer](https://github.com/bbtechhive/nimbls-public/issues/35)
+- [device-snapshot](https://github.com/bbtechhive/nimbls-public/issues/36)
+- [incident-investigator](https://github.com/bbtechhive/nimbls-public/issues/37)
+- [ask-nimbls site operations](https://github.com/bbtechhive/nimbls-public/issues/38)

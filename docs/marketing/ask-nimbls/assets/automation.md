@@ -2,7 +2,7 @@
 
 **Set the task. Keep it working.**
 
-Status: planned capability, not released functionality. POC 1 · M3. Delivery dates TBD. nimbls remains a development code name.
+Status: planned capability, not released functionality. Milestone 1 · Feature 3. Delivery dates TBD. nimbls remains a development code name.
 
 ## Standard feature card
 
@@ -14,7 +14,6 @@ Status: planned capability, not released functionality. POC 1 · M3. Delivery da
 | Benefits | Reduce repeated instructions; Keep routine work organized; See failures and skipped work clearly |
 | Deliverable | A saved daily schedule with next due time and visible execution outcomes. |
 | Prerequisites | Saved agent and working dependencies; application running and computer awake when due. |
-| Proof required | Verify daily dispatch, fresh sessions, overlap skips, no catch-up, schedule controls, Stop, and Quit. |
 | Scope and limits | Missed occurrences are not caught up. Pausing or cancelling a schedule does not stop an already running task. |
 
 ## Customer scenario

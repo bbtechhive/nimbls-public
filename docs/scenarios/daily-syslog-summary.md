@@ -99,7 +99,7 @@ The report uses the analyzed date in its filename. Partial coverage stays visibl
 
 The operator says “Compare with the previous seven days.” The creation-agent updates the setup and checks access to that history, then tries the revised task in the selected test environment. The resulting report must show an actual comparison or explain the missing evidence.
 
-After inspecting the result, the operator can save the agent or say “Run it every morning at eight.” Show the selected timezone and enabled schedule. This trial-and-refinement experience is a POC priority; full production security administration is refined later. Secure external model assistance remains outside milestone 1.
+After inspecting the result, the operator can save the agent or say “Run it every morning at eight.” Show the selected timezone and enabled schedule. This trial-and-refinement experience is a Milestone priority; full production security administration is refined later. Secure external model assistance remains outside milestone 1.
 
 ## What a pilot should demonstrate
 
@@ -118,6 +118,13 @@ The story to communicate is: “Describe the work, review the expected result, a
 
 Related: [Copyable creation examples](../guides/create-an-agent.md) · [Agent concepts](../concepts/agents.md) · [Detailed function draft](../specs/fundamental-function-blocks.md)
 
-## POC 2 extension
+## Milestone 2 extension
 
-The initial reporting scenario remains POC 1. POC 2 adds script-first syslog classification and trend checks, daily device snapshots and on-demand incident investigation through Ask nimbls. See [default agents and delivery milestones](../guides/starter-agents.md) for responsibilities, pattern review, retention and acceptance. Daily work does not require a fresh chat request.
+The initial reporting scenario remains Milestone 1. Milestone 2 adds script-first syslog classification and trend checks, daily device snapshots and on-demand incident investigation through Ask nimbls. See [default agents and delivery milestones](../guides/starter-agents.md) for responsibilities, pattern review, retention and acceptance. Daily work does not require a fresh chat request.
+
+## GitHub feature tracking
+
+- [syslog-reviewer](https://github.com/bbtechhive/nimbls-public/issues/35)
+- [device-snapshot](https://github.com/bbtechhive/nimbls-public/issues/36)
+- [incident-investigator](https://github.com/bbtechhive/nimbls-public/issues/37)
+- [ask-nimbls site operations](https://github.com/bbtechhive/nimbls-public/issues/38)

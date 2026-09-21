@@ -4,7 +4,7 @@
       "id": "custom-agents",
       "name": "Custom Agents",
       "slogan": "Teach it your way. Put it to work.",
-      "poc": "POC 1 · M1–M3",
+      "milestone": "Milestone 1 · Features 1–3",
       "role": "Operators and teams with repeatable tasks",
       "problem": "Useful work gets described from scratch, and each result needs the same corrections.",
       "intro": "Start with a ready-to-use agent or describe a new one. Refine its instructions, tools, and output through conversation, then save the approach that meets your needs. Agents can serve general tasks as well as NIMBL workflows.",
@@ -29,9 +29,8 @@
         ]
       ],
       "outcome": "A reusable agent with a defined task and inspectable output.",
-      "proof": "The saved agent survives restart and reuses the requested instructions; evaluate the report against known input records.",
       "prereq": "A working model and the tools/data required by the task. NIMBL is needed only for NIMBL tasks.",
-      "boundary": "Changing instructions is not model training or proof of better accuracy. The first POC validates the syslog workflow; other tasks require their own validation.",
+      "boundary": "Changing instructions is not model training or proof of better accuracy. The first Milestone validates the syslog workflow; other tasks require their own validation.",
       "benefits": [
         "Start from an included agent",
         "Keep your preferred working method",
@@ -42,7 +41,7 @@
       "id": "site-history",
       "name": "Site History & Knowledge",
       "slogan": "Every incident adds context.",
-      "poc": "POC 2",
+      "milestone": "Milestone 2",
       "role": "Network operators and incident investigators",
       "problem": "Important observations and previous resolutions are scattered across logs, reports, and people.",
       "intro": "Retain important observations, syslogs, changes, and investigation findings under defined retention rules. Retrieve the evidence when a new issue appears, with its source and time context.",
@@ -67,7 +66,6 @@
         ]
       ],
       "outcome": "An incident timeline and a comparison with previous cases, including source references and unresolved questions.",
-      "proof": "Seed known historical events, retrieve them across executions, and check source/time references. Missing evidence remains explicit.",
       "prereq": "Accessible historical records, retention rules, identity/time consistency, and supported retrieval operations.",
       "boundary": "Saving reports alone is not historical understanding. A similar event or correlated change does not establish root cause.",
       "benefits": [
@@ -80,7 +78,7 @@
       "id": "local-ai",
       "name": "Local AI",
       "slogan": "Everyday work. Close to your data.",
-      "poc": "POC 3",
+      "milestone": "Milestone 3",
       "role": "Teams using approved on-site computing",
       "problem": "Routine analysis may depend on external inference even when data and compute can stay on site.",
       "intro": "Run supported models on your computer or an approved site server. Validate useful network and general-purpose workflows locally, with explicit model and hardware requirements.",
@@ -105,7 +103,6 @@
         ]
       ],
       "outcome": "A locally generated network report and a document comparison with references to the supplied files.",
-      "proof": "Complete both representative workflows with no external inference requests; record supported hardware, model, and observed limitations.",
       "prereq": "Provisioned local model, sufficient hardware, and compatible tool capabilities. Offline tasks need their dependencies available locally.",
       "boundary": "Local deployment does not automatically mean local inference. Hardware and operation have costs; do not promise zero cost or universal model quality.",
       "benefits": [
@@ -128,7 +125,7 @@
         },
         {
           "title": "Keep external assistance a deliberate choice",
-          "description": "Local-only work must not silently fall back to a cloud model. Controlled external assistance is planned separately for POC 6, with data-type review, permitted destinations and disclosure checks before enablement."
+          "description": "Local-only work must not silently fall back to a cloud model. Controlled external assistance is planned separately for Milestone 6, with data-type review, permitted destinations and disclosure checks before enablement."
         }
       ],
       "securityLimits": "Local inference is one part of data protection. Agent tools, telemetry, updates and other integrations require separate network review. Local files and reports still need appropriate access controls, retention and backups. A local interface alone does not prove local processing or an air-gapped deployment.",
@@ -138,7 +135,7 @@
       "id": "automation",
       "name": "Scheduling & Automation",
       "slogan": "Set the task. Keep it working.",
-      "poc": "POC 1 · M3",
+      "milestone": "Milestone 1 · Feature 3",
       "role": "People repeating the same checks and reports",
       "problem": "A useful reporting workflow still depends on someone remembering to start it every day.",
       "intro": "Schedule a tested agent and inspect each outcome. Adjust, pause, resume, or cancel its schedule without confusing the schedule with an active execution.",
@@ -163,7 +160,6 @@
         ]
       ],
       "outcome": "A saved daily schedule with next due time and visible execution outcomes.",
-      "proof": "Verify daily dispatch, fresh sessions, overlap skips, no catch-up, schedule controls, Stop, and Quit.",
       "prereq": "Saved agent and working dependencies; application running and computer awake when due.",
       "boundary": "Missed occurrences are not caught up. Pausing or cancelling a schedule does not stop an already running task.",
       "benefits": [
@@ -176,7 +172,7 @@
       "id": "results-center",
       "name": "Results Center",
       "slogan": "Work becomes something you can use.",
-      "poc": "Basics: POC 1 · Advanced: POC 4",
+      "milestone": "Basics: Milestone 1 · Advanced: Milestone 4",
       "role": "People who review, share, and reuse agent deliverables",
       "problem": "Useful results are hard to find again or are trapped in a conversation.",
       "intro": "Browse and pin reports, request revisions, and preserve useful deliverables. Later add interactive HTML, report search, organization, and archiving with explicit retention behavior.",
@@ -201,9 +197,8 @@
         ]
       ],
       "outcome": "A usable report collection with an interactive view and retrievable archived material.",
-      "proof": "Verify search matches period/subject, report interactions stay isolated, and archived files remain retrievable under the stated policy.",
       "prereq": "Output operations and metadata. Advanced search, preview isolation, and retention semantics must be implemented.",
-      "boundary": "Markdown browsing/pinning and prior-file archiving remain in POC 1. Full version-diff/restore UI is not promised. Report content and execution status remain distinct.",
+      "boundary": "Markdown browsing/pinning and prior-file archiving remain in Milestone 1. Full version-diff/restore UI is not promised. Report content and execution status remain distinct.",
       "benefits": [
         "Keep deliverables accessible",
         "Adapt results to their audience",
@@ -214,7 +209,7 @@
       "id": "agent-improvement",
       "name": "Agent Improvement Review",
       "slogan": "Learn from the work. Improve the next run.",
-      "poc": "POC 5",
+      "milestone": "Milestone 5",
       "role": "Agent owners reviewing quality and consistency",
       "problem": "Repeated errors are hard to fix without knowing which inputs, instructions, and results produced them.",
       "intro": "Ask nimbls to inspect an agent’s retained execution evidence and propose a targeted change. Compare results before adopting the revised approach.",
@@ -239,7 +234,6 @@
         ]
       ],
       "outcome": "A review explaining the proposed change, before/after results, and remaining limitations.",
-      "proof": "Show whether the target case improves and whether known-good cases regress; retain input/configuration context for comparison.",
       "prereq": "Queryable work history, retained evidence, editable agent settings, and representative evaluation cases.",
       "boundary": "This is evidence-based refinement, not automatic self-improvement or model training. Missing history may prevent a reliable conclusion.",
       "benefits": [
@@ -252,7 +246,7 @@
       "id": "external-assistance",
       "name": "Controlled External Assistance",
       "slogan": "Local first. Powerful beyond.",
-      "poc": "POC 6",
+      "milestone": "Milestone 6",
       "role": "Teams needing advanced analysis with controlled disclosure",
       "problem": "Complex questions may benefit from stronger models, but the complete site history or raw data cannot simply be sent away.",
       "intro": "Let the local agent request bounded assistance from an approved external model. The proposed nimbls Relay supports controlled routing; enforce disclosure policy before data leaves the site and validate advice locally.",
@@ -277,7 +271,6 @@
         ]
       ],
       "outcome": "An external contribution with provenance, policy outcome, and a locally qualified analysis.",
-      "proof": "Demonstrate both allowed and blocked requests, the exact outgoing payload/destination, configured cost limits, and local verification.",
       "prereq": "Local workflow, reviewed/tested policies for each enabled data type, approved provider/route, and verified recipient handling.",
       "boundary": "Relay architecture remains a proposal. Unknown data types are blocked. External advice grants no device permissions. Do not promise zero leakage, zero retention, or free frontier-model use.",
       "benefits": [
@@ -290,7 +283,7 @@
       "id": "execution-management",
       "name": "Execution Management",
       "slogan": "See the work. Stay in control.",
-      "poc": "Basics: POC 1 · Verified changes: POC 7",
+      "milestone": "Basics: Milestone 1 · Verified changes: Milestone 7",
       "role": "People supervising agent work and device operations",
       "problem": "A finished conversation does not prove that the task succeeded or a device reached the intended state.",
       "intro": "Inspect progress, stop or rerun work, and distinguish successful results from incomplete attempts. Extend this foundation to authorized device changes with before/after verification.",
@@ -315,9 +308,8 @@
         ]
       ],
       "outcome": "A change record with authorized scope, before/after observations, per-device outcomes, and recovery needs.",
-      "proof": "Prove scope enforcement, actual-state verification, and truthful partial-failure handling on a defined supported operation.",
       "prereq": "Supported NIMBL/bbcli operation, enforceable authorization, observable device state, and an operation-specific recovery plan.",
-      "boundary": "Progress, Stop, rerun, and truthful failures start in POC 1. POC 7 does not promise universal autonomous repair or rollback support for every device operation.",
+      "boundary": "Progress, Stop, rerun, and truthful failures start in Milestone 1. Milestone 7 does not promise universal autonomous repair or rollback support for every device operation.",
       "benefits": [
         "Understand what happened",
         "Control active work",
@@ -327,108 +319,113 @@
   ],
   "roadmap": [
     {
-      "poc": 1,
+      "milestone": 1,
       "title": "Agent creation and daily syslog automation",
       "capability": "Ask nimbls + Custom Agents",
       "starter": "Daily Syslog Summary Agent",
       "scenario": "Create, run, refine, save, and schedule a syslog report.",
-      "acceptance": "Complete M1–M3 with live NIMBL data, evidence-backed outputs, and truthful failures.",
       "duration": "2–3 weeks",
       "two_week_schedule": "Weeks 1–2",
-      "three_week_schedule": "Weeks 1–3"
+      "three_week_schedule": "Weeks 1–3",
+      "githubMilestone": 1,
+      "githubUrl": "https://github.com/bbtechhive/nimbls-public/milestone/1"
     },
     {
-      "poc": 2,
+      "milestone": 2,
       "title": "Site history retention and incident investigation",
       "capability": "Site History & Knowledge",
       "starter": "syslog-reviewer + device-snapshot + incident-investigator + ask-nimbls (extended)",
       "scenario": "Find a similar incident and compare changes and prior handling.",
-      "acceptance": "Retrieve retained evidence across executions with correct source/time references and explicit uncertainty.",
       "duration": "2–3 weeks",
       "two_week_schedule": "Weeks 3–4",
       "three_week_schedule": "Weeks 4–6",
-      "agentMilestones": [
+      "agentFeatures": [
         {
-          "id": "P2-M1",
+          "id": "M2-F1",
           "agent": "syslog-reviewer",
           "title": "Daily syslog review",
           "scope": "Run scripts first to classify known patterns, deduplicate events and count changes by device and time. The agent reviews unmatched logs and unusual changes in known patterns, then retains useful, critical and anomalous findings.",
-          "acceptance": "Replay known important events and frequency spikes. Compare findings, token use and elapsed time against full-log analysis; report misses and cost changes. Test candidate patterns on retained cases before human approval and versioned activation."
+          "githubUrl": "https://github.com/bbtechhive/nimbls-public/issues/35",
+          "page": "p2-m1.html",
+          "githubIssue": 35
         },
         {
-          "id": "P2-M2",
+          "id": "M2-F2",
           "agent": "device-snapshot",
           "title": "Daily device snapshots",
           "scope": "Use a script to capture a defined snapshot of every in-scope device and store it through a shared database interface. Compare snapshots; let the agent explain meaningful differences and recommend retention changes.",
-          "acceptance": "Retrieve snapshots across days with consistent device IDs and timestamps. Distinguish collection failure from device removal or no change. Apply explicit retention rules, preserving incident-linked evidence; do not silently delete it."
+          "githubUrl": "https://github.com/bbtechhive/nimbls-public/issues/36",
+          "page": "p2-m2.html",
+          "githubIssue": 36
         },
         {
-          "id": "P2-M3",
+          "id": "M2-F3",
           "agent": "incident-investigator",
           "title": "Evidence-backed incident investigation",
           "scope": "On request, combine retained syslog findings, device snapshots and previous cases into an incident timeline. Cite evidence, explain possible causes and identify missing information.",
-          "acceptance": "Investigate a switch with repeated link interruptions. Retrieve matching source/time references, compare device changes and distinguish hypotheses from proven causes. Daily snapshots only bound a change between captures."
+          "githubUrl": "https://github.com/bbtechhive/nimbls-public/issues/37",
+          "page": "p2-m3.html",
+          "githubIssue": 37
         },
         {
-          "id": "P2-M4",
+          "id": "M2-F4",
           "agent": "ask-nimbls",
           "title": "Site operations entry point",
-          "scope": "Extend the existing POC 1 agent to answer site-history questions, inspect daily-agent outcomes, initiate a scoped investigation and help refine schedules or review candidate patterns. Daily jobs continue independently on their schedules.",
-          "acceptance": "Ask what changed yesterday, why a switch is disconnecting, and whether daily jobs finished. Show current results and failures with sources. An initiated investigation retains its scope, progress and outcome through an explicit execution interface."
+          "scope": "Extend the existing Milestone 1 agent to answer site-history questions, inspect daily-agent outcomes, initiate a scoped investigation and help refine schedules or review candidate patterns. Daily jobs continue independently on their schedules.",
+          "githubUrl": "https://github.com/bbtechhive/nimbls-public/issues/38",
+          "page": "p2-m4.html",
+          "githubIssue": 38
         }
-      ]
+      ],
+      "githubMilestone": 2,
+      "githubUrl": "https://github.com/bbtechhive/nimbls-public/milestone/2"
     },
     {
-      "poc": 3,
+      "milestone": 3,
       "title": "Local model integration and general tasks",
       "capability": "Local LLM Server",
       "starter": "Locally validated network agents + Document Comparison Agent",
       "scenario": "Run a network report and compare documents without external inference.",
-      "acceptance": "Validate both workflows on documented hardware/model; observe no external inference requests.",
       "duration": "2–3 weeks",
       "two_week_schedule": "Weeks 5–6",
       "three_week_schedule": "Weeks 7–9"
     },
     {
-      "poc": 4,
+      "milestone": 4,
       "title": "Report search, interaction and archiving",
       "capability": "Advanced Results Center",
       "starter": "Report search and organization through Ask nimbls",
       "scenario": "Explore an interactive report and archive old reports while keeping key cases searchable.",
-      "acceptance": "Correct search results, isolated interactions, and verified archive retrieval.",
       "duration": "2–3 weeks",
       "two_week_schedule": "Weeks 7–8",
       "three_week_schedule": "Weeks 10–12"
     },
     {
-      "poc": 5,
+      "milestone": 5,
       "title": "Agent performance review and improvement",
       "capability": "Agent Improvement Review",
       "starter": "Improvement review through Ask nimbls",
       "scenario": "Review a missed event, propose a change, and compare revised results.",
-      "acceptance": "Representative before/after cases show gains or regressions; retain the evidence.",
       "duration": "2–3 weeks",
       "two_week_schedule": "Weeks 9–10",
       "three_week_schedule": "Weeks 13–15"
     },
     {
-      "poc": 6,
+      "milestone": 6,
       "title": "Controlled external model assistance",
       "capability": "nimbls Relay + Controlled External Assistance",
       "starter": "Controlled consultation for existing agents",
       "scenario": "Ask an approved model for help using only policy-permitted evidence.",
-      "acceptance": "Verify allowed/blocked payloads, recipients, cost limits, and local response validation.",
       "duration": "2–3 weeks",
       "two_week_schedule": "Weeks 11–12",
       "three_week_schedule": "Weeks 16–18"
     },
     {
-      "poc": 7,
+      "milestone": 7,
       "title": "Authorized device changes and verification",
       "capability": "Authorized Device Changes",
       "starter": "Device Change Agent",
       "scenario": "Execute a supported authorized change and verify actual device state.",
-      "acceptance": "Scope enforcement, before/after evidence, and honest success/partial-failure outcomes.",
       "duration": "2–3 weeks",
       "two_week_schedule": "Weeks 13–14",
       "three_week_schedule": "Weeks 19–21"

@@ -2,7 +2,7 @@
 
 **Local first. Powerful beyond.**
 
-Status: planned capability, not released functionality. POC 6. Delivery dates TBD. nimbls remains a development code name.
+Status: planned capability, not released functionality. Milestone 6. Delivery dates TBD. nimbls remains a development code name.
 
 ## Standard feature card
 
@@ -14,7 +14,6 @@ Status: planned capability, not released functionality. POC 6. Delivery dates TB
 | Benefits | Control what leaves the site; Seek help for bounded questions; Keep site authority with the local agent |
 | Deliverable | An external contribution with provenance, policy outcome, and a locally qualified analysis. |
 | Prerequisites | Local workflow, reviewed/tested policies for each enabled data type, approved provider/route, and verified recipient handling. |
-| Proof required | Demonstrate both allowed and blocked requests, the exact outgoing payload/destination, configured cost limits, and local verification. |
 | Scope and limits | Relay architecture remains a proposal. Unknown data types are blocked. External advice grants no device permissions. Do not promise zero leakage, zero retention, or free frontier-model use. |
 
 ## Customer scenario

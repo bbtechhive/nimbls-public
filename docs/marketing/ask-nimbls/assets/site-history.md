@@ -2,7 +2,7 @@
 
 **Every incident adds context.**
 
-Status: planned capability, not released functionality. POC 2. Delivery dates TBD. nimbls remains a development code name.
+Status: planned capability, not released functionality. Milestone 2. Delivery dates TBD. nimbls remains a development code name.
 
 ## Standard feature card
 
@@ -14,7 +14,6 @@ Status: planned capability, not released functionality. POC 2. Delivery dates TB
 | Benefits | Reuse previous investigations; Compare current and past conditions; Keep conclusions tied to evidence |
 | Deliverable | An incident timeline and a comparison with previous cases, including source references and unresolved questions. |
 | Prerequisites | Accessible historical records, retention rules, identity/time consistency, and supported retrieval operations. |
-| Proof required | Seed known historical events, retrieve them across executions, and check source/time references. Missing evidence remains explicit. |
 | Scope and limits | Saving reports alone is not historical understanding. A similar event or correlated change does not establish root cause. |
 
 ## Customer scenario
@@ -47,6 +46,6 @@ These are presentation slots, not execution-speed claims. Label mockups and pre-
 
 The accompanying SVG is a workflow concept, not a product screen. Future screen illustrations must follow the canonical UI guide or be explicitly proposed as design changes before marketing adoption.
 
-## POC 2 agent delivery
+## Milestone 2 agent delivery
 
-See [POC 2 agent milestones](poc2-agent-milestones.md) for the four planned agent milestones and acceptance criteria.
+See [Milestone 2 agent features](poc2-agent-milestones.md) for the four planned agent features and acceptance criteria.
