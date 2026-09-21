@@ -74,7 +74,7 @@ Keep the planned-feature labels, sample-content labels, and provisional naming w
 
 This is a static page. It has no external fonts, tracking, framework, or runtime dependency. Host all `.html` pages and `assets/` together under the chosen website path. Include `README.md` and the complete ZIP for the page's download links. The local launcher is for previewing only; do not use its development server as a public website server. Launcher files need not be hosted individually.
 
-The complete ZIP contains this README, all 12 HTML pages, all marketing assets and bundled calendar data, the editable content catalog, and the four launcher files. It does not contain itself. On an extracted offline copy, **Download complete kit** is unavailable unless the original ZIP is placed alongside `index.html`; all individual previews and downloads still work. Rebuild the ZIP when source files change.
+The complete ZIP contains this README, all website pages, all marketing assets and bundled calendar data, the editable content catalog, and the four launcher files. It does not contain itself. On an extracted offline copy, **Download complete kit** is unavailable unless the original ZIP is placed alongside `index.html`; all individual previews and downloads still work. Rebuild the ZIP when source files change.
 
 macOS and Windows launchers use an installed Python 3 interpreter. The shared server binds only to `127.0.0.1`, chooses a free port automatically, and serves the extracted folder regardless of the starting directory.
 
@@ -110,3 +110,9 @@ The Ask nimbls hero follows the current desktop foundation. Other capability vis
 Keep these pages together. Navigation uses relative links, so the site works from the extracted folder or under a website subdirectory. Old overview hash links redirect to their corresponding page when JavaScript is enabled.
 
 - `guide.html`: formatted quick-start guide for sales and marketing; the Markdown README remains available to download.
+
+## Visual Library for sales and marketing
+
+Open **Visual Library** from any page to preview and download the architecture, feature diagrams, daily network scenario, and roadmap reference. Each offers PNG for slides, editable SVG and presentation notes. **Download all visuals & notes** provides a separate ZIP; the complete website kit includes that ZIP too. Individual feature pages also offer PNG/SVG beside the relevant diagram.
+
+The homepage introduces the architecture and daily operations journey; detailed diagrams stay on their matching feature pages. For a dated roadmap, use the interactive Roadmap page and its SVG/Markdown exports. The library roadmap poster is undated. Preserve scope labels and distinguish planned concepts from product reconstructions.

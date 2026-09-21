@@ -14,6 +14,7 @@ Explore **seven core functions**, customer scenarios, reusable visuals, feature 
 
 - [Download the complete marketing website ZIP](docs/marketing/ask-nimbls/nimbls-marketing-kit.zip?raw=true)
 - [Read the full quick-start guide](docs/marketing/ask-nimbls/README.md)
+- [Download all marketing visuals and presentation notes](docs/marketing/ask-nimbls/nimbls-visual-library.zip?raw=true) — PNG for slides, editable SVG, and Markdown notes. After starting the website, open **Visual Library** for previews.
 - [Browse the website files](docs/marketing/ask-nimbls/)
 
 ### Open the website on your computer
