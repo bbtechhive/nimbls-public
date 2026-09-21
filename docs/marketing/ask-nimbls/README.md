@@ -116,3 +116,7 @@ Keep these pages together. Navigation uses relative links, so the site works fro
 Open **Visual Library** from any page to preview and download the architecture, feature diagrams, daily network scenario, and roadmap reference. Each offers PNG for slides, editable SVG and presentation notes. **Download all visuals & notes** provides a separate ZIP; the complete website kit includes that ZIP too. Individual feature pages also offer PNG/SVG beside the relevant diagram.
 
 The homepage introduces the architecture and daily operations journey; detailed diagrams stay on their matching feature pages. For a dated roadmap, use the interactive Roadmap page and its SVG/Markdown exports. The library roadmap poster is undated. Preserve scope labels and distinguish planned concepts from product reconstructions.
+
+## Find delivery milestones
+
+The homepage offers **Explore current milestones**, a collapsed M1–M3 overview. Applicable feature pages include cards that link directly to the existing GitHub milestones and their issues. Features without an assigned milestone have no milestone card. The separate Roadmap remains the broader planning reference.
