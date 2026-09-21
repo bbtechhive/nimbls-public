@@ -1,0 +1,407 @@
+{
+  "features": [
+    {
+      "id": "custom-agents",
+      "name": "Custom Agents",
+      "slogan": "Teach it your way. Put it to work.",
+      "poc": "POC 1 · M1–M3",
+      "role": "Operators and teams with repeatable tasks",
+      "problem": "Useful work gets described from scratch, and each result needs the same corrections.",
+      "intro": "Start with a ready-to-use agent or describe a new one. Refine its instructions, tools, and output through conversation, then save the approach that meets your needs. Agents can serve general tasks as well as NIMBL workflows.",
+      "request": "Create a daily syslog agent. Group repeated events and keep the source records.",
+      "story": "A network operator starts with the included Daily Syslog Summary Agent, asks for a shorter priority summary, checks the revised report, and saves those instructions for tomorrow.",
+      "steps": [
+        [
+          "Describe",
+          "Define the task and inputs."
+        ],
+        [
+          "Try",
+          "Run a representative case."
+        ],
+        [
+          "Refine",
+          "Adjust and inspect the result."
+        ],
+        [
+          "Save",
+          "Reuse the working approach."
+        ]
+      ],
+      "outcome": "A reusable agent with a defined task and inspectable output.",
+      "proof": "The saved agent survives restart and reuses the requested instructions; evaluate the report against known input records.",
+      "prereq": "A working model and the tools/data required by the task. NIMBL is needed only for NIMBL tasks.",
+      "boundary": "Changing instructions is not model training or proof of better accuracy. The first POC validates the syslog workflow; other tasks require their own validation.",
+      "benefits": [
+        "Start from an included agent",
+        "Keep your preferred working method",
+        "Extend to tasks beyond NIMBL"
+      ]
+    },
+    {
+      "id": "site-history",
+      "name": "Site History & Knowledge",
+      "slogan": "Every incident adds context.",
+      "poc": "POC 2",
+      "role": "Network operators and incident investigators",
+      "problem": "Important observations and previous resolutions are scattered across logs, reports, and people.",
+      "intro": "Retain important observations, syslogs, changes, and investigation findings under defined retention rules. Retrieve the evidence when a new issue appears, with its source and time context.",
+      "request": "Has this issue happened before? What changed before it started, and what helped last time?",
+      "story": "An operator investigates recurring link interruptions. The Site History Agent retrieves a previous incident and relevant observations; the Incident Investigation Agent compares the timelines and identifies which similarities are supported by evidence.",
+      "steps": [
+        [
+          "Retain",
+          "Keep scoped observations."
+        ],
+        [
+          "Retrieve",
+          "Find relevant past events."
+        ],
+        [
+          "Compare",
+          "Connect changes and timing."
+        ],
+        [
+          "Investigate",
+          "Cite evidence and gaps."
+        ]
+      ],
+      "outcome": "An incident timeline and a comparison with previous cases, including source references and unresolved questions.",
+      "proof": "Seed known historical events, retrieve them across executions, and check source/time references. Missing evidence remains explicit.",
+      "prereq": "Accessible historical records, retention rules, identity/time consistency, and supported retrieval operations.",
+      "boundary": "Saving reports alone is not historical understanding. A similar event or correlated change does not establish root cause.",
+      "benefits": [
+        "Reuse previous investigations",
+        "Compare current and past conditions",
+        "Keep conclusions tied to evidence"
+      ]
+    },
+    {
+      "id": "local-ai",
+      "name": "Local AI",
+      "slogan": "Everyday work. Close to your data.",
+      "poc": "POC 3",
+      "role": "Teams using approved on-site computing",
+      "problem": "Routine analysis may depend on external inference even when data and compute can stay on site.",
+      "intro": "Run supported models on your computer or an approved site server. Validate useful network and general-purpose workflows locally, with explicit model and hardware requirements.",
+      "request": "Use our local model to compare these documents and highlight the differences.",
+      "story": "An operations team needs to summarize internal network events and compare confidential maintenance documents. It selects an approved on-site model, runs both tasks locally, and reviews the reports alongside evidence that no external inference request was made. If the model cannot finish a task, the intended local-only behavior is to report the limitation instead of silently sending the data to a cloud model.",
+      "steps": [
+        [
+          "Configure",
+          "Choose a supported model."
+        ],
+        [
+          "Check",
+          "Verify tools and readiness."
+        ],
+        [
+          "Run locally",
+          "Process approved inputs."
+        ],
+        [
+          "Inspect",
+          "Review the deliverable."
+        ]
+      ],
+      "outcome": "A locally generated network report and a document comparison with references to the supplied files.",
+      "proof": "Complete both representative workflows with no external inference requests; record supported hardware, model, and observed limitations.",
+      "prereq": "Provisioned local model, sufficient hardware, and compatible tool capabilities. Offline tasks need their dependencies available locally.",
+      "boundary": "Local deployment does not automatically mean local inference. Hardware and operation have costs; do not promise zero cost or universal model quality.",
+      "benefits": [
+        "Keep routine inference on site",
+        "Use existing agent workflows",
+        "Demonstrate work beyond network operations"
+      ],
+      "securityAdvantages": [
+        {
+          "title": "Keep sensitive inputs on site",
+          "description": "For validated local-only workflows, prompts, supplied documents and network evidence are processed by a model on your computer or an approved site server, without sending them to an external inference provider."
+        },
+        {
+          "title": "Reduce external data exposure",
+          "description": "Keeping routine inference local reduces the number of external services that receive task content and the provider data-handling arrangements your team must assess for that workflow."
+        },
+        {
+          "title": "Use infrastructure your team controls",
+          "description": "Run inference within your approved environment, where your IT team can apply its own network access, identity, storage and retention controls. These protections depend on how the environment is configured."
+        },
+        {
+          "title": "Keep external assistance a deliberate choice",
+          "description": "Local-only work must not silently fall back to a cloud model. Controlled external assistance is planned separately for POC 6, with data-type review, permitted destinations and disclosure checks before enablement."
+        }
+      ],
+      "securityLimits": "Local inference is one part of data protection. Agent tools, telemetry, updates and other integrations require separate network review. Local files and reports still need appropriate access controls, retention and backups. A local interface alone does not prove local processing or an air-gapped deployment.",
+      "salesExplanation": "Put AI to work where your sensitive data already lives. Local AI is designed to analyze internal network evidence and documents using an approved on-site model, reducing exposure to external inference providers. Your team controls the surrounding infrastructure. We demonstrate the benefit by completing representative tasks and checking that no external inference requests occur; controlled external assistance is a separate future capability."
+    },
+    {
+      "id": "automation",
+      "name": "Scheduling & Automation",
+      "slogan": "Set the task. Keep it working.",
+      "poc": "POC 1 · M3",
+      "role": "People repeating the same checks and reports",
+      "problem": "A useful reporting workflow still depends on someone remembering to start it every day.",
+      "intro": "Schedule a tested agent and inspect each outcome. Adjust, pause, resume, or cancel its schedule without confusing the schedule with an active execution.",
+      "request": "Run this report every morning at 8 a.m. in our saved timezone.",
+      "story": "After refining the daily report, an operator saves a schedule, checks the next due time, and inspects the following execution. A failed run remains visible even when an older report is available.",
+      "steps": [
+        [
+          "Validate",
+          "Accept a useful result."
+        ],
+        [
+          "Schedule",
+          "Set time and timezone."
+        ],
+        [
+          "Execute",
+          "Use a fresh session."
+        ],
+        [
+          "Inspect",
+          "Review each outcome."
+        ]
+      ],
+      "outcome": "A saved daily schedule with next due time and visible execution outcomes.",
+      "proof": "Verify daily dispatch, fresh sessions, overlap skips, no catch-up, schedule controls, Stop, and Quit.",
+      "prereq": "Saved agent and working dependencies; application running and computer awake when due.",
+      "boundary": "Missed occurrences are not caught up. Pausing or cancelling a schedule does not stop an already running task.",
+      "benefits": [
+        "Reduce repeated instructions",
+        "Keep routine work organized",
+        "See failures and skipped work clearly"
+      ]
+    },
+    {
+      "id": "results-center",
+      "name": "Results Center",
+      "slogan": "Work becomes something you can use.",
+      "poc": "Basics: POC 1 · Advanced: POC 4",
+      "role": "People who review, share, and reuse agent deliverables",
+      "problem": "Useful results are hard to find again or are trapped in a conversation.",
+      "intro": "Browse and pin reports, request revisions, and preserve useful deliverables. Later add interactive HTML, report search, organization, and archiving with explicit retention behavior.",
+      "request": "Find last month’s incident reports and archive older reports while keeping important cases searchable.",
+      "story": "A service lead finds a set of incident reports, inspects an interactive summary, and asks to archive older material. The team can still retrieve the retained important cases.",
+      "steps": [
+        [
+          "Find",
+          "Locate matching reports."
+        ],
+        [
+          "Explore",
+          "Read and filter results."
+        ],
+        [
+          "Refine",
+          "Request a useful format."
+        ],
+        [
+          "Organize",
+          "Archive with clear rules."
+        ]
+      ],
+      "outcome": "A usable report collection with an interactive view and retrievable archived material.",
+      "proof": "Verify search matches period/subject, report interactions stay isolated, and archived files remain retrievable under the stated policy.",
+      "prereq": "Output operations and metadata. Advanced search, preview isolation, and retention semantics must be implemented.",
+      "boundary": "Markdown browsing/pinning and prior-file archiving remain in POC 1. Full version-diff/restore UI is not promised. Report content and execution status remain distinct.",
+      "benefits": [
+        "Keep deliverables accessible",
+        "Adapt results to their audience",
+        "Organize reports as work accumulates"
+      ]
+    },
+    {
+      "id": "agent-improvement",
+      "name": "Agent Improvement Review",
+      "slogan": "Learn from the work. Improve the next run.",
+      "poc": "POC 5",
+      "role": "Agent owners reviewing quality and consistency",
+      "problem": "Repeated errors are hard to fix without knowing which inputs, instructions, and results produced them.",
+      "intro": "Ask nimbls to inspect an agent’s retained execution evidence and propose a targeted change. Compare results before adopting the revised approach.",
+      "request": "This agent missed an important event. Review its work and help me improve it.",
+      "story": "An operator supplies a known missed event. Ask nimbls examines the relevant work, suggests a change to the reporting instructions, and compares the revised behavior on the missed case and previously successful cases.",
+      "steps": [
+        [
+          "Review",
+          "Inspect execution evidence."
+        ],
+        [
+          "Propose",
+          "Identify a targeted change."
+        ],
+        [
+          "Compare",
+          "Run representative cases."
+        ],
+        [
+          "Decide",
+          "Keep evidenced improvements."
+        ]
+      ],
+      "outcome": "A review explaining the proposed change, before/after results, and remaining limitations.",
+      "proof": "Show whether the target case improves and whether known-good cases regress; retain input/configuration context for comparison.",
+      "prereq": "Queryable work history, retained evidence, editable agent settings, and representative evaluation cases.",
+      "boundary": "This is evidence-based refinement, not automatic self-improvement or model training. Missing history may prevent a reliable conclusion.",
+      "benefits": [
+        "Understand recurring failures",
+        "Make specific, reviewable changes",
+        "Measure improvement against real cases"
+      ]
+    },
+    {
+      "id": "external-assistance",
+      "name": "Controlled External Assistance",
+      "slogan": "Local first. Powerful beyond.",
+      "poc": "POC 6",
+      "role": "Teams needing advanced analysis with controlled disclosure",
+      "problem": "Complex questions may benefit from stronger models, but the complete site history or raw data cannot simply be sent away.",
+      "intro": "Let the local agent request bounded assistance from an approved external model. The proposed nimbls Relay supports controlled routing; enforce disclosure policy before data leaves the site and validate advice locally.",
+      "request": "Ask for a second opinion using only the evidence our policy allows.",
+      "story": "A local investigation remains inconclusive. The agent prepares minimal evidence, applies the configured rules and required approval, then requests external analysis. Any request for more data passes through the same local checks.",
+      "steps": [
+        [
+          "Prepare",
+          "Minimize evidence."
+        ],
+        [
+          "Gate",
+          "Apply policy and approval."
+        ],
+        [
+          "Consult",
+          "Use an approved route."
+        ],
+        [
+          "Verify",
+          "Check advice locally."
+        ]
+      ],
+      "outcome": "An external contribution with provenance, policy outcome, and a locally qualified analysis.",
+      "proof": "Demonstrate both allowed and blocked requests, the exact outgoing payload/destination, configured cost limits, and local verification.",
+      "prereq": "Local workflow, reviewed/tested policies for each enabled data type, approved provider/route, and verified recipient handling.",
+      "boundary": "Relay architecture remains a proposal. Unknown data types are blocked. External advice grants no device permissions. Do not promise zero leakage, zero retention, or free frontier-model use.",
+      "benefits": [
+        "Control what leaves the site",
+        "Seek help for bounded questions",
+        "Keep site authority with the local agent"
+      ]
+    },
+    {
+      "id": "execution-management",
+      "name": "Execution Management",
+      "slogan": "See the work. Stay in control.",
+      "poc": "Basics: POC 1 · Verified changes: POC 7",
+      "role": "People supervising agent work and device operations",
+      "problem": "A finished conversation does not prove that the task succeeded or a device reached the intended state.",
+      "intro": "Inspect progress, stop or rerun work, and distinguish successful results from incomplete attempts. Extend this foundation to authorized device changes with before/after verification.",
+      "request": "Apply this supported change to these devices, then verify what actually changed.",
+      "story": "An operator defines a supported change and device scope. The Device Change Agent explains the intended action, uses authorized operations, and checks actual state. Partial failures are reported separately with the required next steps.",
+      "steps": [
+        [
+          "Define",
+          "Specify scope and change."
+        ],
+        [
+          "Authorize",
+          "Check permitted operations."
+        ],
+        [
+          "Execute",
+          "Apply the supported action."
+        ],
+        [
+          "Verify",
+          "Inspect actual device state."
+        ]
+      ],
+      "outcome": "A change record with authorized scope, before/after observations, per-device outcomes, and recovery needs.",
+      "proof": "Prove scope enforcement, actual-state verification, and truthful partial-failure handling on a defined supported operation.",
+      "prereq": "Supported NIMBL/bbcli operation, enforceable authorization, observable device state, and an operation-specific recovery plan.",
+      "boundary": "Progress, Stop, rerun, and truthful failures start in POC 1. POC 7 does not promise universal autonomous repair or rollback support for every device operation.",
+      "benefits": [
+        "Understand what happened",
+        "Control active work",
+        "Verify results beyond a success message"
+      ]
+    }
+  ],
+  "roadmap": [
+    {
+      "poc": 1,
+      "title": "Agent creation and daily syslog automation",
+      "capability": "Ask nimbls + Custom Agents",
+      "starter": "Daily Syslog Summary Agent",
+      "scenario": "Create, run, refine, save, and schedule a syslog report.",
+      "acceptance": "Complete M1–M3 with live NIMBL data, evidence-backed outputs, and truthful failures.",
+      "duration": "2–3 weeks",
+      "two_week_schedule": "Weeks 1–2",
+      "three_week_schedule": "Weeks 1–3"
+    },
+    {
+      "poc": 2,
+      "title": "Site history retention and incident investigation",
+      "capability": "Site History & Knowledge",
+      "starter": "Site History Agent + Incident Investigation Agent",
+      "scenario": "Find a similar incident and compare changes and prior handling.",
+      "acceptance": "Retrieve retained evidence across executions with correct source/time references and explicit uncertainty.",
+      "duration": "2–3 weeks",
+      "two_week_schedule": "Weeks 3–4",
+      "three_week_schedule": "Weeks 4–6"
+    },
+    {
+      "poc": 3,
+      "title": "Local model integration and general tasks",
+      "capability": "Local LLM Server",
+      "starter": "Locally validated network agents + Document Comparison Agent",
+      "scenario": "Run a network report and compare documents without external inference.",
+      "acceptance": "Validate both workflows on documented hardware/model; observe no external inference requests.",
+      "duration": "2–3 weeks",
+      "two_week_schedule": "Weeks 5–6",
+      "three_week_schedule": "Weeks 7–9"
+    },
+    {
+      "poc": 4,
+      "title": "Report search, interaction and archiving",
+      "capability": "Advanced Results Center",
+      "starter": "Report search and organization through Ask nimbls",
+      "scenario": "Explore an interactive report and archive old reports while keeping key cases searchable.",
+      "acceptance": "Correct search results, isolated interactions, and verified archive retrieval.",
+      "duration": "2–3 weeks",
+      "two_week_schedule": "Weeks 7–8",
+      "three_week_schedule": "Weeks 10–12"
+    },
+    {
+      "poc": 5,
+      "title": "Agent performance review and improvement",
+      "capability": "Agent Improvement Review",
+      "starter": "Improvement review through Ask nimbls",
+      "scenario": "Review a missed event, propose a change, and compare revised results.",
+      "acceptance": "Representative before/after cases show gains or regressions; retain the evidence.",
+      "duration": "2–3 weeks",
+      "two_week_schedule": "Weeks 9–10",
+      "three_week_schedule": "Weeks 13–15"
+    },
+    {
+      "poc": 6,
+      "title": "Controlled external model assistance",
+      "capability": "nimbls Relay + Controlled External Assistance",
+      "starter": "Controlled consultation for existing agents",
+      "scenario": "Ask an approved model for help using only policy-permitted evidence.",
+      "acceptance": "Verify allowed/blocked payloads, recipients, cost limits, and local response validation.",
+      "duration": "2–3 weeks",
+      "two_week_schedule": "Weeks 11–12",
+      "three_week_schedule": "Weeks 16–18"
+    },
+    {
+      "poc": 7,
+      "title": "Authorized device changes and verification",
+      "capability": "Authorized Device Changes",
+      "starter": "Device Change Agent",
+      "scenario": "Execute a supported authorized change and verify actual device state.",
+      "acceptance": "Scope enforcement, before/after evidence, and honest success/partial-failure outcomes.",
+      "duration": "2–3 weeks",
+      "two_week_schedule": "Weeks 13–14",
+      "three_week_schedule": "Weeks 19–21"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Milestones
 
-Status: Accepted macOS syslog POC scope, 2026-09-18. Planned, not implemented or tested; no release dates committed. `nimbls` remains a development code name.
+Status: Accepted POC 1 (M1–M3) scope and agreed seven-POC feature sequence, updated 2026-09-21. The desktop foundation exists; complete POC acceptance remains pending. No new release dates committed. `nimbls` remains a development code name.
 
 The three milestones below together deliver **create → try → modify → save → schedule**. They are sequential and cumulative. The [macOS syslog POC SPEC](docs/specs/macos-syslog-poc.md) defines behavior, failures, acceptance criteria, and evidence requirements.
 
@@ -18,9 +18,67 @@ Implementation planning can proceed before NIMBL is configured. The user will pr
 
 A milestone closes only with its SPEC evidence, including representative UI and operation/CLI verification. Fixture tests support development but do not replace the live syslog acceptance run. Keep sensitive raw evidence and credentials out of this public repository.
 
+## Seven-POC product roadmap
+
+Agreed product sequence, 2026-09-21. POC 1 retains the existing M1–M3 milestones. POC 2–7 numbers describe capability stages, not newly created GitHub milestones. Initial estimate: **2–3 weeks per POC, 14–21 weeks total**, delivered sequentially. These are effort estimates of 10–15 working days per POC (70–105 working days total); Taiwan holidays extend elapsed calendar time. The [interactive roadmap](docs/marketing/ask-nimbls/roadmap.html) calculates dates from a chosen kickoff using the official 2026–2027 DGPA office calendars. Company-specific leave and emergency closures are not included. Calendar targets and detailed implementation plans remain to be agreed. This estimate includes implementation and validation, assumes continuous capacity and ready inputs, and is not a release commitment. A POC demonstrates its tested scenario, not general release readiness.
+
+| POC | New capability | Default agent / entry | Customer demonstration | Acceptance direction |
+| --- | --- | --- | --- | --- |
+| 1 — Agent creation and daily syslog automation | Ask nimbls + Custom Agents | Daily Syslog Summary Agent | Create, run, refine, save, and schedule a syslog report. | Complete M1–M3 with live NIMBL data, evidence-backed outputs, and truthful failures. |
+| 2 — Site history retention and incident investigation | Site History & Knowledge | Site History Agent + Incident Investigation Agent | Find a similar incident and compare changes and prior handling. | Retrieve retained evidence across executions with correct source/time references and explicit uncertainty. |
+| 3 — Local model integration and general tasks | Local LLM Server | Locally validated network agents + Document Comparison Agent | Run a network report and compare documents without external inference. | Validate both workflows on documented hardware/model; observe no external inference requests. |
+| 4 — Report search, interaction and archiving | Advanced Results Center | Report search and organization through Ask nimbls | Explore an interactive report and archive old reports while keeping key cases searchable. | Correct search results, isolated interactions, and verified archive retrieval. |
+| 5 — Agent performance review and improvement | Agent Improvement Review | Improvement review through Ask nimbls | Review a missed event, propose a change, and compare revised results. | Representative before/after cases show gains or regressions; retain the evidence. |
+| 6 — Controlled external model assistance | nimbls Relay + Controlled External Assistance | Controlled consultation for existing agents | Ask an approved model for help using only policy-permitted evidence. | Verify allowed/blocked payloads, recipients, cost limits, and local response validation. |
+| 7 — Authorized device changes and verification | Authorized Device Changes | Device Change Agent | Execute a supported authorized change and verify actual device state. | Scope enforcement, before/after evidence, and honest success/partial-failure outcomes. |
+
+| Stage | Duration | At 2 weeks per stage | At 3 weeks per stage |
+| --- | --- | --- | --- |
+| POC 1 | 2–3 weeks | Weeks 1–2 | Weeks 1–3 |
+| POC 2 | 2–3 weeks | Weeks 3–4 | Weeks 4–6 |
+| POC 3 | 2–3 weeks | Weeks 5–6 | Weeks 7–9 |
+| POC 4 | 2–3 weeks | Weeks 7–8 | Weeks 10–12 |
+| POC 5 | 2–3 weeks | Weeks 9–10 | Weeks 13–15 |
+| POC 6 | 2–3 weeks | Weeks 11–12 | Weeks 16–18 |
+| POC 7 | 2–3 weeks | Weeks 13–14 | Weeks 19–21 |
+
+POC 1’s estimate covers M1–M3 combined. Start each next stage after acceptance; update the schedule if integration, validation, or input readiness causes delay.
+
+Default agents begin in POC 1. Each stage adds tested starter agents or useful capabilities through Ask nimbls. Basic Output, Stop, rerun, and truthful execution states remain in POC 1. POC 3 is the dedicated local-model validation stage; it does not reverse the local-first direction or alter the specified initial POC provider setup. Report storage alone does not deliver POC 2 site memory. Later security and device-operation acceptance requirements remain applicable.
+
+The [English marketing website](docs/marketing/ask-nimbls/roadmap.html) presents the same sequence. Download the [roadmap SVG](docs/marketing/ask-nimbls/assets/product-roadmap.svg) or [detailed Markdown roadmap](docs/marketing/ask-nimbls/assets/product-roadmap.md). These describe planned capabilities and do not claim completed demonstrations.
+
 ## Later delivery
 
-The [SPEC's scope boundary](docs/specs/macos-syslog-poc.md#outside-this-poc-delivery-scope) distinguishes confirmed later features from the POC: interactive HTML, additional schedules/integrations, revisions, wider platform/model validation, and deferred collaboration/server/security-assistance work. No dates or additional milestone numbers are assigned yet.
+The [SPEC's scope boundary](docs/specs/macos-syslog-poc.md#outside-this-poc-delivery-scope) distinguishes confirmed later features from the POC: interactive HTML, additional schedules/integrations, revisions, wider platform/model validation, and deferred collaboration/server/security-assistance work. The seven-POC sequence above organizes later delivery. No additional GitHub milestone numbers or dates are assigned by this update.
+
+### Results center and execution management roadmap
+
+Added 2026-09-21 following product discussion. These are planned capabilities, not released features. Results center is a customer-facing capability; execution management supports all agents. Ask nimbls is the conversational entry for supported operations, including finding results, inspecting work, and requesting improvements. Operations must also be inspectable and verifiable through the shared application interface.
+
+Existing POC commitments remain in M1–M3; the additions below do not move them into later delivery.
+
+| Capability | Concrete functions and customer example | Delivery scope / existing tracking |
+| --- | --- | --- |
+| Read and keep useful results | Browse Markdown reports in Output and pin a file to see its latest content: “Show yesterday’s site report.” | M1; #9–#10 |
+| Refine and reuse results | Ask an agent to revise a report, use supported edit modes, retain replaced files, and restore agents/pins after restart: “Add an executive summary.” | M2; #14, #16–#17. Prior-file archiving does not imply a version-comparison UI. |
+| Inspect and control execution | View progress, stop, rerun, and inspect failures; trace syslog findings to source records. | M1; #8, #11. Completion must not conceal missing evidence or failed work. |
+| Supply missing information | Answer an agent’s request for required information and let the waiting work continue. | M2; #13. This is not general checkpoint recovery. |
+| Inspect scheduled work | See scheduled outcomes and supporting evidence without an older successful report masking the latest failure. | M3; #20–#24 |
+
+Future additions map to the seven-POC sequence above. Their target dates, detailed specifications, and implementation issues remain to be set; no new delivery-date commitment is made here.
+
+| Future feature | Customer-visible behavior / example | Dependencies and acceptance direction | Timing / status |
+| --- | --- | --- | --- |
+| Interactive HTML reports | Read reports with chart switching, table filtering, and expandable details. | Working output pipeline; isolated preview. Report content must not gain application, device, or filesystem privileges. See [function specification](docs/specs/fundamental-function-blocks.md). | Confirmed later requirement; target date TBD |
+| Report search and organization | “Find last month’s outage reports”; classify results and retrieve the matching files. | Output metadata and explicit search scope; verify that returned reports match the requested period and subject. Detailed indexing and search design remain open. | Added to future roadmap; target date TBD |
+| Report archiving and retention controls | “Archive reports older than three months and keep important incidents easy to find.” | Defined archive location, retention rules, and retrieval behavior; distinguish archive from deletion and from automatic prior-file archiving. Verify preserved files remain retrievable. | Added to future roadmap; target date TBD |
+| Searchable work history | Ask nimbls what an agent did, which inputs/results it used, and why a particular execution failed. | Retained execution evidence, history query operations, and links between executions and results; expose gaps when records are unavailable. | Existing direction expanded; target date TBD |
+| Agent improvement review | Ask nimbls to inspect work history, propose instruction or workflow changes, and compare results on representative cases. | Searchable history and reusable agent settings; record before/after evidence rather than assume that an edit improves accuracy. This does not imply model training. | Deferred improvement capability; target date TBD |
+| Authorized device changes with verification | Explain the intended change, operate within the authorized device scope, then report actual results and failures. | Supported NIMBL/bbcli operations, enforceable authorization, and before/after evidence. Define concrete supported changes and validation cases before delivery. | Existing design requirement; outside syslog POC; target date TBD |
+| Controlled external-analysis review | Review the destination and prepared evidence before policy-permitted external analysis; validate returned advice locally. | Local model integration, per-data-type disclosure policies/tests, required approvals, and evaluated optional relay/provider routing. See [secure-assistance specification](docs/specs/secure-external-assistance.md). External analysis does not authorize device changes. | Future design; outside M1; target date TBD |
+
+Saving reports alone does not deliver site memory or root-cause analysis. Historical retrieval, source/time references, and evidence-based comparison need explicit implementation and validation. Full report-version comparison/restoration and general autonomous remediation are not committed by this roadmap update.
 
 ## Tracking
 
