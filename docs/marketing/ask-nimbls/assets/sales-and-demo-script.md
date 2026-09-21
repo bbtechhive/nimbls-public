@@ -18,4 +18,3 @@ This is a planned demo script, not evidence of a working demonstration. Use a va
 | 2:10–3:00 | Save the refined agent and configure a daily schedule; show the next due time. | Turn an accepted result into repeatable work. |
 
 Actual execution time depends on the environment. Use clearly identified pre-run results when necessary; the script is not a performance claim.
-

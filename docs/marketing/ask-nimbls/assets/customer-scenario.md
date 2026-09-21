@@ -15,4 +15,3 @@ Planned experience; not a live case study.
 **Deliverable:** A daily report with the reviewed scope, key findings, source references, and missing information. Scheduled execution has its own visible outcome; an older report must not hide a failed run.
 
 **Prerequisites:** A configured model, a working NIMBL connection, accessible syslog data, and a running application when scheduled work is due.
-

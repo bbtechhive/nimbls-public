@@ -85,7 +85,7 @@
       "problem": "Routine analysis may depend on external inference even when data and compute can stay on site.",
       "intro": "Run supported models on your computer or an approved site server. Validate useful network and general-purpose workflows locally, with explicit model and hardware requirements.",
       "request": "Use our local model to compare these documents and highlight the differences.",
-      "story": "A team runs its network-reporting agent on a supported site model, then uses a Document Comparison Agent on local files without connecting to NIMBL.",
+      "story": "An operations team needs to summarize internal network events and compare confidential maintenance documents. It selects an approved on-site model, runs both tasks locally, and reviews the reports alongside evidence that no external inference request was made. If the model cannot finish a task, the intended local-only behavior is to report the limitation instead of silently sending the data to a cloud model.",
       "steps": [
         [
           "Configure",
@@ -112,7 +112,27 @@
         "Keep routine inference on site",
         "Use existing agent workflows",
         "Demonstrate work beyond network operations"
-      ]
+      ],
+      "securityAdvantages": [
+        {
+          "title": "Keep sensitive inputs on site",
+          "description": "For validated local-only workflows, prompts, supplied documents and network evidence are processed by a model on your computer or an approved site server, without sending them to an external inference provider."
+        },
+        {
+          "title": "Reduce external data exposure",
+          "description": "Keeping routine inference local reduces the number of external services that receive task content and the provider data-handling arrangements your team must assess for that workflow."
+        },
+        {
+          "title": "Use infrastructure your team controls",
+          "description": "Run inference within your approved environment, where your IT team can apply its own network access, identity, storage and retention controls. These protections depend on how the environment is configured."
+        },
+        {
+          "title": "Keep external assistance a deliberate choice",
+          "description": "Local-only work must not silently fall back to a cloud model. Controlled external assistance is planned separately for POC 6, with data-type review, permitted destinations and disclosure checks before enablement."
+        }
+      ],
+      "securityLimits": "Local inference is one part of data protection. Agent tools, telemetry, updates and other integrations require separate network review. Local files and reports still need appropriate access controls, retention and backups. A local interface alone does not prove local processing or an air-gapped deployment.",
+      "salesExplanation": "Put AI to work where your sensitive data already lives. Local AI is designed to analyze internal network evidence and documents using an approved on-site model, reducing exposure to external inference providers. Your team controls the surrounding infrastructure. We demonstrate the benefit by completing representative tasks and checking that no external inference requests occur; controlled external assistance is a separate future capability."
     },
     {
       "id": "automation",
