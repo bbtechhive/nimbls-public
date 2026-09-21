@@ -120,3 +120,7 @@ The homepage introduces the architecture and daily operations journey; detailed 
 ## Find delivery milestones
 
 The POC 1 card on the homepage and Roadmap contains **View milestones (M1–M3)**. Expand it to inspect the three milestones within their parent POC. Applicable feature pages include cards that link directly to the existing GitHub milestones and their issues. Features without an assigned milestone have no milestone card. The separate Roadmap remains the broader planning reference.
+
+## Monthly roadmap calendar
+
+The roadmap shows one month at a time, with previous/next controls and a month selector. Each working date identifies its POC; gray days identify excluded weekends and holidays. Download the selected month as SVG or use the main SVG download for all months. Start-date and duration changes recalculate the same working-day schedule.

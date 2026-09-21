@@ -10,9 +10,32 @@
   const message = document.getElementById('planner-message');
   const downloadSvg = document.getElementById('dated-svg');
   const downloadMd = document.getElementById('dated-md');
+  const monthSelect = document.getElementById('calendar-month');
+  const previousMonth = document.getElementById('previous-month');
+  const nextMonth = document.getElementById('next-month');
+  const monthDownload = document.getElementById('month-svg');
+  let currentPlan, monthList = [], monthUrl;
+  function renderMonth() {
+    const selected = monthSelect.value;
+    const drawing = scheduler.svg(currentPlan, config.shortNames, calendar, selected);
+    document.getElementById('dated-timeline').innerHTML = drawing;
+    const index = monthList.indexOf(selected);
+    previousMonth.disabled = index <= 0;
+    nextMonth.disabled = index >= monthList.length - 1;
+    if (monthUrl) URL.revokeObjectURL(monthUrl);
+    monthUrl = URL.createObjectURL(new Blob([drawing], {type:'image/svg+xml;charset=utf-8'}));
+    monthDownload.href = monthUrl;
+    monthDownload.download = `nimbls-roadmap-${selected}.svg`;
+    monthDownload.removeAttribute('aria-disabled');
+  }
+  monthSelect.addEventListener('change', renderMonth);
+  previousMonth.addEventListener('click', () => {monthSelect.selectedIndex--;renderMonth();});
+  nextMonth.addEventListener('click', () => {monthSelect.selectedIndex++;renderMonth();});
   let urls = [];
   function clearDownloads() {
     urls.forEach(url => URL.revokeObjectURL(url)); urls = [];
+    if (monthUrl) URL.revokeObjectURL(monthUrl); monthUrl = undefined;
+    monthDownload.removeAttribute('href'); monthDownload.setAttribute('aria-disabled','true');
     for (const a of [downloadSvg, downloadMd]) { a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true'); }
   }
   function exportLink(a, contents, type) {
@@ -27,7 +50,17 @@
       const plan = scheduler.calculate(start.value, inputs.map(s => Number(s.value)), calendar);
       message.className = 'note'; message.textContent = `Requested kickoff: ${plan.requestedStart}. Actual first working day: ${plan.actualStart}. Planned finish: ${plan.finish}. ${plan.workingDays} working days across ${plan.calendarDays} calendar days; ${plan.skipped.length} days excluded.`;
       const svg = scheduler.svg(plan, config.shortNames, calendar);
-      document.getElementById('dated-timeline').innerHTML = svg;
+      currentPlan = plan;
+      const previousSelection = monthSelect.value;
+      monthList = scheduler.months(plan);
+      monthSelect.replaceChildren();
+      monthList.forEach(month => {
+        const option = document.createElement('option'); option.value = month;
+        option.textContent = new Date(month+'-01T00:00:00Z').toLocaleDateString('en-US',{month:'long',year:'numeric',timeZone:'UTC'});
+        monthSelect.append(option);
+      });
+      if (monthList.includes(previousSelection)) monthSelect.value = previousSelection;
+      renderMonth();
       const tbody = document.getElementById('dated-rows'); tbody.replaceChildren();
       plan.stages.forEach((s,i) => {
         const row = document.createElement('tr'); cell(row, `POC ${s.poc}`);cell(row, `${s.workingDays} working days`);cell(row,s.start);cell(row,s.finish);
