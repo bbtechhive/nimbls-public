@@ -91,7 +91,7 @@ The Ask nimbls hero follows the current desktop foundation. Other capability vis
 
 ## Website pages
 
-- `index.html`: feature overview.
+- `index.html`: seven core functions, without milestone labels. Scheduling is grouped under Custom Agents; controlled external assistance is grouped under Local AI. Both retain their detailed pages.
 - `ask-nimbls.html`: Ask nimbls, scenario, design-aligned hero, and toolkit.
 - `custom-agents.html`: Custom Agents.
 - `site-history.html`: Site History & Knowledge.
