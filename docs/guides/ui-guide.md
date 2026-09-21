@@ -1,6 +1,6 @@
 # UI guide
 
-Status: proposed UI baseline, 2026-09-18. This guides design and implementation; no application UI or component library has been implemented or tested. `nimbls` is a development code name, not approved branding.
+Status: UI baseline, updated 2026-09-21. The desktop foundation and component integration are implemented; live agent execution and the full POC workflows remain unvalidated. This guide includes both current layout and planned interactions; it does not claim all described behavior is delivered. `nimbls` is a development code name, not approved branding.
 
 ## Sources and scope
 
@@ -132,6 +132,19 @@ Start with Button, Field/Input, Select/Combobox, Dialog/Alert Dialog, Dropdown M
 For M3's daily schedule, use a time field and timezone control; a calendar picker is not required. A UI kit does not provide recurrence logic or next-run calculation. Likewise, Markdown rendering needs a separate renderer and safe content handling. Interactive HTML is outside this POC.
 
 ## Review before implementation is accepted
+
+### Product UI in sales and marketing materials
+
+- Use this guide and the current desktop implementation as the source for product-screen visuals. Preserve navigation, target names, component hierarchy, shared colors, and the placement of Chat, Agents, Output, and Configuration.
+- Distinguish captured screenshots, design-aligned reconstructions, planned UI proposals, and document-content examples. A generic “illustrative” label does not justify inventing a conflicting application layout.
+- Current-state reconstructions must preserve unavailable/disabled controls and disconnected states. Planned execution examples require an approved interaction design and a visible planned-state label; they must not imply runtime validation.
+- Keep report-content examples distinct from the application chrome. Do not invent embedded report panels, schedule confirmations, or control placement merely for a marketing composition. The Output tab remains the results destination.
+- If a marketing visual proposes a product change, update the relevant interaction design and record the decision before presenting that visual as the product direction. Visual polish alone does not change product behavior.
+- When changing a shared visual, update its page preview, downloadable asset, associated copy, and packaged kit together. Record the source baseline and known differences in the engineering handoff.
+
+The current foundation uses `#191919` foreground, `#666666` secondary text, `#F4F4F4` muted surfaces, `#E2E2E2` separators, `#808080` input borders, and provisional `#E8C236` primary fill. Its guidance cards use 12 px corners and its composer uses 16 px corners. These are current implementation values; the earlier general token/spacing tables remain proposed defaults, not instructions to silently restyle screenshots or reconstructions. Material token changes should be reconciled here and in the shared application stylesheet together.
+
+### Application acceptance checks
 
 - Resolve the brand yellow and cool-gray source discrepancies when the design team is available; keep the provisional values centralized meanwhile.
 - Obtain official logo assets and check font redistribution licenses; confirm whether a newer brand guide exists.
