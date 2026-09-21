@@ -10,6 +10,18 @@
   const message = document.getElementById('planner-message');
   const downloadSvg = document.getElementById('dated-svg');
   const downloadMd = document.getElementById('dated-md');
+  const totalDownload = document.getElementById('total-svg');
+  const totalView = document.getElementById('total-view');
+  const calendarView = document.getElementById('calendar-view');
+  const totalButton = document.getElementById('show-total');
+  const calendarButton = document.getElementById('show-calendar');
+  function setView(total) {
+    totalView.hidden = !total; calendarView.hidden = total;
+    totalButton.setAttribute('aria-pressed', String(total));
+    calendarButton.setAttribute('aria-pressed', String(!total));
+  }
+  totalButton.addEventListener('click', () => setView(true));
+  calendarButton.addEventListener('click', () => setView(false));
   const monthSelect = document.getElementById('calendar-month');
   const previousMonth = document.getElementById('previous-month');
   const nextMonth = document.getElementById('next-month');
@@ -36,7 +48,7 @@
     urls.forEach(url => URL.revokeObjectURL(url)); urls = [];
     if (monthUrl) URL.revokeObjectURL(monthUrl); monthUrl = undefined;
     monthDownload.removeAttribute('href'); monthDownload.setAttribute('aria-disabled','true');
-    for (const a of [downloadSvg, downloadMd]) { a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true'); }
+    for (const a of [downloadSvg, downloadMd, totalDownload]) { a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true'); }
   }
   function exportLink(a, contents, type) {
     const url = URL.createObjectURL(new Blob([contents], {type})); urls.push(url);
@@ -50,6 +62,9 @@
       const plan = scheduler.calculate(start.value, inputs.map(s => Number(s.value)), calendar);
       message.className = 'note'; message.textContent = `Requested kickoff: ${plan.requestedStart}. Actual first working day: ${plan.actualStart}. Planned finish: ${plan.finish}. ${plan.workingDays} working days across ${plan.calendarDays} calendar days; ${plan.skipped.length} days excluded.`;
       const svg = scheduler.svg(plan, config.shortNames, calendar);
+      const totalDrawing = scheduler.totalSvg(plan, config.shortNames, calendar);
+      document.getElementById('total-timeline').innerHTML = totalDrawing;
+      exportLink(totalDownload,totalDrawing,'image/svg+xml;charset=utf-8');
       currentPlan = plan;
       const previousSelection = monthSelect.value;
       monthList = scheduler.months(plan);
