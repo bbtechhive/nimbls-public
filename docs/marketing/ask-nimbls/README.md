@@ -119,4 +119,4 @@ The homepage introduces the architecture and daily operations journey; detailed 
 
 ## Find delivery milestones
 
-The homepage offers **Explore current milestones**, a collapsed M1–M3 overview. Applicable feature pages include cards that link directly to the existing GitHub milestones and their issues. Features without an assigned milestone have no milestone card. The separate Roadmap remains the broader planning reference.
+The POC 1 card on the homepage and Roadmap contains **View milestones (M1–M3)**. Expand it to inspect the three milestones within their parent POC. Applicable feature pages include cards that link directly to the existing GitHub milestones and their issues. Features without an assigned milestone have no milestone card. The separate Roadmap remains the broader planning reference.
