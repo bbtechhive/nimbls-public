@@ -347,7 +347,9 @@
           "scope": "Run scripts first to classify known patterns, deduplicate events and count changes by device and time. The agent reviews unmatched logs and unusual changes in known patterns, then retains useful, critical and anomalous findings.",
           "githubUrl": "https://github.com/bbtechhive/nimbls-public/issues/35",
           "page": "p2-m1.html",
-          "githubIssue": 35
+          "githubIssue": 35,
+          "marketingTitle": "Know what matters in your network.",
+          "marketingDescription": "Reviews your network’s syslogs every day and highlights important events, unusual activity, and recurring issues."
         },
         {
           "id": "M2-F2",
@@ -356,7 +358,9 @@
           "scope": "Use a script to capture a defined snapshot of every in-scope device and store it through a shared database interface. Compare snapshots; let the agent explain meaningful differences and recommend retention changes.",
           "githubUrl": "https://github.com/bbtechhive/nimbls-public/issues/36",
           "page": "p2-m2.html",
-          "githubIssue": 36
+          "githubIssue": 36,
+          "marketingTitle": "Know what changed.",
+          "marketingDescription": "Keeps a daily record of your devices and highlights changes worth your attention."
         },
         {
           "id": "M2-F3",
@@ -365,7 +369,9 @@
           "scope": "On request, combine retained syslog findings, device snapshots and previous cases into an incident timeline. Cite evidence, explain possible causes and identify missing information.",
           "githubUrl": "https://github.com/bbtechhive/nimbls-public/issues/37",
           "page": "p2-m3.html",
-          "githubIssue": 37
+          "githubIssue": 37,
+          "marketingTitle": "Find answers in your site’s history.",
+          "marketingDescription": "Connects current issues with past events and device changes to help explain what happened and what to check next."
         },
         {
           "id": "M2-F4",
@@ -374,7 +380,9 @@
           "scope": "Extend the existing Milestone 1 agent to answer site-history questions, inspect daily-agent outcomes, initiate a scoped investigation and help refine schedules or review candidate patterns. Daily jobs continue independently on their schedules.",
           "githubUrl": "https://github.com/bbtechhive/nimbls-public/issues/38",
           "page": "p2-m4.html",
-          "githubIssue": 38
+          "githubIssue": 38,
+          "marketingTitle": "Your site knowledge. One place to ask.",
+          "marketingDescription": "Answers questions about your network, checks your agents’ work, and helps you take the next step."
         }
       ],
       "githubMilestone": 2,

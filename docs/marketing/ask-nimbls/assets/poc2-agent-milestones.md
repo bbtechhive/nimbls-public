@@ -4,16 +4,24 @@ Planned features.
 
 ## syslog-reviewer
 
-Review daily logs and highlight important events and unusual changes.
+**Know what matters in your network.**
+
+Reviews your network’s syslogs every day and highlights important events, unusual activity, and recurring issues.
 
 ## device-snapshot
 
-Keep a daily record of device information and show what changed.
+**Know what changed.**
+
+Keeps a daily record of your devices and highlights changes worth your attention.
 
 ## incident-investigator
 
-Use site history to investigate network issues with supporting evidence.
+**Find answers in your site’s history.**
+
+Connects current issues with past events and device changes to help explain what happened and what to check next.
 
 ## Ask nimbls
 
-Ask about site changes, check agent results, and request an investigation.
+**Your site knowledge. One place to ask.**
+
+Answers questions about your network, checks your agents’ work, and helps you take the next step.
