@@ -78,6 +78,10 @@ The complete ZIP contains this README, all 12 HTML pages, all marketing assets a
 
 macOS and Windows launchers use an installed Python 3 interpreter. The shared server binds only to `127.0.0.1`, chooses a free port automatically, and serves the extracted folder regardless of the starting directory.
 
+## Big-picture architecture
+
+The homepage includes the network site architecture with a full-size preview and downloads: `assets/nimbls-architecture.svg` and its explanation, `assets/nimbls-architecture.md`. It shows scheduled operations through NIMBL, local context and inference, and the separately planned external-assistance path.
+
 ## Additional feature and roadmap downloads
 
 Each of the eight additional capabilities has an SVG workflow diagram and a Markdown feature pack (card, scenario, sales pitch, demo outline, and scope). These are available beside the feature on the page and under `assets/`.
