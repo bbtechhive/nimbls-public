@@ -10,7 +10,7 @@ The [macOS syslog POC SPEC](../specs/macos-syslog-poc.md) owns behavior and mile
 
 ## Experience principles
 
-- Lead with the useful result. A ready agent has a saved task and a direct **Run** action; chat is available for refinement and help.
+- Open on **Chat**, with Ask nimbls and startup guidance cards. Keep agent management, outputs, and configuration in separate tabs. Ready-agent saved-task execution remains available as its capability is delivered.
 - Start from useful prepared agents. Show missing setup with a named corrective action, such as **Connect NIMBL** or **Set up model**.
 - Make the next step clear through **create → try → modify → save → schedule**. Reveal advanced configuration only when needed.
 - Keep file contents and execution outcome separate. An older report must never disguise a failed latest attempt.
@@ -82,13 +82,22 @@ Use the supplied official logo artwork when available; do not redraw it. The two
 
 Use a 4 px spacing unit, with 8, 12, 16, 24, and 32 px steps. Start with 24 px page padding, 16 px between sections, 8 px between related controls, 6 px control corners, and 8 px panel corners. These are proposed UI defaults.
 
-Use a compact agent navigation area and a flexible result region. Keep the agent name, saved-task summary, Run/progress action, and latest outcome visible before optional chat or diagnostics. Settings and help remain discoverable; do not make model connectivity a prerequisite for opening manual settings.
+Use four main tabs: **Chat**, **Agents**, **Output**, and **Configuration**. This user-confirmed layout supersedes the earlier compact agent sidebar and result-first landing proposal.
+
+- **Chat** is the default landing page: Ask nimbls conversation, a welcoming empty state, startup guidance cards, and an input composer. Initial cards guide model setup, NIMBL connection, agent creation, and discovering capabilities. Starting a conversation replaces the welcome area with messages.
+- **Agents** is a table with agent name, task summary, status, and **Talk**, **Output**, **More → Delete** actions. **Add Agent** opens a conversation with create-agent. Talk opens the selected agent's conversation. Show an honest empty state when no agents exist.
+- **Output** browses shared results; an agent's Output action opens this tab filtered to that agent. Preserve the distinction between a report file and the latest execution outcome.
+- **Configuration** provides manual provider, NIMBL, and application settings even when model connectivity is unavailable.
+
+Use one **AgentChat** interface for Ask nimbls, create-agent, and individual agents: target header, welcome/suggestions or messages, streamed text and tool progress, and composer/Stop. The target name stays visible. Keep each target's messages and draft separate when navigating. Creation proceeds through describe, try, refine, and save as the underlying capabilities become available. Do not expose an active control before its operation works, fabricate assistant replies, or imply settings were verified merely because they were saved.
+
+This section specifies the approved interaction direction. A desktop UI foundation does not establish live model execution, persisted agent management, or report availability.
 
 Main controls should be at least 36 px high; icon controls should have at least a 32 × 32 px hit area and an accessible name. Maintain visible keyboard focus. At narrower widths, stack optional panels and let the report use the available width. Avoid fixed window minimums until the real interface has been tested at text zoom. WCAG 2.2's minimum target criterion is 24 × 24 CSS px with defined exceptions; these proposed defaults are larger. [Target-size guidance](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)
 
 | Component or region | Required behavior |
 | --- | --- |
-| Agent item | Name, task summary, readiness/latest outcome, direct Run. While busy, Run opens existing progress rather than starting another execution. |
+| Agent table row | Name, task summary, status, Talk, Output, More/Delete. Add Agent talks to create-agent. Ready-agent Run behavior is delivered with execution and opens existing progress while busy. |
 | Primary/secondary buttons | One visually dominant action per region. Secondary actions use neutral styling. Keep destructive actions separate from Run/Save. |
 | Setup fields | Persistent labels, help where needed, inline actionable errors, retained nonsecret input on failure. A saved credential is distinct from a verified connection. |
 | Report | Show queried device/time scope, coverage, evidence references, and latest execution state. Preserve distinction between no records, partial data, and failed retrieval. |
