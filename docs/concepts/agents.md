@@ -10,7 +10,7 @@ The initial direction is a local application that directly runs and manages agen
 
 ## Useful from the start
 
-nimbls should include useful starter agents that can be run after guided connection/provider setup. Users can begin with a prepared agent, customize it, or create their own. Easy use and readiness out of the box guide the product; ordinary use should not require technical configuration. The proposed set focuses on retaining site history, delivering verified configuration changes, and following important events through resolution. See the [proposed starter agents](../guides/starter-agents.md) for full scope and initial-release limits.
+nimbls should include useful starter agents that can be run after guided connection/provider setup. Users can begin with a prepared agent, customize it, or create their own. Easy use and readiness out of the box guide the product; ordinary use should not require technical configuration. POC 1 validates daily syslog reporting and Ask nimbls. POC 2 adds `syslog-reviewer`, `device-snapshot`, `incident-investigator`, and a site-operations extension of `ask-nimbls`, with one planned milestone per agent. Scheduled scripts collect and compare evidence; agents interpret exceptions and findings. See the [default agents and delivery milestones](../guides/starter-agents.md) for scope and acceptance.
 
 ## Results first, chat when useful
 

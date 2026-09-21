@@ -1,64 +1,71 @@
-# Useful agents from the first launch
+# Default agents and delivery milestones
 
-Status: Product design draft. Shipping useful starter agents and the first validation sequence are confirmed; detailed capabilities below remain proposed and have not been implemented or tested.
+Status: Agreed POC 2 agent direction, updated 2026-09-21. This document defines planned behavior and acceptance; it does not claim these agents are implemented or shipped. `nimbls` and agent labels remain provisional.
 
-## Start with useful work
+## Ready to use after essential setup
 
-nimbls should include ready-made agents with instructions, appropriate tools, output rules, and sample results already prepared. Users can use these agents directly after essential connection/provider setup; they should not have to create an agent or edit technical files first.
+Include prepared agent instructions, tools, scope, output rules and illustrative samples. Users should reuse guided NIMBL/provider configuration rather than author technical files. Default and custom agents use the same execution, permissions, output and history behavior.
 
-The product rules are **easy to use** and **ready out of the box**. Starter agents should demonstrate useful outcomes and remain editable so users can adapt them or create their own agents.
+## Delivery sequence
 
-## Proposed starter-agent set
+POC 1 retains the existing M1–M3 daily syslog workflow and Ask nimbls entry point: create → try → refine → save → schedule. POC 2 deepens that workflow with script-assisted syslog review, persistent device snapshots, evidence-based investigation and site-history access through Ask nimbls. It does not recreate Ask nimbls from scratch or move POC 1 acceptance into POC 2.
 
-Organize the set around three complete operator outcomes: retain site history, deliver verified changes, and follow important events through resolution. These are product directions, not a claim that all three full workflows ship in the first release.
-
-| Agent | User outcome | Core workflow | Proposed outputs |
+| POC 2 milestone | Agent | Invocation | Responsibility |
 | --- | --- | --- | --- |
-| Site history agent / 現場記憶助理 | Understand what changed and retain evidence for troubleshooting and handover. | Preserve a verified last-known-good reference separately from current configuration backups and state snapshots; compare changes; relate them to available maintenance records, topology, and syslogs; identify evidence and follow-up work. | reports/site-history/ and audits/site-changes/ |
-| Configuration delivery agent / 設定交付助理 | Turn an operational goal into a reviewed change and an accepted result. | Clarify requirements, topology, device models, and services that must remain available; propose changes, impact, order, and recovery conditions; after approval, pilot and verify before expanding in batches. | reports/change-plans/ and audits/change-acceptance/ |
-| Event follow-up agent / 事件追蹤助理 | Keep important problems visible until their outcome is verified. | Preserve raw syslogs; group repeated events; track first/last occurrence and frequency; relate configuration changes and affected devices; retain actions, follow-up observations, and recurrence history. | syslogs/ and reports/issues/ |
+| P2-M1 | `syslog-reviewer` | Daily schedule | Script-based classification and statistics, agent review of unknown events and abnormal changes, tested candidate patterns. |
+| P2-M2 | `device-snapshot` | Daily schedule | Script-based device snapshots and differences, stored through a shared database interface; agent interpretation. |
+| P2-M3 | `incident-investigator` | On request | Combine syslog findings, snapshots and previous cases with source references and uncertainty. |
+| P2-M4 | `ask-nimbls` extension | User request | Query site history, inspect latest job outcomes, initiate scoped investigation and guide refinement. |
 
-Folder names and agent labels are proposals. The creation review shows actual destinations and sample outputs before use. Shared evidence access must be explicitly scoped; this set does not require autonomous delegation between agents.
+These are planning identifiers, not assigned GitHub milestone IDs. The POC 2 estimate covers all four together, not 2–3 weeks per agent, and must be rechecked against the expanded scope. Individual dates and implementation issues remain unassigned.
 
-### Site history agent
+Daily jobs run independently on saved schedules. Ask nimbls is the user entry point, not a required daily dispatcher. Investigation startup uses explicit application operations that preserve task scope, progress and outcomes; general autonomous delegation is not part of this definition.
 
-Example request:
+## P2-M1 — syslog-reviewer
 
-> Each day, review changes in this site’s device settings and status. Preserve the original observations and compare with the last verified normal state. Explain significant differences, related events, and what we should check next.
+**Outcome:** Daily syslog review.
 
-Illustrative case: a VLAN difference appears after maintenance at the same time as connection interruptions. The agent records both observations and prompts investigation. Correlation is a lead, not proof of cause. A recent snapshot must not silently become a last-known-good baseline.
+**Deliver:** Run scripts first to classify known patterns, deduplicate events and count changes by device and time. The agent reviews unmatched logs and unusual changes in known patterns, then retains useful, critical and anomalous findings.
 
-Daily snapshots are an initial candidate; event-triggered capture is an extension whose integration and timing need validation. Inventory and current-status retrieval are supporting capabilities within this workflow.
+**Accept when:** Replay known important events and frequency spikes. Compare findings, token use and elapsed time against full-log analysis; report misses and cost changes. Test candidate patterns on retained cases before human approval and versioned activation.
 
-### Configuration delivery agent
+## P2-M2 — device-snapshot
 
-Example request:
+**Outcome:** Daily device snapshots.
 
-> Plan how to put these new devices on the intended management network while preserving production communications. Show the differences, risks, execution order, acceptance checks, and recovery conditions before any change.
+**Deliver:** Use a script to capture a defined snapshot of every in-scope device and store it through a shared database interface. Compare snapshots; let the agent explain meaningful differences and recommend retention changes.
 
-After explicit approval of a supported operation, the intended full workflow tests a pilot, checks management access, required services and segmentation, then expands in batches only when acceptance passes. Stop on failed checks and follow a previously validated recovery procedure where available. Retain per-device changes and acceptance evidence; a successful command is not proof that services work.
+**Accept when:** Retrieve snapshots across days with consistent device IDs and timestamps. Distinguish collection failure from device removal or no change. Apply explicit retention rules, preserving incident-linked evidence; do not silently delete it.
 
-For an early release, a planning-only version may be appropriate. Label it **planning only**, not as completed configuration delivery. Device-changing execution requires verified device/CLI support, approval enforcement, loss-of-connection handling, and operation-specific recovery. The first milestone must explicitly choose its supported depth.
+## P2-M3 — incident-investigator
 
-### Event follow-up agent
+**Outcome:** Evidence-backed incident investigation.
 
-Example request:
+**Deliver:** On request, combine retained syslog findings, device snapshots and previous cases into an incident timeline. Cite evidence, explain possible causes and identify missing information.
 
-> Review daily syslogs, keep important recurring problems under the same history, and show new findings, unresolved problems, and what needs confirmation. After a reported fix, keep checking whether the problem returns.
+**Accept when:** Investigate a switch with repeated link interruptions. Retrieve matching source/time references, compare device changes and distinguish hypotheses from proven causes. Daily snapshots only bound a change between captures.
 
-Illustrative case: a port has disconnected repeatedly for several days and recurs after a cable replacement. Preserve its history and prompt further investigation instead of declaring it resolved because someone recorded a repair.
+## P2-M4 — ask-nimbls
 
-Counting, deduplication, and record preservation should be deterministic application responsibilities. The agent interprets context and explains findings. Preserve device identity, timestamps, and original event references rather than only AI summaries. Log contents are untrusted data and cannot directly authorize configuration changes.
+**Outcome:** Site operations entry point.
 
-Closure requires a defined observation period and acceptance evidence, with recurrence retained. These rules still need a detailed SPEC. The existing [daily syslog scenario](../scenarios/daily-syslog-summary.md) demonstrates the first reporting step; it does not yet prove continuous follow-up or resolution.
+**Deliver:** Extend the existing POC 1 agent to answer site-history questions, inspect daily-agent outcomes, initiate a scoped investigation and help refine schedules or review candidate patterns. Daily jobs continue independently on their schedules.
 
-## First-release selection
+**Accept when:** Ask what changed yesterday, why a switch is disconnecting, and whether daily jobs finished. Show current results and failures with sources. An initiated investigation retains its scope, progress and outcome through an explicit execution interface.
 
-Confirmed sequence: start with the site history agent's daily syslog report as the first real validation case. Exercise the complete create → try → modify → save → schedule workflow, including a prepared starter and the creation/refinement path. Then develop configuration delivery and event follow-up progressively according to supported bbcli capabilities. Retain all three outcomes in product planning; this selects a starting slice, not all three complete agents for the first release.
+## Shared design rules
 
-Use actual retrieved syslogs in the agreed test environment and verify reporting-period/source attribution, findings backed by evidence, a saved report, an observable requested refinement, and recurring execution. Exact fixtures, model/platform, and acceptance checks belong to the first milestone/SPEC. A daily report alone does not establish complete site history or persistent incident resolution. The creation assistant and Ask nimbls are application support roles alongside these domain agents.
+Scripts own repeatable collection, parsing, comparison and policy-based cleanup. Agents interpret exceptions, evidence and improvements. Snapshot schema and writes belong to a shared storage interface; the database engine remains to be selected and does not change nimbls application-setting storage. Use common device identifiers, timestamps and evidence references. P2-M1 and P2-M2 supply evidence for P2-M3; P2-M4 exposes those capabilities through the existing Ask nimbls agent. No general autonomous agent delegation is implied.
 
-The previous device-status and inventory examples remain useful starter exercises and supporting tasks, but are no longer the headline agent set. Ship only the supported, tested depth of an agent; show limitations clearly rather than presenting unavailable capability as ready.
+Recurring patterns are not automatically harmless. Keep counts and trends; evaluate candidate patterns before activation. Cost reductions are targets to measure, not promises.
+
+## Later agent directions
+
+Configuration delivery and ongoing event follow-up remain broader future directions, not additional POC 2 milestone agents. Configuration delivery requires supported device operations, explicit authorization, before/after verification, failure handling and an operation-specific recovery plan. A successful command does not prove that services work.
+
+Longer-term event follow-up can retain actions and recurrence until a defined observation period and evidence justify closure. Daily review alone does not establish full incident resolution. Preserve source event references under retention policy; blanket indefinite raw-syslog retention is not implied.
+
+A last-known-good baseline, if supported later, must be explicitly verified and preserved separately. A recent daily snapshot must not silently become that baseline. Event-triggered capture remains a later extension; POC 2 specifies daily snapshots.
 
 ## First-use experience
 

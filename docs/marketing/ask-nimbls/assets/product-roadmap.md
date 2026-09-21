@@ -36,7 +36,7 @@ Planning estimate: **2–3 weeks per POC; 14–21 weeks total**, sequential deli
 - Retrieve earlier incidents with source and time references.
 - Compare current conditions with previous findings.
 
-**Default agent / entry:** Site History Agent + Incident Investigation Agent.
+**Default agent / entry:** syslog-reviewer + device-snapshot + incident-investigator + ask-nimbls (extended).
 
 **Demo:** Find a similar incident and compare changes and prior handling.
 
@@ -135,3 +135,7 @@ Planning estimate: **2–3 weeks per POC; 14–21 weeks total**, sequential deli
 ## Taiwan working-day schedule
 
 Use the interactive Roadmap page to choose a kickoff and 10 or 15 working days per POC. It excludes official non-working dates from the bundled 2026–2027 DGPA office calendars and provides dated SVG/Markdown downloads with excluded dates. The undated poster shows effort only; holidays extend calendar duration. Company leave and emergency closures are not included. Source: https://data.gov.tw/dataset/14718.
+
+## POC 2 agent delivery
+
+See [POC 2 agent milestones](poc2-agent-milestones.md) for the four planned agent milestones and acceptance criteria.

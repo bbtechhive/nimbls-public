@@ -117,3 +117,7 @@ These are proposed acceptance points, not passed tests. Daily operation still re
 The story to communicate is: “Describe the work, review the expected result, and keep a traceable daily report.” Evaluate usefulness and time spent reviewing logs in a pilot before making numerical savings claims. This scenario supports human follow-up; it does not demonstrate autonomous repair or guaranteed detection of every anomaly.
 
 Related: [Copyable creation examples](../guides/create-an-agent.md) · [Agent concepts](../concepts/agents.md) · [Detailed function draft](../specs/fundamental-function-blocks.md)
+
+## POC 2 extension
+
+The initial reporting scenario remains POC 1. POC 2 adds script-first syslog classification and trend checks, daily device snapshots and on-demand incident investigation through Ask nimbls. See [default agents and delivery milestones](../guides/starter-agents.md) for responsibilities, pattern review, retention and acceptance. Daily work does not require a fresh chat request.

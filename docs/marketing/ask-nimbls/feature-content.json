@@ -47,7 +47,7 @@
       "problem": "Important observations and previous resolutions are scattered across logs, reports, and people.",
       "intro": "Retain important observations, syslogs, changes, and investigation findings under defined retention rules. Retrieve the evidence when a new issue appears, with its source and time context.",
       "request": "Has this issue happened before? What changed before it started, and what helped last time?",
-      "story": "An operator investigates recurring link interruptions. The Site History Agent retrieves a previous incident and relevant observations; the Incident Investigation Agent compares the timelines and identifies which similarities are supported by evidence.",
+      "story": "Daily syslog-reviewer and device-snapshot retain evidence; incident-investigator combines the records for a recurring-link investigation initiated through Ask nimbls.",
       "steps": [
         [
           "Retain",
@@ -341,12 +341,42 @@
       "poc": 2,
       "title": "Site history retention and incident investigation",
       "capability": "Site History & Knowledge",
-      "starter": "Site History Agent + Incident Investigation Agent",
+      "starter": "syslog-reviewer + device-snapshot + incident-investigator + ask-nimbls (extended)",
       "scenario": "Find a similar incident and compare changes and prior handling.",
       "acceptance": "Retrieve retained evidence across executions with correct source/time references and explicit uncertainty.",
       "duration": "2–3 weeks",
       "two_week_schedule": "Weeks 3–4",
-      "three_week_schedule": "Weeks 4–6"
+      "three_week_schedule": "Weeks 4–6",
+      "agentMilestones": [
+        {
+          "id": "P2-M1",
+          "agent": "syslog-reviewer",
+          "title": "Daily syslog review",
+          "scope": "Run scripts first to classify known patterns, deduplicate events and count changes by device and time. The agent reviews unmatched logs and unusual changes in known patterns, then retains useful, critical and anomalous findings.",
+          "acceptance": "Replay known important events and frequency spikes. Compare findings, token use and elapsed time against full-log analysis; report misses and cost changes. Test candidate patterns on retained cases before human approval and versioned activation."
+        },
+        {
+          "id": "P2-M2",
+          "agent": "device-snapshot",
+          "title": "Daily device snapshots",
+          "scope": "Use a script to capture a defined snapshot of every in-scope device and store it through a shared database interface. Compare snapshots; let the agent explain meaningful differences and recommend retention changes.",
+          "acceptance": "Retrieve snapshots across days with consistent device IDs and timestamps. Distinguish collection failure from device removal or no change. Apply explicit retention rules, preserving incident-linked evidence; do not silently delete it."
+        },
+        {
+          "id": "P2-M3",
+          "agent": "incident-investigator",
+          "title": "Evidence-backed incident investigation",
+          "scope": "On request, combine retained syslog findings, device snapshots and previous cases into an incident timeline. Cite evidence, explain possible causes and identify missing information.",
+          "acceptance": "Investigate a switch with repeated link interruptions. Retrieve matching source/time references, compare device changes and distinguish hypotheses from proven causes. Daily snapshots only bound a change between captures."
+        },
+        {
+          "id": "P2-M4",
+          "agent": "ask-nimbls",
+          "title": "Site operations entry point",
+          "scope": "Extend the existing POC 1 agent to answer site-history questions, inspect daily-agent outcomes, initiate a scoped investigation and help refine schedules or review candidate patterns. Daily jobs continue independently on their schedules.",
+          "acceptance": "Ask what changed yesterday, why a switch is disconnecting, and whether daily jobs finished. Show current results and failures with sources. An initiated investigation retains its scope, progress and outcome through an explicit execution interface."
+        }
+      ]
     },
     {
       "poc": 3,

@@ -93,3 +93,7 @@ flowchart LR
 Use “main assistant,” “ready-to-use agents,” and “repeatable work” consistently. Describe demonstrated scope explicitly. Do not claim autonomous self-improvement, guaranteed accuracy, or completed tasks without checking the actual result.
 
 Related: [POC milestones and future features](../../MILESTONES.md) · [POC specification](../specs/macos-syslog-poc.md). The agreed seven-POC sequence is recorded in the roadmap; this card does not assign new delivery dates.
+
+## POC 2 agent delivery
+
+See [POC 2 agent milestones](poc2-agent-milestones.md) for the four planned agent milestones and acceptance criteria.

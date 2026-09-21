@@ -126,3 +126,7 @@ The POC 1 card on the homepage and Roadmap contains **View milestones (M1–M3)*
 The roadmap offers **Total view** for all POCs on one timeline and **Monthly calendar** for one month at a time, with previous/next controls and a month selector. Both use the same calculated schedule and retain the selected month when switching views. Each working date identifies its POC; gray days identify excluded weekends and holidays. Download the selected month as SVG or use the main SVG download for all months. Start-date and duration changes recalculate the same working-day schedule.
 
 Download Total view for the full timeline, Download this month for the selected calendar, or Download all months for every calendar month.
+
+## POC 2 agent milestones
+
+Expand POC 2 on the homepage or Roadmap for syslog-reviewer, device-snapshot, incident-investigator, and the Ask nimbls extension. Site History has all four delivery cards; Ask nimbls explains its P2-M4 extension. Download the detailed plan from either the Site History page or `assets/poc2-agent-milestones.md`. These planning identifiers are separate from GitHub milestone IDs.

@@ -25,7 +25,7 @@ Agreed product sequence, 2026-09-21. POC 1 retains the existing M1–M3 mileston
 | POC | New capability | Default agent / entry | Customer demonstration | Acceptance direction |
 | --- | --- | --- | --- | --- |
 | 1 — Agent creation and daily syslog automation | Ask nimbls + Custom Agents | Daily Syslog Summary Agent | Create, run, refine, save, and schedule a syslog report. | Complete M1–M3 with live NIMBL data, evidence-backed outputs, and truthful failures. |
-| 2 — Site history retention and incident investigation | Site History & Knowledge | Site History Agent + Incident Investigation Agent | Find a similar incident and compare changes and prior handling. | Retrieve retained evidence across executions with correct source/time references and explicit uncertainty. |
+| 2 — Site history retention and incident investigation | Site History & Knowledge | syslog-reviewer + device-snapshot + incident-investigator + ask-nimbls (extended) | Find a similar incident and compare changes and prior handling. | Retrieve retained evidence across executions with correct source/time references and explicit uncertainty. |
 | 3 — Local model integration and general tasks | Local LLM Server | Locally validated network agents + Document Comparison Agent | Run a network report and compare documents without external inference. | Validate both workflows on documented hardware/model; observe no external inference requests. |
 | 4 — Report search, interaction and archiving | Advanced Results Center | Report search and organization through Ask nimbls | Explore an interactive report and archive old reports while keeping key cases searchable. | Correct search results, isolated interactions, and verified archive retrieval. |
 | 5 — Agent performance review and improvement | Agent Improvement Review | Improvement review through Ask nimbls | Review a missed event, propose a change, and compare revised results. | Representative before/after cases show gains or regressions; retain the evidence. |
@@ -124,3 +124,45 @@ Saving reports alone does not deliver site memory or root-cause analysis. Histor
 | [#25 — Verify daily syslog automation and close the macOS POC](https://github.com/bbtechhive/nimbls-public/issues/25) | [#19](https://github.com/bbtechhive/nimbls-public/issues/19), [#21](https://github.com/bbtechhive/nimbls-public/issues/21), [#22](https://github.com/bbtechhive/nimbls-public/issues/22), [#23](https://github.com/bbtechhive/nimbls-public/issues/23), [#24](https://github.com/bbtechhive/nimbls-public/issues/24) | HITL |
 
 AFK means routine implementation can proceed under the agreed design; normal review/publication rules still apply. HITL marks live acceptance requiring user-provided test scope/setup. Missing test access can block execution of integration checks without changing an issue's implementation scope.
+
+## POC 2 agent milestones
+
+POC 2 adds four agent milestones to build and use site history. These are planned website milestones; GitHub tracking IDs and individual dates are not yet assigned. The existing 2–3-week POC estimate covers all four together and must be rechecked against this expanded scope.
+
+## P2-M1 — syslog-reviewer
+
+**Outcome:** Daily syslog review.
+
+**Deliver:** Run scripts first to classify known patterns, deduplicate events and count changes by device and time. The agent reviews unmatched logs and unusual changes in known patterns, then retains useful, critical and anomalous findings.
+
+**Accept when:** Replay known important events and frequency spikes. Compare findings, token use and elapsed time against full-log analysis; report misses and cost changes. Test candidate patterns on retained cases before human approval and versioned activation.
+
+## P2-M2 — device-snapshot
+
+**Outcome:** Daily device snapshots.
+
+**Deliver:** Use a script to capture a defined snapshot of every in-scope device and store it through a shared database interface. Compare snapshots; let the agent explain meaningful differences and recommend retention changes.
+
+**Accept when:** Retrieve snapshots across days with consistent device IDs and timestamps. Distinguish collection failure from device removal or no change. Apply explicit retention rules, preserving incident-linked evidence; do not silently delete it.
+
+## P2-M3 — incident-investigator
+
+**Outcome:** Evidence-backed incident investigation.
+
+**Deliver:** On request, combine retained syslog findings, device snapshots and previous cases into an incident timeline. Cite evidence, explain possible causes and identify missing information.
+
+**Accept when:** Investigate a switch with repeated link interruptions. Retrieve matching source/time references, compare device changes and distinguish hypotheses from proven causes. Daily snapshots only bound a change between captures.
+
+## P2-M4 — ask-nimbls
+
+**Outcome:** Site operations entry point.
+
+**Deliver:** Extend the existing POC 1 agent to answer site-history questions, inspect daily-agent outcomes, initiate a scoped investigation and help refine schedules or review candidate patterns. Daily jobs continue independently on their schedules.
+
+**Accept when:** Ask what changed yesterday, why a switch is disconnecting, and whether daily jobs finished. Show current results and failures with sources. An initiated investigation retains its scope, progress and outcome through an explicit execution interface.
+
+## Shared design rules
+
+Scripts own repeatable collection, parsing, comparison and policy-based cleanup. Agents interpret exceptions, evidence and improvements. Snapshot schema and writes belong to a shared storage interface; the database engine remains to be selected and does not change nimbls application-setting storage. Use common device identifiers, timestamps and evidence references. P2-M1 and P2-M2 supply evidence for P2-M3; P2-M4 exposes those capabilities through the existing Ask nimbls agent. No general autonomous agent delegation is implied.
+
+Recurring patterns are not automatically harmless. Keep counts and trends; evaluate candidate patterns before activation. Cost reductions are targets to measure, not promises.

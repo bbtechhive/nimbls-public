@@ -21,7 +21,7 @@ Status: planned capability, not released functionality. POC 2. Delivery dates TB
 
 > Has this issue happened before? What changed before it started, and what helped last time?
 
-An operator investigates recurring link interruptions. The Site History Agent retrieves a previous incident and relevant observations; the Incident Investigation Agent compares the timelines and identifies which similarities are supported by evidence.
+An operator investigates recurring link interruptions. Daily syslog-reviewer and device-snapshot retain evidence; incident-investigator compares records and prior cases through the Ask nimbls entry point.
 
 ## Workflow
 
@@ -46,3 +46,7 @@ These are presentation slots, not execution-speed claims. Label mockups and pre-
 ## Visual use
 
 The accompanying SVG is a workflow concept, not a product screen. Future screen illustrations must follow the canonical UI guide or be explicitly proposed as design changes before marketing adoption.
+
+## POC 2 agent delivery
+
+See [POC 2 agent milestones](poc2-agent-milestones.md) for the four planned agent milestones and acceptance criteria.
