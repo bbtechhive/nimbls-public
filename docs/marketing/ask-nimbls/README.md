@@ -141,3 +141,5 @@ All feedback goes to the public nimbls-public repository. Do not include confide
 The roadmap focuses on actual working days and milestone dates. Holiday and excluded-date lists are omitted from the page and calculated Markdown download; the underlying official calendar still determines working days.
 
 Roadmap script URLs include a content-hash version to avoid mixing updated markup with a cached older planner. When changing a roadmap script, update its `?v=` value in `roadmap.html` to the first 12 characters of that file’s SHA-256 hash, then refresh both complete website kits.
+
+Monthly calendars highlight each milestone’s final working day in blue with a **Demo / release** label. These are planning targets, not committed release dates. The same markers appear in monthly and all-month SVG downloads.
