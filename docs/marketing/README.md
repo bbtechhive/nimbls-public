@@ -1,6 +1,6 @@
 # English product and marketing library
 
-Open the [combined website](ask-nimbls/index.html) for all core capabilities, customer scenarios, feature cards, visuals, sales scripts, and the seven-POC roadmap. The original `ask-nimbls/` path is retained so existing links and launchers keep working.
+Open the [combined website](ask-nimbls/index.html) for three illustrated everyday scenarios and useful sample results. The [feature library](ask-nimbls/features.html) preserves the core capabilities, network architecture, feature cards, and marketing downloads. The original `ask-nimbls/` path is retained so existing links and launchers keep working.
 
 - [Complete kit](ask-nimbls/nimbls-marketing-kit.zip)
 - [Sales/marketing quick start](ask-nimbls/README.md)

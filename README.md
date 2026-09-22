@@ -10,7 +10,7 @@ The product rules are **easy to use** and **ready out of the box**: include usef
 
 ## Marketing website — start here
 
-Explore **seven core functions**, customer scenarios, reusable visuals, feature cards, and the interactive roadmap. The website is in English and includes individual downloads and a complete marketing kit. It describes planned capabilities, not a released product.
+Start with **three illustrated everyday scenarios**: a morning network brief, future meeting preparation, and planned document comparison. Then explore seven core functions, reusable visuals, feature cards, and the interactive roadmap. The website is in English and includes individual downloads and a complete marketing kit. It describes planned capabilities, not a released product.
 
 - [Download the complete marketing website ZIP](docs/marketing/ask-nimbls/nimbls-marketing-kit.zip?raw=true)
 - [Read the full quick-start guide](docs/marketing/ask-nimbls/README.md)

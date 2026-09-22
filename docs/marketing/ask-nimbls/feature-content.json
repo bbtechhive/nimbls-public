@@ -505,5 +505,29 @@
         "readiness": "Exploratory candidate; choose a service and validate account access and supported actions first."
       }
     ]
+  },
+  "landing": {
+    "headline": "Less busywork. More room to think.",
+    "page": "index.html",
+    "featureLibrary": "features.html",
+    "illustration": "assets/everyday-work-scenes.png",
+    "scenarios": [
+      {
+        "id": "morning",
+        "title": "Start with what matters. Not a pile of alerts.",
+        "status": "planned-network-operations"
+      },
+      {
+        "id": "meeting",
+        "title": "Walk into the meeting. Already up to speed.",
+        "status": "future-candidate-unscheduled"
+      },
+      {
+        "id": "documents",
+        "title": "See the differences. Make the decision.",
+        "status": "planned-document-comparison"
+      }
+    ],
+    "results": "fictional-concepts-not-product-screenshots"
   }
 }

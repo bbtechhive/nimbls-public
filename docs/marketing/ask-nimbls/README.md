@@ -80,7 +80,7 @@ macOS and Windows launchers use an installed Python 3 interpreter. The shared se
 
 ## Big-picture architecture
 
-The homepage includes the network site architecture with a full-size preview and downloads: `assets/nimbls-architecture.svg` and its explanation, `assets/nimbls-architecture.md`. It shows scheduled operations through NIMBL, local context and inference, and the separately planned external-assistance path.
+The feature library (`features.html`) includes the network site architecture with a full-size preview and downloads: `assets/nimbls-architecture.svg` and its explanation, `assets/nimbls-architecture.md`. It shows scheduled operations through NIMBL, local context and inference, and the separately planned external-assistance path.
 
 ## Additional feature and roadmap downloads
 
@@ -95,7 +95,8 @@ The Ask nimbls hero follows the current desktop foundation. Other capability vis
 
 ## Website pages
 
-- `index.html`: seven core functions, without milestone labels. Scheduling is grouped under Custom Agents; controlled external assistance is grouped under Local AI. Both retain their detailed pages.
+- `index.html`: scenario-led homepage with illustrated network briefs, future meeting preparation, and planned document comparison. Includes fictional sample results and a three-step explanation.
+- `features.html`: the full feature library, network architecture, milestone summaries, and reusable marketing materials.
 - `ask-nimbls.html`: Ask nimbls, scenario, design-aligned hero, and toolkit.
 - `custom-agents.html`: Custom Agents.
 - `site-history.html`: Site History & Knowledge.
@@ -115,7 +116,7 @@ Keep these pages together. Navigation uses relative links, so the site works fro
 
 Open **Visual Library** from any page to preview and download the architecture, feature diagrams, daily network scenario, and roadmap reference. Each offers PNG for slides, editable SVG and presentation notes. **Download all visuals & notes** provides a separate ZIP; the complete website kit includes that ZIP too. Individual feature pages also offer PNG/SVG beside the relevant diagram.
 
-The homepage introduces the architecture and daily operations journey; detailed diagrams stay on their matching feature pages. For a dated roadmap, use the interactive Roadmap page and its SVG/Markdown exports. The library roadmap poster is undated. Preserve scope labels and distinguish planned concepts from product reconstructions.
+The homepage introduces three everyday scenarios; the feature library preserves the architecture and daily operations journey; detailed diagrams stay on their matching feature pages. For a dated roadmap, use the interactive Roadmap page and its SVG/Markdown exports. The library roadmap poster is undated. Preserve scope labels and distinguish planned concepts from product reconstructions.
 
 ## Roadmap and features
 
@@ -126,3 +127,7 @@ Milestone cards list their important features under **View features**. Milestone
 ## Future agent capabilities
 
 Open `future-capabilities.html` for Google Workspace, Microsoft 365, and four additional ideas. Download `assets/agent-capability-candidates.md` for scope and integration evidence. These candidates are unscheduled and excluded from current roadmap estimates; they are not released integrations.
+
+## Homepage illustrations
+
+`assets/everyday-work-scenes.png` is an AI-generated editorial illustration of three workplace moments, not a product screenshot. The homepage frames the original image into three scenes using CSS. `assets/everyday-work-scenes.md` records the generation prompt and usage. Scenario results are fictional; retain the planned/candidate labels when reusing them.
