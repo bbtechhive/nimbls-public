@@ -139,3 +139,5 @@ Every page has a **Leave feedback** link. Choose the page and type, enter a shor
 All feedback goes to the public nimbls-public repository. Do not include confidential, customer, or personal information. The form includes only a known website filename and title, never a local filesystem path or local preview address. It uses no GitHub token, server, or browser storage; the downloaded website works the same way, with internet access required to continue to GitHub. Without JavaScript, use the direct GitHub link. The website does not confirm submission or display synchronized comments.
 
 The roadmap focuses on actual working days and milestone dates. Holiday and excluded-date lists are omitted from the page and calculated Markdown download; the underlying official calendar still determines working days.
+
+Roadmap script URLs include a content-hash version to avoid mixing updated markup with a cached older planner. When changing a roadmap script, update its `?v=` value in `roadmap.html` to the first 12 characters of that file’s SHA-256 hash, then refresh both complete website kits.
