@@ -12,3 +12,5 @@ All feature stages are planned; the material is not a released-feature announcem
 
 - [Future agent capabilities](ask-nimbls/future-capabilities.html) — Google Workspace, Microsoft 365, and additional unscheduled candidates with everyday examples.
 - [Candidate plan](../plans/agent-capability-candidates.md) — scope, suggested first demonstrations, and integration evidence.
+
+Use **Leave feedback** on any website page to prepare a public GitHub issue. Submission and follow-up replies happen on GitHub; account sign-in is required.
