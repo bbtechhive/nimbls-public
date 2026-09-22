@@ -9,3 +9,6 @@ Open the [combined website](ask-nimbls/index.html) for all core capabilities, cu
 - [Canonical milestone planning](../../MILESTONES.md)
 
 All feature stages are planned; the material is not a released-feature announcement. Product screens follow the [UI guide](../guides/ui-guide.md); other diagrams are workflow concepts, not application UI. No new delivery dates are committed.
+
+- [Future agent capabilities](ask-nimbls/future-capabilities.html) — Google Workspace, Microsoft 365, and additional unscheduled candidates with everyday examples.
+- [Candidate plan](../plans/agent-capability-candidates.md) — scope, suggested first demonstrations, and integration evidence.

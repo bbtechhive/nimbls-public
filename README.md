@@ -39,6 +39,10 @@ Use **Roadmap** in the website to choose a start date and each POC's duration. I
 
 GitHub displays HTML source; it does not launch this website from the repository view. The launcher opens a local preview, not a public website. Share the ZIP with colleagues rather than your local preview address.
 
+## Future agent capabilities
+
+Explore [Google Workspace, Microsoft 365, and more capability candidates](docs/marketing/ask-nimbls/future-capabilities.html), or read the [candidate plan](docs/plans/agent-capability-candidates.md). Everyday examples explain the proposed value. These are unscheduled ideas for evaluation, not released integrations.
+
 ## Explore the planned experience
 
 - [Understand agents in nimbls](docs/concepts/agents.md)

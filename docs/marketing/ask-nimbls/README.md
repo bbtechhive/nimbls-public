@@ -122,3 +122,7 @@ The homepage introduces the architecture and daily operations journey; detailed 
 Use **Total view** for the overall schedule or **Monthly calendar** for daily dates and holidays. Both offer SVG downloads.
 
 Milestone cards list their important features under **View features**. Milestone 2 has four standalone feature pages with simple explanations, diagrams and downloads: syslog-reviewer, device-snapshot, incident-investigator and Ask nimbls site operations. Engineering issues and acceptance criteria remain in GitHub and the design documents.
+
+## Future agent capabilities
+
+Open `future-capabilities.html` for Google Workspace, Microsoft 365, and four additional ideas. Download `assets/agent-capability-candidates.md` for scope and integration evidence. These candidates are unscheduled and excluded from current roadmap estimates; they are not released integrations.
