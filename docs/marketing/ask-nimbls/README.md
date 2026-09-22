@@ -137,3 +137,5 @@ Open `future-capabilities.html` for Google Workspace, Microsoft 365, and four ad
 Every page has a **Leave feedback** link. Choose the page and type, enter a short summary and message, then select **Continue to GitHub**. Review the prefilled issue, sign in if needed, and submit it on GitHub. Draft preparation does not post an issue. **View feedback & replies** opens the public discussion history.
 
 All feedback goes to the public nimbls-public repository. Do not include confidential, customer, or personal information. The form includes only a known website filename and title, never a local filesystem path or local preview address. It uses no GitHub token, server, or browser storage; the downloaded website works the same way, with internet access required to continue to GitHub. Without JavaScript, use the direct GitHub link. The website does not confirm submission or display synchronized comments.
+
+The roadmap focuses on actual working days and milestone dates. Holiday and excluded-date lists are omitted from the page and calculated Markdown download; the underlying official calendar still determines working days.
