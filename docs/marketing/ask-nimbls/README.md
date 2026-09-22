@@ -137,3 +137,9 @@ Open `future-capabilities.html` for Google Workspace, Microsoft 365, and four ad
 Every page has a **Leave feedback** link. Choose the page and type, enter a short summary and message, then select **Continue to GitHub**. Review the prefilled issue, sign in if needed, and submit it on GitHub. Draft preparation does not post an issue. **View feedback & replies** opens the public discussion history.
 
 All feedback goes to the public nimbls-public repository. Do not include confidential, customer, or personal information. The form includes only a known website filename and title, never a local filesystem path or local preview address. It uses no GitHub token, server, or browser storage; the downloaded website works the same way, with internet access required to continue to GitHub. Without JavaScript, use the direct GitHub link. The website does not confirm submission or display synchronized comments.
+
+## Proposed GitHub Pages publishing
+
+Deployment is prepared but not live: the bbtechhive organization currently disables Pages creation. An organization administrator must allow public Pages creation before this setup is merged. Then enable GitHub Actions as the repository’s Pages source and merge the deployment workflow. Confirm a successful deployment before sharing the Pages URL.
+
+The proposed `Publish marketing website` workflow deploys this folder when its contents change on main. It can also be run manually on main. The workflow uploads only the marketing website folder. Downloads and local launchers remain available; feedback submission requires internet access and a GitHub account. Keep candidate and illustrative-result labels intact.
