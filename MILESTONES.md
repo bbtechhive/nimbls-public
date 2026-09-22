@@ -51,6 +51,10 @@ Default agents begin in Milestone 1. Each stage adds tested starter agents or us
 
 The [English marketing website](docs/marketing/ask-nimbls/roadmap.html) presents the same sequence. Download the [roadmap SVG](docs/marketing/ask-nimbls/assets/product-roadmap.svg) or [detailed Markdown roadmap](docs/marketing/ask-nimbls/assets/product-roadmap.md). These describe planned capabilities and do not claim completed demonstrations.
 
+## Future agent capability candidates
+
+The [candidate plan](docs/plans/agent-capability-candidates.md) starts with **Google Workspace** and **Microsoft 365**, with additional ideas for web research, documents and spreadsheets, team chat and tasks, and CRM follow-ups. See the [customer-facing overview](docs/marketing/ask-nimbls/future-capabilities.html) for everyday examples. These are unscheduled candidates, outside the seven-Milestone scope and estimates; no service support or release date is committed.
+
 ## Later delivery
 
 The [SPEC's scope boundary](docs/specs/macos-syslog-poc.md#outside-this-poc-delivery-scope) distinguishes confirmed later features from the Milestone: interactive HTML, additional schedules/integrations, revisions, wider platform/model validation, and deferred collaboration/server/security-assistance work. The seven-Milestone sequence above organizes later delivery. Milestone 2 agent features are tracked as #4–#7; no new delivery dates are assigned.

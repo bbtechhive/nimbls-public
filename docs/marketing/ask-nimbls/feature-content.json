@@ -438,5 +438,72 @@
       "two_week_schedule": "Weeks 13–14",
       "three_week_schedule": "Weeks 19–21"
     }
-  ]
+  ],
+  "capabilityCandidates": {
+    "status": "candidate-unscheduled",
+    "includedInRoadmapEstimates": false,
+    "page": "future-capabilities.html",
+    "items": [
+      {
+        "id": "google-workspace",
+        "title": "Google Workspace",
+        "origin": "Your suggestion",
+        "promise": "Bring your email, calendar, and files into one useful briefing.",
+        "potentialScope": "Gmail, Google Calendar, Drive, Docs, Sheets, and Slides.",
+        "exampleRequest": "Summarize customer emails, check tomorrow’s meetings, and find the documents I need.",
+        "outcomes": "Email summaries, draft replies, meeting preparation, and document lookup.",
+        "readiness": "Existing Pi integrations identified; nimbls compatibility remains untested."
+      },
+      {
+        "id": "microsoft-365",
+        "title": "Microsoft 365",
+        "origin": "Your suggestion",
+        "promise": "Turn everyday office information into a clear next step.",
+        "potentialScope": "Outlook mail and calendar, OneDrive, SharePoint, Teams, and Excel.",
+        "exampleRequest": "Prepare me for tomorrow’s customer meeting using relevant emails, files, and team updates.",
+        "outcomes": "Meeting briefs, email drafts, shared-file search, and spreadsheet summaries.",
+        "readiness": "Microsoft Graph is a candidate integration route; connector selection and nimbls validation are pending."
+      },
+      {
+        "id": "web-research",
+        "title": "Web research",
+        "origin": "Additional suggestion",
+        "promise": "Get a sourced answer without opening dozens of tabs.",
+        "potentialScope": "Public websites, product documentation, and news sources.",
+        "exampleRequest": "Compare these three products and give me a short brief with source links and dates.",
+        "outcomes": "Research briefs, product comparisons, and summaries of changes on selected pages.",
+        "readiness": "Suggested for evaluation; source access, freshness, and citation quality need validation."
+      },
+      {
+        "id": "documents-spreadsheets",
+        "title": "Documents & spreadsheets",
+        "origin": "Additional suggestion",
+        "promise": "Turn scattered files into something you can use.",
+        "potentialScope": "User-selected PDFs, text documents, spreadsheets, and CSV files.",
+        "exampleRequest": "Compare these proposals and turn the prices, differences, and open questions into a table.",
+        "outcomes": "Document comparison, data cleanup, summaries, and reusable reports.",
+        "readiness": "Suggested for evaluation; builds on the planned document-comparison direction. Format support and output quality need validation."
+      },
+      {
+        "id": "team-work",
+        "title": "Team chat & task tracking",
+        "origin": "Additional suggestion",
+        "promise": "Turn conversations into follow-ups people can act on.",
+        "potentialScope": "Potential services include Slack, Teams, Jira, Asana, and Trello; the final service list is undecided.",
+        "exampleRequest": "Summarize this project discussion and draft follow-up tasks with owners and due dates.",
+        "outcomes": "Discussion summaries, task drafts, and project status updates.",
+        "readiness": "Suggested for evaluation; start with one chat service and one task service. Teams overlaps with Microsoft 365."
+      },
+      {
+        "id": "customer-followups",
+        "title": "Customer & CRM follow-ups",
+        "origin": "Additional suggestion",
+        "promise": "Prepare the next customer conversation with the right context.",
+        "potentialScope": "Potential services include HubSpot or Salesforce, alongside a connected email account.",
+        "exampleRequest": "Review this customer’s recent activity and draft a follow-up with the next steps.",
+        "outcomes": "Customer briefs, follow-up drafts, and proposed CRM updates.",
+        "readiness": "Exploratory candidate; choose a service and validate account access and supported actions first."
+      }
+    ]
+  }
 }
