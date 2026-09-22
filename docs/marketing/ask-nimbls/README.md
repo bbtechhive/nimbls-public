@@ -95,7 +95,7 @@ The Ask nimbls hero follows the current desktop foundation. Other capability vis
 
 ## Website pages
 
-- `index.html`: scenario-led homepage with illustrated network briefs, future meeting preparation, and planned document comparison. Includes fictional sample results and a three-step explanation.
+- `index.html`: scenario-led homepage with illustrated network briefs, planned network-status answers, and network change investigation. Includes fictional sample results and a three-step explanation.
 - `features.html`: the full feature library, network architecture, milestone summaries, and reusable marketing materials.
 - `ask-nimbls.html`: Ask nimbls, scenario, design-aligned hero, and toolkit.
 - `custom-agents.html`: Custom Agents.
@@ -151,3 +151,7 @@ Monthly calendars highlight each milestone’s final working day in blue with a 
 ## Shared visual style
 
 All pages load `assets/site-theme.css` after their page styles. It preserves the homepage’s warm ivory background, dark green text, warm neutral sections, and yellow accents. Update the content-hash query in each page when changing this stylesheet, then refresh the complete kits.
+
+## Preserved future homepage scenarios
+
+The original meeting-preparation and proposal-comparison scenarios are retained in `assets/future-landing-scenarios.md`, displayed on Future capabilities, and preserved verbatim in `feature-content.json` under `deferredLandingScenarios`. Bring each back to the homepage after its related tools/skills and full workflow are verified. The current homepage emphasizes network-status answers and network change investigation.

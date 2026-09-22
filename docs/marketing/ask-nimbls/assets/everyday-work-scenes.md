@@ -8,4 +8,6 @@ Create a refined editorial illustration triptych for an English business softwar
 
 ## Use
 
-Pair each illustration with the matching status and fictional sample outcome: planned network reporting, unscheduled Google Workspace / Microsoft 365 meeting preparation, or planned document comparison. Preserve these labels in marketing reuse. The home page has the customer-facing copy; the feature library and roadmap preserve detailed product information.
+Pair each illustration with the matching status and fictional sample outcome: planned network reporting, planned Ask nimbls answers based on site records, or planned network change investigation. The third workplace vignette is reused as a general illustration of reviewing records; the accompanying result card supplies the specific device-history scenario. Preserve these labels in marketing reuse. The home page has the customer-facing copy; the feature library and roadmap preserve detailed product information.
+
+The second vignette now accompanies a network-status reply scenario: a person preparing a customer or manager response. This is a draft for human review, not an email-service integration or automated sending claim. Original generation prompt is retained above for provenance.
