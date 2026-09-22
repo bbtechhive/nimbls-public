@@ -529,5 +529,15 @@
       }
     ],
     "results": "fictional-concepts-not-product-screenshots"
+  },
+  "currentCapabilities": {
+    "page": "current-capabilities.html",
+    "checked": "2026-09-22",
+    "status": "development-build-not-packaged-release",
+    "agentTools": [
+      "write_output"
+    ],
+    "runtimeSkillsEnabled": false,
+    "inventory": "assets/current-capabilities.md"
   }
 }

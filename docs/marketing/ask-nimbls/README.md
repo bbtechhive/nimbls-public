@@ -143,3 +143,7 @@ The roadmap focuses on actual working days and milestone dates. Holiday and excl
 Roadmap script URLs include a content-hash version to avoid mixing updated markup with a cached older planner. When changing a roadmap script, update its `?v=` value in `roadmap.html` to the first 12 characters of that file’s SHA-256 hash, then refresh both complete website kits.
 
 Monthly calendars highlight each milestone’s final working day in blue with a **Demo / release** label. These are planning targets, not committed release dates. The same markers appear in monthly and all-month SVG downloads.
+
+## Current capabilities
+
+`current-capabilities.html` and `assets/current-capabilities.md` distinguish implemented development capabilities from planned experiences. Re-check tool exposure, skill loading, and evidence when updating this inventory; application operations are not automatically agent tools. The page supports the shared feedback flow.

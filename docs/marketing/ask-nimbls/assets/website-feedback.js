@@ -1,6 +1,7 @@
 /* Shared by hosted and downloaded copies; no credentials or posting API. */
 (() => {
   const pages = {
+  "current-capabilities.html": "Ask nimbls Today — Current Development Capabilities",
   "agent-improvement.html": "Agent Improvement Review — nimbls",
   "ask-nimbls.html": "Ask nimbls — nimbls",
   "automation.html": "Scheduling &amp; Automation — nimbls",
