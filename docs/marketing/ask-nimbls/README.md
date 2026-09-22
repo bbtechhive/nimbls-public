@@ -155,3 +155,5 @@ All pages load `assets/site-theme.css` after their page styles. It preserves the
 ## Preserved future homepage scenarios
 
 The original meeting-preparation and proposal-comparison scenarios are retained in `assets/future-landing-scenarios.md`, displayed on Future capabilities, and preserved verbatim in `feature-content.json` under `deferredLandingScenarios`. Bring each back to the homepage after its related tools/skills and full workflow are verified. The current homepage emphasizes network-status answers and network change investigation.
+
+The preview launcher sends no-cache/no-store headers for pages and assets so review changes stay current. Use `--port` when a fixed loopback address is needed for an existing tunnel. A tab cached before this change may need one hard refresh or a fresh query-string URL.
