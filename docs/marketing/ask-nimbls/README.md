@@ -147,3 +147,7 @@ Monthly calendars highlight each milestone’s final working day in blue with a 
 ## Current capabilities
 
 `current-capabilities.html` and `assets/current-capabilities.md` distinguish implemented development capabilities from planned experiences. Re-check tool exposure, skill loading, and evidence when updating this inventory; application operations are not automatically agent tools. The page supports the shared feedback flow.
+
+## Shared visual style
+
+All pages load `assets/site-theme.css` after their page styles. It preserves the homepage’s warm ivory background, dark green text, warm neutral sections, and yellow accents. Update the content-hash query in each page when changing this stylesheet, then refresh the complete kits.

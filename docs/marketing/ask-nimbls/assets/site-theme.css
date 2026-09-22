@@ -1,0 +1,19 @@
+/* Shared homepage palette. Keep surface colors consistent across every page. */
+:root {
+  --ink: #253128;
+  --muted: #586159;
+  --paper: #fffefb;
+  --wash: #f3f1e9;
+  --line: #dcded4;
+  --yellow: #e8c236;
+  --sage: #e8eee4;
+}
+body, .nav { background: var(--paper); color: var(--ink); }
+.asset-section, .roadmap-section, .feature-deliverable,
+.benefit-chips span, .document-preview summary,
+.icon-preview .art-preview { background: var(--wash); }
+.capability-section:nth-of-type(even) { background: var(--paper); }
+.delivery-card { background: var(--wash); border-color: var(--line); }
+.feature-index-card, .roadmap-stage, .candidate-card,
+.asset-preview, .document-preview, .download { border-color: var(--line); }
+.feature-index-card:hover, .download:hover { background: var(--wash); }
