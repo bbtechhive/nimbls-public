@@ -131,3 +131,9 @@ Open `future-capabilities.html` for Google Workspace, Microsoft 365, and four ad
 ## Homepage illustrations
 
 `assets/everyday-work-scenes.png` is an AI-generated editorial illustration of three workplace moments, not a product screenshot. The homepage frames the original image into three scenes using CSS. `assets/everyday-work-scenes.md` records the generation prompt and usage. Scenario results are fictional; retain the planned/candidate labels when reusing them.
+
+## Leave feedback
+
+Every page has a **Leave feedback** link. Choose the page and type, enter a short summary and message, then select **Continue to GitHub**. Review the prefilled issue, sign in if needed, and submit it on GitHub. Draft preparation does not post an issue. **View feedback & replies** opens the public discussion history.
+
+All feedback goes to the public nimbls-public repository. Do not include confidential, customer, or personal information. The form includes only a known website filename and title, never a local filesystem path or local preview address. It uses no GitHub token, server, or browser storage; the downloaded website works the same way, with internet access required to continue to GitHub. Without JavaScript, use the direct GitHub link. The website does not confirm submission or display synchronized comments.
