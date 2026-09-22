@@ -45,6 +45,8 @@ Explore [Google Workspace, Microsoft 365, and more capability candidates](docs/m
 
 ## Available in the development build
 
+[Getting started with Ask nimbls](docs/guides/ask-nimbls-help.md) provides task-based help copy for the development build.
+
 [Ask nimbls today](docs/marketing/ask-nimbls/current-capabilities.html) describes implemented conversation and text-output capabilities, the current tool/skill boundary, and prior validation evidence. This is not a packaged release.
 
 ## Explore the planned experience
