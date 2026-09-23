@@ -158,6 +158,9 @@ The original meeting-preparation and proposal-comparison scenarios are retained 
 
 The preview launcher sends no-cache/no-store headers for pages and assets so review changes stay current. Use `--port` when a fixed loopback address is needed for an existing tunnel. A tab cached before this change may need one hard refresh or a fresh query-string URL.
 
+### Milestone capability evolution
+
+The Roadmap page includes a seven-stage concept and capability diagram, plus a concrete deliverable summary for every milestone. Download the editable diagram from `assets/milestone-evolution.svg`. Summaries describe planned outcomes; calculated Markdown plans include them too.
 
 ## Website distribution
 

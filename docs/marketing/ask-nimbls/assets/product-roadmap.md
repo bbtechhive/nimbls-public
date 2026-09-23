@@ -12,7 +12,15 @@ Planning estimate: **2–3 weeks per Milestone; 14–21 weeks total**, sequentia
 | 6 | 2–3 weeks | Weeks 11–12 | Weeks 16–18 | Controlled external model assistance |
 | 7 | 2–3 weeks | Weeks 13–14 | Weeks 19–21 | Authorized device changes and verification |
 
+## Capability evolution
+
+![Concept and capability evolution](milestone-evolution.svg)
+
+Each stage adds to earlier capabilities: execute and remember → retain site knowledge → think locally → produce polished results → review and improve → consult external AI securely → act within device safety boundaries. All stages are planned.
+
 ## Milestone 1 — Agent creation and daily syslog automation
+
+**Planned deliverable:** Build the core agent architecture: task execution, memory, and a shared connection to NIMBL.
 
 **Duration:** 2–3 weeks.
 
@@ -30,6 +38,8 @@ Planning estimate: **2–3 weeks per Milestone; 14–21 weeks total**, sequentia
 
 ## Milestone 2 — Site history retention and incident investigation
 
+**Planned deliverable:** Deliver ready-to-use agents for site data: collect, analyze, filter, and retain the information needed for future investigation.
+
 **Duration:** 2–3 weeks.
 
 - Define what observations and events are retained.
@@ -45,6 +55,8 @@ Planning estimate: **2–3 weeks per Milestone; 14–21 weeks total**, sequentia
 **Feature pages:** [Site History & Knowledge](../site-history.html).
 
 ## Milestone 3 — Local model integration and general tasks
+
+**Planned deliverable:** Support local AI models so agents can process data and complete supported tasks on local hardware.
 
 **Duration:** 2–3 weeks.
 
@@ -62,6 +74,8 @@ Planning estimate: **2–3 weeks per Milestone; 14–21 weeks total**, sequentia
 
 ## Milestone 4 — Report search, interaction and archiving
 
+**Planned deliverable:** Generate and refine reports, dashboards, and analytical findings into clear, useful deliverables.
+
 **Duration:** 2–3 weeks.
 
 - Find reports by relevant scope and time period.
@@ -77,6 +91,8 @@ Planning estimate: **2–3 weeks per Milestone; 14–21 weeks total**, sequentia
 **Feature pages:** [Results Center](../results-center.html).
 
 ## Milestone 5 — Agent performance review and improvement
+
+**Planned deliverable:** Enable agents to propose adjustments to their own instructions and workflows, with review and validation before adoption.
 
 **Duration:** 2–3 weeks.
 
@@ -94,6 +110,8 @@ Planning estimate: **2–3 weeks per Milestone; 14–21 weeks total**, sequentia
 
 ## Milestone 6 — Controlled external model assistance
 
+**Planned deliverable:** Securely connect to external frontier AI for harder tasks, sharing only permitted information and validating the results locally.
+
 **Duration:** 2–3 weeks.
 
 - Define reviewed data types, recipients and disclosure rules.
@@ -109,6 +127,8 @@ Planning estimate: **2–3 weeks per Milestone; 14–21 weeks total**, sequentia
 **Feature pages:** [Controlled External Assistance](../external-assistance.html).
 
 ## Milestone 7 — Authorized device changes and verification
+
+**Planned deliverable:** Enable agents to manage and configure devices within defined safety boundaries, with supported actions, result verification, and rollback.
 
 **Duration:** 2–3 weeks.
 
