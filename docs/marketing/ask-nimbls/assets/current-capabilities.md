@@ -1,38 +1,20 @@
-# Ask nimbls: current development capabilities
+# nimbls — Development capability inventory
 
-Checked 2026-09-22 against the merged application source and recorded validation. **Available in the development build; no packaged product release is claimed.** nimbls remains a development code name. This inventory describes the current merged build, not every feature in the product roadmap.
+Checked September 23, 2026 against merged application revision `e269f31`. Development preview; not a packaged release or full Agent acceptance.
 
-## What you can ask today
-
-| Capability | Example request | Current boundary |
+| Capability | Implemented boundary | Evidence level |
 | --- | --- | --- |
-| Ask questions and work through supplied information | Explain this error message in plain English: … | Uses the configured model. Supply the relevant text in the conversation; the agent cannot retrieve arbitrary files, websites, or live network data. |
-| Create and save a useful text result | Turn these notes into a handover document. | Saves durable results in the configured output folder within the workspace. Markdown, plain text, JSON and CSV are text outputs; PDF, Word, spreadsheet workbooks and image generation are not delivered by this tool. |
-| Update a result in the current conversation | Add “backup verified” to the record you just saved. | Supports appending, prepending, full replacement and literal text edits; previous versions are archived. This is not automatic memory or file browsing. |
-| Keep a response in chat | Summarize this, but do not save a file. | Explicit chat-only requests remain in chat. Ordinary questions do not create files by default. |
-| Get model-profile guidance | Which profile should I use for this task? | Can explain high / medium / low. The user changes the configuration; the agent cannot apply settings itself. |
+| Agent management | Saved user Agents, protected Ask nimbls/Create Agent definitions, default tasks, manual Run, new sessions and scoped deletion | Source inspection; selected real UI lifecycle check rerun |
+| Files and text outputs | Scoped read/write/edit/list/find/search; selected read-only inputs; formal text output and revisions | Real six-tool task and output read-back rerun |
+| Application operations | Structured nimblscli bridge for supported operations, discovery and actual-result inspection | Source inspection; prior real management trials |
+| Skills | Agent-scoped resource snapshots, built-in skill metadata and on-demand bodies | Source inspection and current automated checks |
+| Memory foundations | Working files, instructions, retained sessions/execution evidence; explicit preferences and bounded exact-request observations | Source inspection, current automated checks and prior real preference/session trials |
+| Optional evaluations | Isolated selected Agent/task/model cases with explicit usage approval, result/history/cancel and available usage estimates | Source inspection, current automated checks and prior real evaluation trials |
+| Optional Bash | Separately enabled for user Agents on supported macOS hosts, with confinement and bounded execution | Source inspection, current automated checks and prior real Bash trial |
+| NIMBL authentication | Sign-in/session state; no completed live network reporting or device-change workflow | Source inspection only in this review |
 
-## Tools and skills: exact current status
+The runtime uses explicit guarded tools. Global skill discovery and extensions remain disabled; Agent skill loading is not disabled. Readiness does not prove execution success. New session retains files and records without replaying historical conversations. Repetition does not authorize permanent settings changes.
 
-- **Enabled agent tool: `write_output`.** Creates or updates UTF-8 text results. It is the only tool currently exposed to the agent runtime. The agent should confirm a saved path only after a successful write.
-- **Built-in agent behavior:** task-oriented conversation, model-profile guidance, and automatic saving of durable results are supplied through the system instructions. These are not separately installed skills.
-- **Agent skills and extensions:** loading is disabled in the current merged runtime. No bundled runtime skill should be advertised as available yet. Skills used by development assistants are not product capabilities.
-- **Not enabled for the agent:** general file read/search/list tools, shell execution, application-management tools, NIMBL data retrieval or device changes, Google Workspace, and Microsoft 365.
+Pending: daily scheduling; default network Agents and collected site knowledge; full live syslog workflow; desktop output browsing and pins; local-model workflow validation; controlled external disclosure; supported device changes/rollback; certified binary-document workflows; packaged release and cross-platform acceptance. Optional evaluation infrastructure is not a claim that the Milestone 5 improvement workflow is complete.
 
-## Supporting application features
-
-These are implemented application or CLI functions, not additional tools the chat agent can invoke:
-
-- Configure a workspace and an output folder within it.
-- Configure high / medium / low model profiles and check provider readiness. Real requests with OpenRouter and Google are recorded; other provider entries are not a blanket compatibility guarantee.
-- Inspect execution state and cancel active work.
-- Sign in to NIMBL and inspect connection/session status. Authentication does not establish agent access to syslogs or devices.
-- Read and list saved output through the application operations / CLI. Output browsing and pins in the desktop interface remain separate planned work.
-
-## Evidence and delivery boundary
-
-The existing validation record includes real-model chat and output writing, file-content read-back, follow-up edits, and 20 successful runs across 10 natural-language output-intent cases. [Output delivery tracking](https://github.com/bbtechhive/nimbls-public/issues/9) records the completed slice. These are prior development validations, not a new test run performed for this inventory or clean-install release certification.
-
-Saved custom agents, active runtime skills, general file access, daily scheduling, full syslog reporting, site memory and the connected-service candidates remain later work. The macOS development environment is the validated starting point; packaged distribution and broader platform validation remain pending.
-
-Use [the current roadmap](../roadmap.html) for planned delivery and [future capability candidates](../future-capabilities.html) for unassigned ideas. Re-check this inventory when agent tools, skill loading or acceptance evidence changes.
+See [dated validation evidence](development-evidence.md), [development preview](../current-capabilities.html) and [planned milestones](../roadmap.html). Current cloud-provider access is separate from future policy-controlled external assistance.

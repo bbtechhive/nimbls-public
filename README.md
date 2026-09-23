@@ -10,7 +10,7 @@ The product rules are **easy to use** and **ready out of the box**: include usef
 
 ## Marketing website — start here
 
-Start with **three illustrated everyday scenarios**: a morning network brief, planned network-status answers, and network change investigation. Then explore seven core functions, reusable visuals, feature cards, and the interactive roadmap. The website is in English and includes individual downloads and a complete marketing kit. It describes planned capabilities, not a released product.
+Start with **three illustrated everyday scenarios**: a morning network brief, planned network-status answers, and network change investigation. Then explore seven core functions, reusable visuals, feature cards, and the interactive roadmap. The website is in English and separates the current development preview, planned milestone outcomes and unscheduled ideas. It includes individual downloads and a complete marketing kit; no packaged product release is claimed.
 
 - [Download the complete marketing website ZIP](docs/marketing/ask-nimbls/nimbls-marketing-kit.zip?raw=true)
 - [Read the full quick-start guide](docs/marketing/ask-nimbls/README.md)
@@ -43,11 +43,11 @@ GitHub displays HTML source; it does not launch this website from the repository
 
 Explore [Google Workspace, Microsoft 365, and more capability candidates](docs/marketing/ask-nimbls/future-capabilities.html), or read the [candidate plan](docs/plans/agent-capability-candidates.md). Everyday examples explain the proposed value. These are unscheduled ideas for evaluation, not released integrations.
 
-## Available in the development build
+## Development preview and evidence
 
-[Getting started with Ask nimbls](docs/guides/ask-nimbls-help.md) provides task-based help copy for the development build.
+[Current development preview](docs/marketing/ask-nimbls/current-capabilities.html) covers saved Agents, scoped file tools, formal text outputs, retained execution records, preference foundations and optional Agent evaluations. [Dated evidence](docs/marketing/ask-nimbls/assets/development-evidence.md) separates source inspection, fresh checks and historical trials. Complete foundation acceptance, the live network workflow, scheduling and packaged release remain open.
 
-[Ask nimbls today](docs/marketing/ask-nimbls/current-capabilities.html) describes implemented conversation and text-output capabilities, the current tool/skill boundary, and prior validation evidence. This is not a packaged release.
+[Resources](docs/marketing/ask-nimbls/resources.html) collects sales scripts, editable visuals and the website kit guide separately from the product journey.
 
 ## Explore the planned experience
 
@@ -60,4 +60,4 @@ These are concept and scenario documents, not released functionality.
 
 ## POC scope and milestones
 
-The [macOS syslog POC SPEC](docs/specs/macos-syslog-poc.md) and [M1–M3 milestones](MILESTONES.md) define the accepted first delivery scope: manual reporting, refinement/reuse, and daily automation. They are planning documents; implementation and acceptance testing have not started.
+The [macOS syslog POC SPEC](docs/specs/macos-syslog-poc.md) and [M1–M3 milestones](MILESTONES.md) define the accepted first delivery scope: manual reporting, refinement/reuse, and daily automation. These documents define the planned network workflow. Agent foundations have development evidence; full live syslog and scheduling acceptance remain pending.

@@ -1,14 +1,14 @@
 # nimbls — Product delivery roadmap
 
-Planning estimate: **2–3 weeks per Milestone; 14–21 weeks total**, sequential delivery. Week 1 begins at the agreed kickoff; calendar dates are not yet set. Estimates include implementation and validation, assume continuous capacity and ready test inputs, and are not release commitments. Milestone 1 includes Features 1–3.
+Planning scenarios: **10 or 15 working days per Milestone; 70 or 105 working days total**, sequential delivery. Week 1 begins at the agreed kickoff; calendar dates are not yet set. The presets model implementation and validation effort with continuous capacity and ready test inputs. They are not validated estimates, equal-complexity claims, or release commitments. Milestone 1 includes Features 1–3.
 
 | Milestone | Duration | 2-week schedule | 3-week schedule | Delivery scope |
 | --- | --- | --- | --- | --- |
 | 1 | 2–3 weeks | Weeks 1–2 | Weeks 1–3 | Agent creation and daily syslog automation |
 | 2 | 2–3 weeks | Weeks 3–4 | Weeks 4–6 | Site history retention and incident investigation |
 | 3 | 2–3 weeks | Weeks 5–6 | Weeks 7–9 | Local model integration and general tasks |
-| 4 | 2–3 weeks | Weeks 7–8 | Weeks 10–12 | Report search, interaction and archiving |
-| 5 | 2–3 weeks | Weeks 9–10 | Weeks 13–15 | Agent performance review and improvement |
+| 4 | 2–3 weeks | Weeks 7–8 | Weeks 10–12 | Reports, dashboards and refinement |
+| 5 | 2–3 weeks | Weeks 9–10 | Weeks 13–15 | Reviewed Agent improvement |
 | 6 | 2–3 weeks | Weeks 11–12 | Weeks 16–18 | Controlled external model assistance |
 | 7 | 2–3 weeks | Weeks 13–14 | Weeks 19–21 | Authorized device changes and verification |
 
@@ -20,9 +20,9 @@ Each stage adds to earlier capabilities: execute and remember → retain site kn
 
 ## Milestone 1 — Agent creation and daily syslog automation
 
-**Planned deliverable:** Build the core agent architecture: task execution, memory, and a shared connection to NIMBL.
+**Planned deliverable:** Build the core Agent architecture: task execution, working files, explicit preferences, retained execution records, and a shared NIMBL connection. This foundation is distinct from collected site knowledge.
 
-**Duration:** 2–3 weeks.
+**Duration scenario:** 10 or 15 working days; not a validated estimate.
 
 - Feature 1: produce a manual syslog report with source evidence.
 - Feature 2: refine, save and reuse the agent after restart.
@@ -32,7 +32,7 @@ Each stage adds to earlier capabilities: execute and remember → retain site kn
 
 **Demo:** Create, run, refine, save, and schedule a syslog report.
 
-**Acceptance:** Complete Features 1–3 with live NIMBL data, evidence-backed outputs, and truthful failures.
+**Acceptance:** With live NIMBL syslogs, create, run, refine and save an Agent; run the scheduled report and inspect real outcomes. Agent foundation checks alone do not complete this milestone.
 
 **Feature pages:** [Ask nimbls](../ask-nimbls.html), [Custom Agents](../custom-agents.html), [Scheduling](../automation.html).
 
@@ -40,7 +40,7 @@ Each stage adds to earlier capabilities: execute and remember → retain site kn
 
 **Planned deliverable:** Deliver ready-to-use agents for site data: collect, analyze, filter, and retain the information needed for future investigation.
 
-**Duration:** 2–3 weeks.
+**Duration scenario:** 10 or 15 working days; not a validated estimate.
 
 - Define what observations and events are retained.
 - Retrieve earlier incidents with source and time references.
@@ -50,7 +50,7 @@ Each stage adds to earlier capabilities: execute and remember → retain site kn
 
 **Demo:** Find a similar incident and compare changes and prior handling.
 
-**Acceptance:** Retrieve retained evidence across executions with correct source/time references and explicit uncertainty.
+**Acceptance:** Collect scoped syslog findings and device snapshots, filter what matters, and retrieve a sourced incident timeline with explicit gaps. Requires a working collection and retention path.
 
 **Feature pages:** [Site History & Knowledge](../site-history.html).
 
@@ -58,7 +58,7 @@ Each stage adds to earlier capabilities: execute and remember → retain site kn
 
 **Planned deliverable:** Support local AI models so agents can process data and complete supported tasks on local hardware.
 
-**Duration:** 2–3 weeks.
+**Duration scenario:** 10 or 15 working days; not a validated estimate.
 
 - Configure and verify a supported local model.
 - Run the network-reporting workflow locally.
@@ -68,33 +68,33 @@ Each stage adds to earlier capabilities: execute and remember → retain site kn
 
 **Demo:** Run a network report and compare documents without external inference.
 
-**Acceptance:** Validate both workflows on documented hardware/model; observe no external inference requests.
+**Acceptance:** Complete representative supported tasks on documented local hardware/models and verify no external inference request. Requires compatible models and tools.
 
 **Feature pages:** [Local AI](../local-ai.html).
 
-## Milestone 4 — Report search, interaction and archiving
+## Milestone 4 — Reports, dashboards and refinement
 
 **Planned deliverable:** Generate and refine reports, dashboards, and analytical findings into clear, useful deliverables.
 
-**Duration:** 2–3 weeks.
+**Duration scenario:** 10 or 15 working days; not a validated estimate.
 
-- Find reports by relevant scope and time period.
-- Inspect interactive HTML in an isolated preview.
-- Archive older reports and verify retrieval.
+- Generate an evidence-backed report or dashboard for a defined audience.
+- Refine the findings, narrative and interactive view; inspect HTML in an isolated preview.
+- Search, organize and archive outputs while verifying later retrieval.
 
-**Default agent / entry:** Report search and organization through Ask nimbls.
+**Default agent / entry:** Report creation, refinement and organization through Ask nimbls.
 
-**Demo:** Explore an interactive report and archive old reports while keeping key cases searchable.
+**Demo:** Generate and refine a report or dashboard, then retrieve an archived result.
 
-**Acceptance:** Correct search results, isolated interactions, and verified archive retrieval.
+**Acceptance:** Generate a sourced report or dashboard, revise it for an audience, inspect its isolated interactive view, and retrieve an archived result. Basic text saving is already part of the foundation.
 
 **Feature pages:** [Results Center](../results-center.html).
 
-## Milestone 5 — Agent performance review and improvement
+## Milestone 5 — Reviewed Agent improvement
 
 **Planned deliverable:** Enable agents to propose adjustments to their own instructions and workflows, with review and validation before adoption.
 
-**Duration:** 2–3 weeks.
+**Duration scenario:** 10 or 15 working days; not a validated estimate.
 
 - Inspect retained agent inputs, instructions and outputs.
 - Propose a targeted instruction or workflow change.
@@ -104,7 +104,7 @@ Each stage adds to earlier capabilities: execute and remember → retain site kn
 
 **Demo:** Review a missed event, propose a change, and compare revised results.
 
-**Acceptance:** Representative before/after cases show gains or regressions; retain the evidence.
+**Acceptance:** Agent proposes an instruction or workflow revision; a user reviews it; comparison on missed and known-good cases supports a decision before adoption. Existing optional evaluations are only a foundation.
 
 **Feature pages:** [Agent Improvement Review](../agent-improvement.html).
 
@@ -112,7 +112,7 @@ Each stage adds to earlier capabilities: execute and remember → retain site kn
 
 **Planned deliverable:** Securely connect to external frontier AI for harder tasks, sharing only permitted information and validating the results locally.
 
-**Duration:** 2–3 weeks.
+**Duration scenario:** 10 or 15 working days; not a validated estimate.
 
 - Define reviewed data types, recipients and disclosure rules.
 - Apply required approvals, routing and cost controls.
@@ -122,15 +122,15 @@ Each stage adds to earlier capabilities: execute and remember → retain site kn
 
 **Demo:** Ask an approved model for help using only policy-permitted evidence.
 
-**Acceptance:** Verify allowed/blocked payloads, recipients, cost limits, and local response validation.
+**Acceptance:** Enforce reviewed rules for outbound data and approved recipients, demonstrate blocked disallowed requests, and validate returned advice locally. Direct provider access does not satisfy this boundary.
 
 **Feature pages:** [Controlled External Assistance](../external-assistance.html).
 
 ## Milestone 7 — Authorized device changes and verification
 
-**Planned deliverable:** Enable agents to manage and configure devices within defined safety boundaries, with supported actions, result verification, and rollback.
+**Planned deliverable:** Enable Agents to manage and configure devices within defined safety boundaries, with result verification and rollback for explicitly supported operations.
 
-**Duration:** 2–3 weeks.
+**Duration scenario:** 10 or 15 working days; not a validated estimate.
 
 - Define one supported change and its authorized device scope.
 - Capture the starting state and execute authorized operations.
@@ -140,7 +140,7 @@ Each stage adds to earlier capabilities: execute and remember → retain site kn
 
 **Demo:** Execute a supported authorized change and verify actual device state.
 
-**Acceptance:** Scope enforcement, before/after evidence, and honest success/partial-failure outcomes.
+**Acceptance:** For a defined supported operation, authorize the device scope, capture starting state, apply and verify the change, and demonstrate its tested rollback. Unsupported recovery must be stated before execution.
 
 **Feature pages:** [Execution Management](../execution-management.html).
 

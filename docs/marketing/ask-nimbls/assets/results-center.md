@@ -10,17 +10,17 @@ Status: planned capability, not released functionality. Basics: Milestone 1 · A
 | --- | --- |
 | Audience | People who review, share, and reuse agent deliverables |
 | Customer problem | Useful results are hard to find again or are trapped in a conversation. |
-| Capability | Browse and pin reports, request revisions, and preserve useful deliverables. Later add interactive HTML, report search, organization, and archiving with explicit retention behavior. |
+| Capability | Generate and refine reports, dashboards and analytical findings. Review source evidence, shape the result for its audience, then search, organize and archive useful outputs. |
 | Benefits | Keep deliverables accessible; Adapt results to their audience; Organize reports as work accumulates |
-| Deliverable | A usable report collection with an interactive view and retrievable archived material. |
+| Deliverable | A refined report and dashboard with source references, plus searchable and retrievable retained outputs. |
 | Prerequisites | Output operations and metadata. Advanced search, preview isolation, and retention semantics must be implemented. |
 | Scope and limits | Markdown browsing/pinning and prior-file archiving remain in Milestone 1. Full version-diff/restore UI is not promised. Report content and execution status remain distinct. |
 
 ## Customer scenario
 
-> Find last month’s incident reports and archive older reports while keeping important cases searchable.
+> Build a dashboard from these findings and refine the report for my customer.
 
-A service lead finds a set of incident reports, inspects an interactive summary, and asks to archive older material. The team can still retrieve the retained important cases.
+A service lead checks the source evidence, refines the report and dashboard for a customer, and retrieves earlier outputs.
 
 ## Workflow
 
@@ -31,7 +31,7 @@ A service lead finds a set of incident reports, inspects an interactive summary,
 
 ## 30-second sales explanation
 
-“Browse and pin reports, request revisions, and preserve useful deliverables. Later add interactive HTML, report search, organization, and archiving with explicit retention behavior. The intended benefit is to help you keep deliverables accessible. In a demonstration, we would show: Find last month’s incident reports and archive older reports while keeping important cases searchable. The result is a usable report collection with an interactive view and retrievable archived material.”
+“Generate and refine reports, dashboards and analytical findings. Review source evidence, shape the result for its audience, then search, organize and archive useful outputs. The intended benefit is to help you keep deliverables accessible. In a demonstration, we would show: Build a dashboard from these findings and refine the report for my customer. The result is a usable report collection with an interactive view and retrievable archived material.”
 
 ## Three-minute demo outline
 

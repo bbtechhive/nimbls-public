@@ -1,25 +1,26 @@
 /* Shared by hosted and downloaded copies; no credentials or posting API. */
 (() => {
   const pages = {
-  "current-capabilities.html": "Ask nimbls Today — Current Development Capabilities",
   "agent-improvement.html": "Agent Improvement Review — nimbls",
-  "ask-nimbls.html": "Ask nimbls — nimbls",
-  "automation.html": "Scheduling &amp; Automation — nimbls",
+  "ask-nimbls.html": "Ask nimbls — Your Agent workspace assistant",
+  "automation.html": "Scheduling & Automation — nimbls",
+  "current-capabilities.html": "Development preview & evidence — nimbls",
   "custom-agents.html": "Custom Agents — nimbls",
   "execution-management.html": "Execution Management — nimbls",
   "external-assistance.html": "Controlled External Assistance — nimbls",
   "features.html": "Feature Library — nimbls — Ask nimbls. Put NIMBL to work.",
   "future-capabilities.html": "Future Agent Capabilities — nimbls",
-  "guide.html": "Quick-start Guide — nimbls",
+  "guide.html": "Website kit guide — nimbls",
   "index.html": "nimbls — Less busywork. More room to think.",
   "local-ai.html": "Local AI — nimbls",
   "p2-m1.html": "syslog-reviewer — Know what matters in your network.",
   "p2-m2.html": "device-snapshot — Know what changed.",
   "p2-m3.html": "incident-investigator — Find answers in your site’s history.",
   "p2-m4.html": "Ask nimbls — Your site knowledge. One place to ask.",
+  "resources.html": "Resources — nimbls",
   "results-center.html": "Results Center — nimbls",
   "roadmap.html": "Product Roadmap — nimbls",
-  "site-history.html": "Site History &amp; Knowledge — nimbls",
+  "site-history.html": "Site History & Knowledge — nimbls",
   "visuals.html": "nimbls — Visual Library"
 };
   const kinds = ['Suggestion', 'Question', 'Content correction'];
@@ -43,6 +44,11 @@
   }
   const requested = new URLSearchParams(location.search).get('page');
   pageField.value = Object.hasOwn(pages, requested) ? requested : 'index.html';
+  if (new URLSearchParams(location.search).get('topic') === 'workflow') {
+    document.querySelector('main h1').textContent = 'Share a workflow need.';
+    document.getElementById('summary').placeholder = 'The task you want an Agent to help with';
+    document.getElementById('message').placeholder = 'Desired result, available information, and how you would judge success. Use a general description; no customer or device details.';
+  }
   document.getElementById('feedback-form').addEventListener('submit', event => {
     event.preventDefault();
     const error = document.getElementById('feedback-error'); error.hidden = true;

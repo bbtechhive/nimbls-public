@@ -60,7 +60,7 @@
     document.querySelectorAll('[data-stage-dates]').forEach(p => {p.textContent = '';});
     try {
       const plan = scheduler.calculate(start.value, inputs.map(s => Number(s.value)), calendar);
-      message.className = 'note'; message.textContent = `Requested kickoff: ${plan.requestedStart}. Actual first working day: ${plan.actualStart}. Planned finish: ${plan.finish}. ${plan.workingDays} working days in total.`;
+      message.className = 'note'; message.textContent = `Requested kickoff: ${plan.requestedStart}. Actual first working day: ${plan.actualStart}. Scenario finish: ${plan.finish}. ${plan.workingDays} working days in total.`;
       const svg = scheduler.svg(plan, config.shortNames, calendar);
       const totalDrawing = scheduler.totalSvg(plan, config.shortNames, calendar);
       document.getElementById('total-timeline').innerHTML = totalDrawing;
@@ -82,7 +82,7 @@
         const detail = cell(row,'');
         config.links[i].forEach(([label,url], j) => {if(j) detail.append(' · '); const a = document.createElement('a'); a.href=url;a.textContent=label;detail.append(a);});
         tbody.append(row);
-        document.querySelector(`[data-stage-dates="${s.poc}"]`).textContent=`Calculated dates: ${s.start} → ${s.finish} (${s.workingDays} working days).`;
+        document.querySelector(`[data-stage-dates="${s.poc}"]`).textContent=`Illustrative dates: ${s.start} → ${s.finish} (${s.workingDays} working days).`;
       });
       exportLink(downloadSvg,svg,'image/svg+xml;charset=utf-8');exportLink(downloadMd,scheduler.markdown(plan,config.titles) + '\n## Milestone deliverables\n\nPlanned outcomes, not completed work.\n\n' + config.summaries.map((summary,i) => `### Milestone ${i+1}\n\n${summary}\n`).join('\n'),'text/markdown;charset=utf-8');
       result.hidden=false;

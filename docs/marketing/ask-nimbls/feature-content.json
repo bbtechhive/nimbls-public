@@ -175,9 +175,9 @@
       "milestone": "Basics: Milestone 1 · Advanced: Milestone 4",
       "role": "People who review, share, and reuse agent deliverables",
       "problem": "Useful results are hard to find again or are trapped in a conversation.",
-      "intro": "Browse and pin reports, request revisions, and preserve useful deliverables. Later add interactive HTML, report search, organization, and archiving with explicit retention behavior.",
-      "request": "Find last month’s incident reports and archive older reports while keeping important cases searchable.",
-      "story": "A service lead finds a set of incident reports, inspects an interactive summary, and asks to archive older material. The team can still retrieve the retained important cases.",
+      "intro": "Generate and refine reports, dashboards and analytical findings, then search, organize and retain the results.",
+      "request": "Build a dashboard from these findings and refine the report for my customer.",
+      "story": "A service lead checks the source evidence, refines the report for a customer, and retrieves earlier outputs.",
       "steps": [
         [
           "Find",
@@ -196,7 +196,7 @@
           "Archive with clear rules."
         ]
       ],
-      "outcome": "A usable report collection with an interactive view and retrievable archived material.",
+      "outcome": "A refined report and dashboard with source references, plus searchable and retrievable retained outputs.",
       "prereq": "Output operations and metadata. Advanced search, preview isolation, and retention semantics must be implemented.",
       "boundary": "Markdown browsing/pinning and prior-file archiving remain in Milestone 1. Full version-diff/restore UI is not promised. Report content and execution status remain distinct.",
       "benefits": [
@@ -240,7 +240,8 @@
         "Understand recurring failures",
         "Make specific, reviewable changes",
         "Measure improvement against real cases"
-      ]
+      ],
+      "developmentBoundary": "Optional isolated evaluations exist; complete reviewed improvement workflow remains planned."
     },
     {
       "id": "external-assistance",
@@ -314,7 +315,8 @@
         "Understand what happened",
         "Control active work",
         "Verify results beyond a success message"
-      ]
+      ],
+      "rollbackBoundary": "Rollback only for explicitly supported operations with tested recovery."
     }
   ],
   "roadmap": [
@@ -324,11 +326,13 @@
       "capability": "Ask nimbls + Custom Agents",
       "starter": "Daily Syslog Summary Agent",
       "scenario": "Create, run, refine, save, and schedule a syslog report.",
-      "duration": "2–3 weeks",
+      "duration": "10 or 15 working days — scenario assumption, not a validated estimate",
       "two_week_schedule": "Weeks 1–2",
       "three_week_schedule": "Weeks 1–3",
       "githubMilestone": 1,
-      "githubUrl": "https://github.com/bbtechhive/nimbls-public/milestone/1"
+      "githubUrl": "https://github.com/bbtechhive/nimbls-public/milestone/1",
+      "deliverable": "Build the core Agent architecture: task execution, working files, explicit preferences, retained execution records, and a shared NIMBL connection. This foundation is distinct from collected site knowledge.",
+      "completionEvidence": "With live NIMBL syslogs, create, run, refine and save an Agent; run the scheduled report and inspect real outcomes. Agent foundation checks alone do not complete this milestone."
     },
     {
       "milestone": 2,
@@ -336,7 +340,7 @@
       "capability": "Site History & Knowledge",
       "starter": "syslog-reviewer + device-snapshot + incident-investigator + ask-nimbls (extended)",
       "scenario": "Find a similar incident and compare changes and prior handling.",
-      "duration": "2–3 weeks",
+      "duration": "10 or 15 working days — scenario assumption, not a validated estimate",
       "two_week_schedule": "Weeks 3–4",
       "three_week_schedule": "Weeks 4–6",
       "agentFeatures": [
@@ -386,7 +390,9 @@
         }
       ],
       "githubMilestone": 2,
-      "githubUrl": "https://github.com/bbtechhive/nimbls-public/milestone/2"
+      "githubUrl": "https://github.com/bbtechhive/nimbls-public/milestone/2",
+      "deliverable": "Deliver ready-to-use agents for site data: collect, analyze, filter, and retain the information needed for future investigation.",
+      "completionEvidence": "Collect scoped syslog findings and device snapshots, filter what matters, and retrieve a sourced incident timeline with explicit gaps. Requires a working collection and retention path."
     },
     {
       "milestone": 3,
@@ -394,29 +400,35 @@
       "capability": "Local LLM Server",
       "starter": "Locally validated network agents + Document Comparison Agent",
       "scenario": "Run a network report and compare documents without external inference.",
-      "duration": "2–3 weeks",
+      "duration": "10 or 15 working days — scenario assumption, not a validated estimate",
       "two_week_schedule": "Weeks 5–6",
-      "three_week_schedule": "Weeks 7–9"
+      "three_week_schedule": "Weeks 7–9",
+      "deliverable": "Support local AI models so agents can process data and complete supported tasks on local hardware.",
+      "completionEvidence": "Complete representative supported tasks on documented local hardware/models and verify no external inference request. Requires compatible models and tools."
     },
     {
       "milestone": 4,
-      "title": "Report search, interaction and archiving",
+      "title": "Reports, dashboards and refinement",
       "capability": "Advanced Results Center",
       "starter": "Report search and organization through Ask nimbls",
       "scenario": "Explore an interactive report and archive old reports while keeping key cases searchable.",
-      "duration": "2–3 weeks",
+      "duration": "10 or 15 working days — scenario assumption, not a validated estimate",
       "two_week_schedule": "Weeks 7–8",
-      "three_week_schedule": "Weeks 10–12"
+      "three_week_schedule": "Weeks 10–12",
+      "deliverable": "Generate and refine reports, dashboards, and analytical findings into clear, useful deliverables.",
+      "completionEvidence": "Generate a sourced report or dashboard, revise it for an audience, inspect its isolated interactive view, and retrieve an archived result. Basic text saving is already part of the foundation."
     },
     {
       "milestone": 5,
-      "title": "Agent performance review and improvement",
+      "title": "Reviewed Agent improvement",
       "capability": "Agent Improvement Review",
       "starter": "Improvement review through Ask nimbls",
       "scenario": "Review a missed event, propose a change, and compare revised results.",
-      "duration": "2–3 weeks",
+      "duration": "10 or 15 working days — scenario assumption, not a validated estimate",
       "two_week_schedule": "Weeks 9–10",
-      "three_week_schedule": "Weeks 13–15"
+      "three_week_schedule": "Weeks 13–15",
+      "deliverable": "Enable agents to propose adjustments to their own instructions and workflows, with review and validation before adoption.",
+      "completionEvidence": "Agent proposes an instruction or workflow revision; a user reviews it; comparison on missed and known-good cases supports a decision before adoption. Existing optional evaluations are only a foundation."
     },
     {
       "milestone": 6,
@@ -424,9 +436,11 @@
       "capability": "nimbls Relay + Controlled External Assistance",
       "starter": "Controlled consultation for existing agents",
       "scenario": "Ask an approved model for help using only policy-permitted evidence.",
-      "duration": "2–3 weeks",
+      "duration": "10 or 15 working days — scenario assumption, not a validated estimate",
       "two_week_schedule": "Weeks 11–12",
-      "three_week_schedule": "Weeks 16–18"
+      "three_week_schedule": "Weeks 16–18",
+      "deliverable": "Securely connect to external frontier AI for harder tasks, sharing only permitted information and validating the results locally.",
+      "completionEvidence": "Enforce reviewed rules for outbound data and approved recipients, demonstrate blocked disallowed requests, and validate returned advice locally. Direct provider access does not satisfy this boundary."
     },
     {
       "milestone": 7,
@@ -434,9 +448,11 @@
       "capability": "Authorized Device Changes",
       "starter": "Device Change Agent",
       "scenario": "Execute a supported authorized change and verify actual device state.",
-      "duration": "2–3 weeks",
+      "duration": "10 or 15 working days — scenario assumption, not a validated estimate",
       "two_week_schedule": "Weeks 13–14",
-      "three_week_schedule": "Weeks 19–21"
+      "three_week_schedule": "Weeks 19–21",
+      "deliverable": "Enable Agents to manage and configure devices within defined safety boundaries, with result verification and rollback for explicitly supported operations.",
+      "completionEvidence": "For a defined supported operation, authorize the device scope, capture starting state, apply and verify the change, and demonstrate its tested rollback. Unsupported recovery must be stated before execution."
     }
   ],
   "capabilityCandidates": {
@@ -537,17 +553,36 @@
         "detailPage": "p2-m3.html"
       }
     ],
-    "results": "fictional-concepts-not-product-screenshots"
+    "results": "fictional-concepts-not-product-screenshots",
+    "positioning": "Agent workspace, starting with network operations",
+    "nextStep": {
+      "label": "Share a workflow need",
+      "href": "feedback.html?page=index.html&topic=workflow",
+      "boundary": "Public GitHub draft, not a trial signup"
+    }
   },
   "currentCapabilities": {
     "page": "current-capabilities.html",
-    "checked": "2026-09-22",
-    "status": "development-build-not-packaged-release",
+    "checked": "2026-09-23",
+    "sourceRevision": "e269f31",
+    "status": "development-preview-full-acceptance-open",
     "agentTools": [
-      "write_output"
+      "read",
+      "write",
+      "edit",
+      "ls",
+      "find",
+      "grep",
+      "write_output",
+      "nimblscli"
     ],
-    "runtimeSkillsEnabled": false,
-    "inventory": "assets/current-capabilities.md"
+    "optionalTools": {
+      "bash": "Explicit user Agent setting; supported macOS hosts only"
+    },
+    "runtimeSkillsEnabled": true,
+    "skillBoundary": "Agent-scoped snapshots and built-in metadata; bodies on demand; global discovery and extensions disabled",
+    "inventory": "assets/current-capabilities.md",
+    "evidence": "assets/development-evidence.md"
   },
   "deferredLandingScenarios": [
     {
@@ -572,5 +607,15 @@
       "originalHtml": "<article class=\"story\" id=\"documents\"><div class=\"scene documents\" role=\"img\" aria-label=\"A professional comparing printed proposals beside a laptop.\"></div><div><span class=\"status\">Planned direction · Document comparison</span><h3>See the differences.<br>Make the decision.</h3><p class=\"problem\">Three proposals. Different formats. Important details hidden in the small print. Start with a clear comparison and the questions still worth asking.</p><blockquote class=\"request\"><small>YOU ASK</small>“Compare these three proposals. Show the differences and anything I should clarify.”</blockquote><div class=\"result\"><div class=\"result-top\"><span>WHAT YOU COULD RECEIVE</span><span>Fictional example</span></div><h4>A comparison you can act on</h4><table><caption class=\"fine\" style=\"text-align:left;margin-bottom:8px\">Illustrative findings from three sample proposals</caption><thead><tr><th scope=\"col\">Proposal</th><th scope=\"col\">Difference</th><th scope=\"col\">Clarify</th></tr></thead><tbody><tr><th scope=\"row\">A</th><td>Setup included</td><td>Ongoing support?</td></tr><tr><th scope=\"row\">B</th><td>Lower base price</td><td>Migration cost?</td></tr><tr><th scope=\"row\">C</th><td>Broader scope</td><td>Delivery timing?</td></tr></tbody></table></div><p class=\"fine\" style=\"margin-top:14px;margin-bottom:0\">Document comparison is a planned direction; supported formats remain to be validated.</p><a class=\"story-link\" href=\"local-ai.html\">Explore the local document-work plan →</a></div></article>",
       "returnWhen": "Supported document input and reading tools; comparison with traceable source references; saved usable results; end-to-end validation on representative proposals."
     }
-  ]
+  ],
+  "siteReview": {
+    "date": "2026-09-23",
+    "positioning": "Agent workspace, starting with network operations",
+    "resources": "resources.html",
+    "statusVocabulary": [
+      "Development preview",
+      "Planned milestone outcome",
+      "Unscheduled candidate"
+    ]
+  }
 }

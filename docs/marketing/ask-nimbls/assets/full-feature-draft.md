@@ -67,7 +67,7 @@ Actual execution time depends on the environment. Use clearly identified pre-run
 
 **Icon concept:** A speech bubble with a small action arrow, communicating conversation that initiates work. Use a simple, consistent icon style across the capability set; this is an art direction, not a finished icon.
 
-**Feature illustration:** Reconstruct the current desktop foundation using the canonical UI guide and application source: four tabs (Chat, Agents, Output, Configuration), Ask nimbls target header, welcome copy, four startup guidance cards, and composer. Preserve the disconnected notice and disabled Send state while live execution is unavailable. Do not place an invented report card inside Chat or imply a working schedule confirmation. Label it a design-aligned reconstruction, not a captured screenshot. Report examples elsewhere are document-content samples, not application UI.
+**Feature illustration:** Reconstruct the historical desktop foundation using the canonical UI guide and application source: four tabs (Chat, Agents, Output, Configuration), Ask nimbls target header, welcome copy, four startup guidance cards, and composer. Preserve the disconnected notice and disabled Send state while live execution is unavailable. Do not place an invented report card inside Chat or imply a working schedule confirmation. Label it a design-aligned reconstruction, not a captured screenshot. Report examples elsewhere are document-content samples, not application UI.
 
 **Illustration caption:** “Describe the goal. Shape the result. Repeat what works.”
 

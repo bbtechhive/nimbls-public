@@ -1,0 +1,75 @@
+{
+  "checkedOn": "2026-09-23",
+  "sourceRevision": "e269f31f0652c765a6aaf61647814f70d93d8ee5",
+  "platform": "macOS 26.5.2 arm64",
+  "scope": "Selected development validation; not full acceptance or release certification",
+  "freshChecks": {
+    "typecheck": "passed",
+    "build": "passed",
+    "unitIntegration": {
+      "passed": 192,
+      "files": 27
+    },
+    "realProviderTests": [
+      {
+        "case": "real Agent executes all six basic tools in its own cwd and publishes verified output",
+        "outcome": "passed",
+        "durationMs": 26981
+      },
+      {
+        "case": "Agent UI lists protected and same-name Agents, runs saved work, resets context and deletes the chosen Agent",
+        "outcome": "passed",
+        "durationMs": 4146
+      },
+      {
+        "case": "automatic output intent: Follow-up append",
+        "outcome": "passed",
+        "durationMs": 8692
+      },
+      {
+        "case": "automatic output intent: Reusable checklist without save wording",
+        "outcome": "passed",
+        "durationMs": 11015
+      },
+      {
+        "case": "a real provider uses write_output and the CLI verifies the actual file",
+        "outcome": "passed",
+        "durationMs": 4400
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "file": "development-agents-live.png",
+      "sha256": "6c5ee259ca744ce6ed52e970ebd45b7c45e486950230d53b7bf9b8d9231f2be5",
+      "data": "Synthetic isolated test workspace; unchanged capture"
+    },
+    {
+      "file": "development-output-live.png",
+      "sha256": "f3af148aac12e2b09ee5fc0271756f4d9efb5fda321a15c21b7bdfbf14c1ec96",
+      "data": "Synthetic isolated test workspace; unchanged capture"
+    }
+  ],
+  "notRerun": [
+    "Complete Agent acceptance",
+    "Preference lifecycle and repeated-request guidance real-provider trials",
+    "Agent evaluation real-provider trials",
+    "Bash real-provider trial",
+    "Packaged macOS bundle probe",
+    "Live NIMBL workflow",
+    "Scheduling",
+    "Local-model inference",
+    "Cross-platform release acceptance"
+  ],
+  "naturalLanguageLimit": "Two selected cases passed once; persistence, attribution, requested markers and append archive were checked. Checklist procedural accuracy and universal intent reliability were not evaluated.",
+  "validationIsolation": "Detached worktree at sourceRevision; built and tested there, excluding concurrent unmerged changes",
+  "runStartedAt": "2026-09-23T02:51:55.591Z",
+  "runSummary": {
+    "startTime": "2026-09-23T02:51:55.591Z",
+    "duration": 55657.76,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
