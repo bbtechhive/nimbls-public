@@ -1,5 +1,8 @@
 # Product specifications
 
+- [Agent test plan](agent-test-plan.md) — real ask-nimbls acceptance, progressive disclosure, bounded preferences and system-Agent protection.
+- [Agent design plan](agent-design-plan.md) — consolidated Agent building blocks, unique working directories, complete basic tools and minimal retained sessions.
+
 The macOS syslog POC scope is accepted for planning; implementation and acceptance testing have not started.
 
 - [macOS syslog POC](macos-syslog-poc.md) — accepted M1–M3 scope, expected behavior, failure handling, and acceptance evidence.

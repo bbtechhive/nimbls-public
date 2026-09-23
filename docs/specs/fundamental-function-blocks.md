@@ -1,5 +1,7 @@
 # Fundamental Function Blocks
 
+Agent foundation update (2026-09-22): [Agent design plan](agent-design-plan.md) consolidates Agent composition and specifies `workspace/agents/<agent-name-id>`, all six basic file tools, and New session with retained Pi sessions. It supersedes open directory-location and session-retention choices below. A saved `new` flag applies to regular/manual and scheduled activation: when true, each accepted activation starts a fresh session and retains old sessions. Historical-session UI remains excluded; actual scheduling is later work. The Agent plan also defines immutable system default Agents and bounded ask-nimbls preference records; its ownership rules supersede general Agent modification/deletion wording below.
+
 - Status: Draft for discussion; not an approved SPEC or implementation commitment
 - Date: 2026-09-18
 - Purpose: Agree on the product's core responsibilities before defining milestones and detailed SPECs.
@@ -146,7 +148,7 @@ When a conversation is actively generating or applying a change, disable New ses
 
 ### Session choice when running an agent
 
-Confirmed requirement: expose a run flag controlling whether an execution starts a fresh conversation session. Recurring scheduled agents should start a new session on every execution by default; save the choice with their run/schedule configuration rather than requiring user input each time. Make the effective choice available through the application operations and nimblscli. Exact flag spelling and manual-run default await implementation design.
+Confirmed requirement: expose a run flag controlling whether an execution starts a fresh conversation session. Recurring scheduled agents should start a new session on every execution by default; save the choice with their run/schedule configuration rather than requiring user input each time. Make the effective choice available through the application operations and nimblscli. The flag is named `new`; see the Agent design plan for activation boundaries, defaults and fallback behavior.
 
 Confirmed creation behavior: the creation assistant uses its skill to choose the fresh-session setting from the task. Prefer fresh sessions for independent recurring reports, inspections, and analyses; choose continuation when the work requires prior conversation context. Needing historical data alone does not require continuing a conversation: a fresh session can read persisted working files. Explain the choice briefly in the creation summary and allow the user to change it. Ask only when unclear requirements materially affect the choice.
 

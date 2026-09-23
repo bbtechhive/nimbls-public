@@ -1,5 +1,7 @@
 # Agents in nimbls
 
+Agent foundation update (2026-09-22): [Agent design plan](../specs/agent-design-plan.md) consolidates Agent composition and specifies `workspace/agents/<agent-name-id>`, all six basic file tools, and New session with retained Pi sessions. It supersedes open directory-location and session-retention choices below. A saved `new` flag applies to regular/manual and scheduled activation: when true, each accepted activation starts a fresh session and retains old sessions. Historical-session UI remains excluded; actual scheduling is later work. The Agent plan also defines immutable system default Agents and bounded ask-nimbls preference records; its ownership rules supersede general Agent modification/deletion wording below.
+
 Status: Product concept draft. The workflows described here are planned, not released functionality.
 
 ## What nimbls is for

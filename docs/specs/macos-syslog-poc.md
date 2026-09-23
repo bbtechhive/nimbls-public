@@ -1,5 +1,7 @@
 # macOS syslog POC specification
 
+Agent foundation update (2026-09-22): [Agent design plan](agent-design-plan.md) consolidates Agent composition and specifies `workspace/agents/<agent-name-id>`, all six basic file tools, and New session with retained Pi sessions. It supersedes open directory-location and session-retention choices below. A saved `new` flag applies to regular/manual and scheduled activation: when true, each accepted activation starts a fresh session and retains old sessions. Historical-session UI remains excluded; actual scheduling is later work. The Agent plan also defines immutable system default Agents and bounded ask-nimbls preference records; its ownership rules supersede general Agent modification/deletion wording below.
+
 Terminology update: this specification defines Milestone 1. Historical M1, M2 and M3 labels in its acceptance sections refer to the Manual report, Refine and reuse, and Daily automation feature groups (issues #32–#34), not separate GitHub milestones. Existing acceptance identifiers and technical references are preserved.
 
 - Status: Accepted POC scope; implementation and acceptance testing have not started.
