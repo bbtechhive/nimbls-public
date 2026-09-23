@@ -157,3 +157,9 @@ All pages load `assets/site-theme.css` after their page styles. It preserves the
 The original meeting-preparation and proposal-comparison scenarios are retained in `assets/future-landing-scenarios.md`, displayed on Future capabilities, and preserved verbatim in `feature-content.json` under `deferredLandingScenarios`. Bring each back to the homepage after its related tools/skills and full workflow are verified. The current homepage emphasizes network-status answers and network change investigation.
 
 The preview launcher sends no-cache/no-store headers for pages and assets so review changes stay current. Use `--port` when a fixed loopback address is needed for an existing tunnel. A tab cached before this change may need one hard refresh or a fresh query-string URL.
+
+## Proposed GitHub Pages publishing
+
+Deployment is prepared but not live: the bbtechhive organization currently disables Pages creation. An organization administrator must allow public Pages creation before this setup is merged. Then enable GitHub Actions as the repository’s Pages source and merge the deployment workflow. Confirm a successful deployment before sharing the Pages URL.
+
+The proposed `Publish marketing website` workflow deploys this folder when its contents change on main. It can also be run manually on main. The workflow uploads only the marketing website folder. Downloads and local launchers remain available; feedback submission requires internet access and a GitHub account. Keep candidate and illustrative-result labels intact.
