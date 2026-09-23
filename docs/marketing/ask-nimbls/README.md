@@ -95,7 +95,7 @@ The Ask nimbls hero follows the current desktop foundation. Other capability vis
 
 ## Website pages
 
-- `index.html`: scenario-led homepage with illustrated network briefs, future meeting preparation, and planned document comparison. Includes fictional sample results and a three-step explanation.
+- `index.html`: scenario-led homepage with illustrated network briefs, planned network-status answers, and network change investigation. Includes fictional sample results and a three-step explanation.
 - `features.html`: the full feature library, network architecture, milestone summaries, and reusable marketing materials.
 - `ask-nimbls.html`: Ask nimbls, scenario, design-aligned hero, and toolkit.
 - `custom-agents.html`: Custom Agents.
@@ -137,6 +137,26 @@ Open `future-capabilities.html` for Google Workspace, Microsoft 365, and four ad
 Every page has a **Leave feedback** link. Choose the page and type, enter a short summary and message, then select **Continue to GitHub**. Review the prefilled issue, sign in if needed, and submit it on GitHub. Draft preparation does not post an issue. **View feedback & replies** opens the public discussion history.
 
 All feedback goes to the public nimbls-public repository. Do not include confidential, customer, or personal information. The form includes only a known website filename and title, never a local filesystem path or local preview address. It uses no GitHub token, server, or browser storage; the downloaded website works the same way, with internet access required to continue to GitHub. Without JavaScript, use the direct GitHub link. The website does not confirm submission or display synchronized comments.
+
+The roadmap focuses on actual working days and milestone dates. Holiday and excluded-date lists are omitted from the page and calculated Markdown download; the underlying official calendar still determines working days.
+
+Roadmap script URLs include a content-hash version to avoid mixing updated markup with a cached older planner. When changing a roadmap script, update its `?v=` value in `roadmap.html` to the first 12 characters of that file’s SHA-256 hash, then refresh both complete website kits.
+
+Monthly calendars highlight each milestone’s final working day in blue with a **Demo / release** label. These are planning targets, not committed release dates. The same markers appear in monthly and all-month SVG downloads.
+
+## Current capabilities
+
+`current-capabilities.html` and `assets/current-capabilities.md` distinguish implemented development capabilities from planned experiences. Re-check tool exposure, skill loading, and evidence when updating this inventory; application operations are not automatically agent tools. The page supports the shared feedback flow.
+
+## Shared visual style
+
+All pages load `assets/site-theme.css` after their page styles. It preserves the homepage’s warm ivory background, dark green text, warm neutral sections, and yellow accents. Update the content-hash query in each page when changing this stylesheet, then refresh the complete kits.
+
+## Preserved future homepage scenarios
+
+The original meeting-preparation and proposal-comparison scenarios are retained in `assets/future-landing-scenarios.md`, displayed on Future capabilities, and preserved verbatim in `feature-content.json` under `deferredLandingScenarios`. Bring each back to the homepage after its related tools/skills and full workflow are verified. The current homepage emphasizes network-status answers and network change investigation.
+
+The preview launcher sends no-cache/no-store headers for pages and assets so review changes stay current. Use `--port` when a fixed loopback address is needed for an existing tunnel. A tab cached before this change may need one hard refresh or a fresh query-string URL.
 
 ## Proposed GitHub Pages publishing
 

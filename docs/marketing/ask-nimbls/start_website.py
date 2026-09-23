@@ -8,15 +8,33 @@ import threading
 import webbrowser
 
 
+class PreviewHandler(SimpleHTTPRequestHandler):
+    """Always return current files during review, including through a tunnel."""
+
+    def end_headers(self):
+        self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+        self.send_header('Pragma', 'no-cache')
+        self.send_header('Expires', '0')
+        super().end_headers()
+
+    def send_head(self):
+        # Older browser entries must not turn a preview request into a 304.
+        for header in ('If-Modified-Since', 'If-None-Match'):
+            if header in self.headers:
+                del self.headers[header]
+        return super().send_head()
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--no-browser', action='store_true', help='Print the preview address without opening a browser.')
+    parser.add_argument('--port', type=int, default=0, help='Use a fixed local port (default: choose an available port).')
     args = parser.parse_args()
     folder = Path(__file__).resolve().parent
     if not (folder / 'index.html').is_file():
         raise SystemExit('The website is missing. Extract the complete ZIP and try again.')
-    handler = partial(SimpleHTTPRequestHandler, directory=str(folder))
-    with ThreadingHTTPServer(('127.0.0.1', 0), handler) as server:
+    handler = partial(PreviewHandler, directory=str(folder))
+    with ThreadingHTTPServer(('127.0.0.1', args.port), handler) as server:
         url = f'http://127.0.0.1:{server.server_port}/'
         print('\nnimbls marketing toolkit', flush=True)
         print(f'Open this address in your browser: {url}', flush=True)
