@@ -31,7 +31,7 @@ The current Output reader supports text files such as Markdown, plain text, CSV 
 
 Yes. An agent keeps the instructions and configuration you give it, so you can return to it for similar work. You can chat with it, run its saved task, review its results, and refine its instructions.
 
-For example, you might keep one agent for weekly notes and another for reviewing technical reports. Running them on an automatic schedule is not available in the current build.
+For example, you might keep one agent for weekly notes and another for reviewing technical reports. Use Agents → Manage schedules to choose the first run time, repeat interval and output folder. Keep the application open. Pause or cancel a schedule without deleting its Agent; View results shows retained progress and failures.
 
 ## Can you recommend a model?
 
@@ -56,3 +56,19 @@ This doesn't mean I remember every conversation or automatically turn repeated r
 NIMBL is a network management system. It's optional—you can use nimbls for general work without it.
 
 The current build includes NIMBL connection and sign-in support. Before helping with a particular network task, I'll check which operations your installed version supports. Connecting to NIMBL alone doesn't mean every device action or network report is available.
+
+## Which cache mode should I use?
+
+Development-build guidance (2026-10-01; not a packaged release announcement): Configuration offers prompt-cache retention and cache warming. Ask “Which cache mode fits my model and work?” and Ask nimbls can inspect your setup, explain its recommendation, and apply a change you request.
+
+Start with **Standard** retention. **Longer** requests extended retention where supported. **Disable client cache hints** disables application cache controls and warming; the provider may still cache automatically.
+
+Warming sends additional requests, consuming tokens or subscription allowance:
+
+- **Off** suits infrequent reports or avoiding extra refresh requests. Ordinary prompt caching still works.
+- **During active runs** is the default and can help eligible long tool runs.
+- **During runs and between follow-ups** suits frequent follow-ups with large repeated context; idle warming lasts at most 30 minutes after the last real request.
+
+Warming requires a known model cache lifetime and enough estimated savings. Codex subscription caching is automatic; Pi's built-in Codex models do not declare a warming lifetime or expose longer retention. For Codex-only work, use Standard retention and Off warming. API cost estimates do not measure subscription savings.
+
+Saving cache settings stops previous warming and applies the new controls on the next run. Expand Ask nimbls cache status to see the latest observed eligibility and reason. Execution analysis includes cache-read/write tokens and warming usage. A saved mode alone does not prove a cache hit or active warming; inspect the observed session and usage.
