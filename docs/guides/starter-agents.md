@@ -6,6 +6,18 @@ Status: Agreed Milestone 2 agent direction, updated 2026-09-21. This document de
 
 Include prepared agent instructions, tools, scope, output rules and illustrative samples. Users should reuse guided NIMBL/provider configuration rather than author technical files. Default and custom agents use the same execution, permissions, output and history behavior.
 
+## Common Agent workflow
+
+Accepted direction, updated 2026-10-02; this is not a released-product claim. Users describe a task, adjust its instructions and choose when it runs. Each Agent decides which tools to invoke. A tool may run scripts internally, but this does not create a separate Agent type, a special settings card or a different scheduling flow.
+
+The daily network inspection Agent is labelled **每日網路巡檢**. Its instructions cover collecting needed evidence, reviewing network changes and reporting findings. A task that only needs historical data can ask it to use saved evidence. Script implementation details are not part of user setup.
+
+For ordinary daily questions, “yesterday” means evidence actually collected yesterday. Routine collection does not require a syslog timezone. Reports compare collection batches, retain original source timestamps for reference, and identify missing collection history; collecting today cannot recreate yesterday’s observations. Repeated logs across collections are not automatically new events.
+
+Accepted improvement direction: Agents can propose bounded classification rules, validate examples and conflicts, then activate a version that can be rolled back. They can reclassify available evidence and make scoped group judgments while tools preserve every required record. These local implementation changes still require release acceptance; a classification does not automatically authorize discarding evidence.
+
+The development implementation also provides 30-minute summaries based on acquisition time. Repeated observations show per-batch count ranges rather than summed event counts, while important evidence and state changes remain inspectable. Exact completed batches can reuse saved evidence with a separate record of each acquisition. Missing historical summaries remain unknown. These changes do not establish unique event counts, continuous incident duration, source completeness, or packaged availability.
+
 ## Delivery sequence
 
 Milestone 1 retains the existing Features 1–3 daily syslog workflow and Ask nimbls entry point: create → try → refine → save → schedule. Milestone 2 deepens that workflow with script-assisted syslog review, persistent device snapshots, evidence-based investigation and site-history access through Ask nimbls. It does not recreate Ask nimbls from scratch or move Milestone 1 acceptance into Milestone 2.
