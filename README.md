@@ -53,6 +53,7 @@ Explore [Google Workspace, Microsoft 365, and more capability candidates](docs/m
 
 - [Understand agents in nimbls](docs/concepts/agents.md)
 - [Useful starter agents](docs/guides/starter-agents.md)
+- [Connected services development preview](docs/guides/google-connected-services.md)
 - [Example requests for creating your own agent](docs/guides/create-an-agent.md)
 - [Walk through a daily syslog summary scenario](docs/scenarios/daily-syslog-summary.md)
 
